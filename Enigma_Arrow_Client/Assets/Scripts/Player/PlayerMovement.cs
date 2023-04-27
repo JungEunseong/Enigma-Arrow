@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
-    
+    [SerializeField] TMP_Text _tempText;        // 움직임 임시 확인 txt
 
     [SerializeField] private float _speed;
     Rigidbody rigid;
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Move();
+
     }
 
 
@@ -37,6 +39,9 @@ public class PlayerMovement : MonoBehaviour
 
         _dir.x = Input.acceleration.x;      
         _dir.y = Input.acceleration.y;
+
+        //temp Check Text
+        _tempText.text = _dir.x.ToString();
 
         if(_dir.sqrMagnitude > 1)
             _dir.Normalize();
