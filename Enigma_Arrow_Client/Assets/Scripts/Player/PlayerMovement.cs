@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Runtime.ExceptionServices;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] TMP_Text _tempText;        // 움직임 임시 확인 txt
 
     [SerializeField] private float _speed;
     Rigidbody rigid;
@@ -37,22 +37,21 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 _dir = Vector3.zero;        //이동 방향 초기화
 
-        #if (Mobile)
+#if (Mobile)
         _dir.x = Input.acceleration.x;      
         _dir.y = Input.acceleration.y;
 
-
         if(_dir.sqrMagnitude > 1)
             _dir.Normalize();
-        #endif
+#endif
 
-        _dir *= Time.deltaTime;
+        //editor test 
+        float h = Input.GetAxis("Horizontal");
+        _dir.x = h;
+        //
 
-        //temp Check Text
-        _tempText.text = _dir.x.ToString();
 
-
-        rigid.velocity = new Vector2(_dir.x * _speed , 0);
+        rigid.velocity = new Vector2(_dir.x * _speed, 0);
 
 
     }
