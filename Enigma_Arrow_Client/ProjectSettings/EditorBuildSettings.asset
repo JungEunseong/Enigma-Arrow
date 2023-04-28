@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/PlayerMoveScene.unity
+    guid: a99fc8e5f9f5e2b4b9c9d3cea290ffdd
   m_configObjects: {}
