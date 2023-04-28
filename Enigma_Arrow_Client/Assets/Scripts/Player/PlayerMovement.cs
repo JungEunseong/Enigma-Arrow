@@ -37,12 +37,14 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 _dir = Vector3.zero;        //이동 방향 초기화
 
+        #if (Mobile)
         _dir.x = Input.acceleration.x;      
         _dir.y = Input.acceleration.y;
 
 
         if(_dir.sqrMagnitude > 1)
             _dir.Normalize();
+        #endif
 
         _dir *= Time.deltaTime;
 
