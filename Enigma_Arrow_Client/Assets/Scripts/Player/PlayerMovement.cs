@@ -40,13 +40,15 @@ public class PlayerMovement : MonoBehaviour
         _dir.x = Input.acceleration.x;      
         _dir.y = Input.acceleration.y;
 
-        //temp Check Text
-        _tempText.text = _dir.x.ToString();
 
         if(_dir.sqrMagnitude > 1)
             _dir.Normalize();
 
         _dir *= Time.deltaTime;
+
+        //temp Check Text
+        _tempText.text = _dir.x.ToString();
+
 
         rigid.velocity = new Vector2(_dir.x * _speed , 0);
 

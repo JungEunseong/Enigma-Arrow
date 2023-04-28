@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tempText: {fileID: 439062365}
-  _speed: 0
+  _speed: 5
 --- !u!54 &90335329
 Rigidbody:
   m_ObjectHideFlags: 0
