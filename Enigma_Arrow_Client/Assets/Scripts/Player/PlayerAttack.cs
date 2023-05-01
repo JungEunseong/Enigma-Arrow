@@ -85,7 +85,7 @@ public class PlayerAttack : MonoBehaviour
     private void Fire()
     {
         _fireTimer = 0;
-        Debug.Log("¤©¤¤¤·¤©");
+        Instantiate(_bulletObj,transform.position, transform.rotation);
     }
 
     #endregion
