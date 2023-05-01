@@ -7,13 +7,13 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] float _speed;
+    [SerializeField] float _speed = 30;   
     private float _startVecY;       // 공격 시작 위치
 
     [Header("Fire")]
     [SerializeField] GameObject _bulletObj;
-    [SerializeField] private float _FireDelayTime;
-    [SerializeField] float _fireTimer = 0;
+    [SerializeField] private float _FireDelayTime = 0.5f;
+    float _fireTimer = 0;
 
     void Start()
     {
