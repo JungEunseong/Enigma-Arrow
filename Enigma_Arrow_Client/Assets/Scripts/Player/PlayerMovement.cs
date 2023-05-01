@@ -43,13 +43,11 @@ public class PlayerMovement : MonoBehaviour
 
         if(_dir.sqrMagnitude > 1)
             _dir.Normalize();
-#endif
 
-        //editor test 
+#else
         float h = Input.GetAxis("Horizontal");
         _dir.x = h;
-        //
-
+#endif
 
         rigid.velocity = new Vector2(_dir.x * _speed, 0);
 
