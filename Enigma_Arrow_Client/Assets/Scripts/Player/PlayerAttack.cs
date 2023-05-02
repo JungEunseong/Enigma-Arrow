@@ -4,16 +4,25 @@ using System.Reflection;
 using System.Runtime.ExceptionServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] float _speed = 30;   
+    [SerializeField] float _speed = 30;
     private float _startVecY;       // 공격 시작 위치
 
     [Header("Fire")]
     [SerializeField] GameObject _bulletObj;
-    [SerializeField] private float _FireDelayTime = 0.5f;       // 공격 딜레이
+    [SerializeField] private float _FireDelayTime = 0.2f;       // 공격 딜레이
     float _fireTimer = 0;
+
+    [Header("Pool")]
+    private IObjectPool<Bullet> _pool;
+
+    private void Awake()
+    {
+        _pool = new ObjectPool<Bullet>(CreateBullet, OnGetBullet, OnRelaseBullet, OnDestroyBullet, maxSize: 50);
+    }
 
     void Start()
     {
@@ -23,11 +32,6 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         AttackMove();
-
-        if(Input.GetMouseButtonDown(0))     // test
-        {
-            AttackBtnClick();
-        }
     }
 
     /// <summary>
@@ -39,7 +43,7 @@ public class PlayerAttack : MonoBehaviour
         new Vector3(transform.rotation.x,
         Mathf.PingPong(Time.time * _speed, 180) + _startVecY,
         transform.rotation.z);
-            transform.rotation = Quaternion.Euler(rotVec);
+        transform.rotation = Quaternion.Euler(rotVec);
     }
 
     #region 공격
@@ -69,7 +73,7 @@ public class PlayerAttack : MonoBehaviour
         while (true)
         {
             _fireTimer += Time.deltaTime;
-            if(_fireTimer >= _FireDelayTime)
+            if (_fireTimer > _FireDelayTime)
             {
                 _fireTimer = 0;
                 yield break;
@@ -85,7 +89,46 @@ public class PlayerAttack : MonoBehaviour
     private void Fire()
     {
         _fireTimer = 0;
-        Instantiate(_bulletObj,transform.position , transform.rotation);
+
+        //Instantiate(_bulletObj,transform.position , transform.rotation);
+
+        Bullet bullet = _pool.Get().GetComponent<Bullet>();
+        bullet.InitBullet(transform, transform.rotation);
+
+    }
+
+    #endregion
+
+    #region Pool
+
+    private Bullet CreateBullet()
+    {
+        Bullet bullet = Instantiate(_bulletObj).GetComponent<Bullet>();
+        bullet.SetManagedPool(_pool);
+        return bullet;
+    }
+
+    /// <summary>
+    /// pool에서 오브젝트를 넣어줄 때 사용
+    /// </summary>
+    /// <param name="bullet"></param>
+    private void OnGetBullet(Bullet bullet)
+    {
+        bullet.gameObject.SetActive(true);
+    }
+
+    /// <summary>
+    /// 오브젝트를 pool에 돌려줄 때 사용
+    /// </summary>
+    /// <param name="bullet"></param>
+    private void OnRelaseBullet(Bullet bullet)
+    {
+        bullet.gameObject.SetActive(false);
+    }
+
+    private void OnDestroyBullet(Bullet bullet)
+    {
+        Destroy(bullet.gameObject);
     }
 
     #endregion

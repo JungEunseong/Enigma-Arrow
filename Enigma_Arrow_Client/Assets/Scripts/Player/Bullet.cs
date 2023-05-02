@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Pool;  
@@ -17,16 +18,28 @@ public class Bullet : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
     }
 
-    void Start()
+    private void Start()
     {
+
+    }
+    private void OnEnable()
+    {
+    }
+
+    public void InitBullet(Transform trans, Quaternion ro)
+    {
+        rigid.velocity = Vector3.zero;
+
+        transform.position = trans.position;
+        transform.rotation = ro;
+
         StartCoroutine(DestroyCoroutine());
-       rigid.AddForce(transform.forward * _speed,ForceMode.Impulse);
-        
+        rigid.AddForce(transform.forward * _speed, ForceMode.Impulse);
     }
 
     IEnumerator DestroyCoroutine()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         DestroyBullet();
     }
 
