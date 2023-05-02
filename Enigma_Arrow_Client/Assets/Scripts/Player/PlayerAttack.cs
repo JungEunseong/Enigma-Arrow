@@ -12,7 +12,7 @@ public class PlayerAttack : MonoBehaviour
 
     [Header("Fire")]
     [SerializeField] GameObject _bulletObj;
-    [SerializeField] private float _FireDelayTime = 0.5f;
+    [SerializeField] private float _FireDelayTime = 0.5f;       // °ø°Ý µô·¹ÀÌ
     float _fireTimer = 0;
 
     void Start()
@@ -85,7 +85,7 @@ public class PlayerAttack : MonoBehaviour
     private void Fire()
     {
         _fireTimer = 0;
-        Instantiate(_bulletObj,transform.position, transform.rotation);
+        Instantiate(_bulletObj,transform.position , transform.rotation);
     }
 
     #endregion
