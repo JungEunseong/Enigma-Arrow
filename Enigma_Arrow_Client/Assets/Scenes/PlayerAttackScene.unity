@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 390813121}
   m_Layer: 0
-  m_Name: Environment
+  m_Name: Environment=======
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,8 +153,19 @@ Transform:
   m_Children:
   - {fileID: 781981526}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &504974484 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1949024968, guid: 51896db75fd21bd49bc29067d5589479, type: 3}
+  m_PrefabInstance: {fileID: 2883273735577413132}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad2c4cdb74a7b84aab1c53baca18e14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &781981522
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,7 +338,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1402044643
 GameObject:
@@ -558,13 +569,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1908729719, guid: 51896db75fd21bd49bc29067d5589479, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 504974484}
+    - target: {fileID: 1908729719, guid: 51896db75fd21bd49bc29067d5589479, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AttackBtnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908729719, guid: 51896db75fd21bd49bc29067d5589479, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerAttack, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908729719, guid: 51896db75fd21bd49bc29067d5589479, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949024968, guid: 51896db75fd21bd49bc29067d5589479, type: 3}
+      propertyPath: _FireDelayTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2883273735491309138, guid: 51896db75fd21bd49bc29067d5589479, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2883273735491309139, guid: 51896db75fd21bd49bc29067d5589479, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2883273735491309139, guid: 51896db75fd21bd49bc29067d5589479, type: 3}
       propertyPath: m_LocalPosition.x
