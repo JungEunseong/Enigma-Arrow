@@ -25,14 +25,23 @@ public class Player : MonoBehaviour
 
     public const int MaxHP = 100;
 
+    public HPBar _hpBar;
+
     private void Start()
     {
         HP = MaxHP;
+        _hpBar.SetMaxHP(MaxHP);
+    }
+
+    private void Update()
+    {
+        _hpBar.SetHP(HP);
     }
 
     public void Hit(int damage)
     {
-        HP -= damage;   
+        HP -= damage;  
+        
     }
 
 

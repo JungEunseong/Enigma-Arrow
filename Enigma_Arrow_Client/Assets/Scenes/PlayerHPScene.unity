@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hp: 0
+  _hpBar: {fileID: 1510661754}
 --- !u!4 &72285811 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2883273735491309139, guid: 51896db75fd21bd49bc29067d5589479, type: 3}
@@ -837,6 +838,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1510661752}
   - component: {fileID: 1510661753}
+  - component: {fileID: 1510661754}
   m_Layer: 0
   m_Name: Health Bar
   m_TagString: Untagged
@@ -917,6 +919,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1510661754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510661751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1e10e696b869184e83d131dc50f680e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 1510661753}
 --- !u!1001 &2883273735577413132
 PrefabInstance:
   m_ObjectHideFlags: 0
