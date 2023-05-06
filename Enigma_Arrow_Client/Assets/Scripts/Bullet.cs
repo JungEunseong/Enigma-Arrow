@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
 {
     Rigidbody rigid;
     [SerializeField] float _speed = 70;      // 총알 스피드
+    [SerializeField] int _damage;
 
     [Header("Pool")]
     private IObjectPool<Bullet> _managedPool;
@@ -55,5 +56,15 @@ public class Bullet : MonoBehaviour
     public void DestroyBullet()
     {
         _managedPool.Release(this);     //인스턴스를 다시 pool로 반환
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            //본인이 아닌 경우에만 player Hit 함수 호출 
+            Player player = other.gameObject.GetComponent<Player>();
+            player.Hit(_damage);
+        }
     }
 }
