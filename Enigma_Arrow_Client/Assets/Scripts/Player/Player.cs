@@ -23,6 +23,13 @@ public class Player : MonoBehaviour
         }
     }
 
+    public const int MaxHP = 100;
+
+    private void Start()
+    {
+        HP = MaxHP;
+    }
+
     public void Hit(int damage)
     {
         HP -= damage;   
