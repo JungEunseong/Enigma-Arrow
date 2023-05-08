@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
     
 
@@ -24,6 +24,6 @@ public class GameManager : MonoBehaviour
     /// <param name="win"></param>
     public void GameOver(bool win)
     {
-        
+        OutComeUI.Instance.ShowOutcomePanel(win);
     }
 }

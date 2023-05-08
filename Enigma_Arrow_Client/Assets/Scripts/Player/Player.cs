@@ -48,5 +48,7 @@ public class Player : MonoBehaviour
     private void GameOver()
     {
         Debug.Log("죽음");
+        // 본인 인지 아닌지 처리 매개변수 넣기
+        //GameManager.Instance.GameOver();
     }
 }
