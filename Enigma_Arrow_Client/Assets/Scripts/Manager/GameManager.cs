@@ -19,9 +19,9 @@ public class GameManager : Singleton<GameManager>
     }
 
     /// <summary>
-    /// °ÔÀÓÀÌ Á¾·áµÈ »óÈ²
+    /// Â°Ã”Ã€Ã“Ã€ÃŒ ÃÂ¾Â·Ã¡ÂµÃˆ Â»Ã³ÃˆÂ²
     /// </summary>
-    /// <param name="win"></param>
+    /// <param name="win">ìŠ¹íŒ¨ í™•ì¸ bool ë³€ìˆ˜</param>
     public void GameOver(bool win)
     {
         OutComeUI.Instance.ShowOutcomePanel(win);
