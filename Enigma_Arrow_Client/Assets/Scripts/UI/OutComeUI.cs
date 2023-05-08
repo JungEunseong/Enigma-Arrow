@@ -1,20 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
 
 public class OutComeUI : MonoBehaviour
 {
-    [SerializeField] GameObject outcomePanels;
+    [SerializeField] GameObject[] outcomePanels;
 
-    // Start is called before the first frame update
-    void Start()
+    public void ShowOutcomePanel(bool win)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        GameObject panel = win == true ? outcomePanels[0] : outcomePanels[1];
     }
 }
