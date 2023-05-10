@@ -1,0 +1,39 @@
+syntax = "proto3";
+package Protocol;
+
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "Google.Protobuf.Protocol"; //C#파일의 네임스페이스 이름\\
+
+message Vec{
+	float X = 1;
+	float Y = 2;
+	float Z = 3	;
+}
+
+enum ObjectType{
+	Player = 0;
+}
+
+message ObjectInfo{
+	int32 Id = 1;
+	ObjectType Type = 2;
+	Vec Position = 3;
+	Vec Rotate = 4;
+	Vec Scale = 5;
+}
+
+
+
+enum MsgId{ 
+	C_TEST = 0;
+	S_TEST = 1;
+}
+
+
+message C_Test{
+}
+
+message S_Test{
+
+}
