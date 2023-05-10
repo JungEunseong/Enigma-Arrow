@@ -24,7 +24,11 @@ class PacketManager
 	public void Register()
 	{		
 		_onRecv.Add((ushort)MsgId.SMatchingRes, MakePacket<S_MatchingRes>);
-		_handler.Add((ushort)MsgId.SMatchingRes, PacketHandler.S_MatchingResHandler);
+		_handler.Add((ushort)MsgId.SMatchingRes, PacketHandler.S_MatchingResHandler);		
+		_onRecv.Add((ushort)MsgId.SSpawnRes, MakePacket<S_SpawnRes>);
+		_handler.Add((ushort)MsgId.SSpawnRes, PacketHandler.S_SpawnResHandler);		
+		_onRecv.Add((ushort)MsgId.SDespawn, MakePacket<S_Despawn>);
+		_handler.Add((ushort)MsgId.SDespawn, PacketHandler.S_DespawnHandler);
 	}
 
 	public void OnRecvPacket(PacketSession session, ArraySegment<byte> buffer)

@@ -19,4 +19,16 @@ public class PacketHandler
 
         SceneManager.LoadScene("MultiTestScene");
     }
+    public static void S_SpawnResHandler(PacketSession session, IMessage packet)
+    {
+        if (session == null) return;
+
+        ServerSession Ssession = session as ServerSession;
+    }
+    public static void S_DespawnHandler(PacketSession session, IMessage packet)
+    {
+        if (session == null) return;
+
+        ServerSession Ssession = session as ServerSession;
+    }
 }
