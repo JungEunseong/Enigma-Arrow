@@ -26,10 +26,12 @@ public class MasterRoom : JobSerializer
     public void Enter(ClientSession session)
     {
         if (session == null)
+        {
+            Console.WriteLine("MasterRoom Enter Failed");
             return;
+        }
 
         _sessions.Add(session);
-        Console.WriteLine("MasterRoom Enter Failed");
 
     }
 
@@ -45,33 +47,38 @@ public class MasterRoom : JobSerializer
         Console.WriteLine("MasterRoom Leave Failed");
     }
 
-    public void HandleMatching(ClientSession session)
+    public void HandleMatching(ClientSession session,bool isCancel)
     {
         if (session == null)  return;
+        if(isCancel == true)
+        {
+            if (_matchingSessions.Contains(session))
+                _matchingSessions.Remove(session);
 
-        _matchingSessions.Add(session);
+            return;
+        }
+        else _matchingSessions.Add(session);
+
     }
 
-    /*public void Match()
+    public void Match()
     {
         if (_matchingSessions.Count < 2) return;
 
-
+        // TODO: room 하나 만들고 넣어주고 연결 끊기
         // TODO: 서로의 ip를 건내주고 연결끊기
         ClientSession firstSession = _matchingSessions[0];
         ClientSession secondSession = _matchingSessions[1];
-
         _matchingSessions.Remove(firstSession);
         _matchingSessions.Remove(secondSession);
-
+        GameRoom room = RoomManager.Instance.Add();
+        room.EnterGame(firstSession);
+        room.EnterGame(secondSession);
         // 알리기
         S_MatchingRes matchingRes = new S_MatchingRes();
-        matchingRes.HostIP = firstSession.strIP;
-        matchingRes.IsHost = true;
         firstSession.Send(matchingRes);
         
-        matchingRes.IsHost = false;
         secondSession.Send(matchingRes);
 
-    }*/
+    }
 }

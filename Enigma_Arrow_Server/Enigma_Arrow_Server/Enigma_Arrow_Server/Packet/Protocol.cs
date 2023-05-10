@@ -29,17 +29,18 @@ namespace Google.Protobuf.Protocol {
             "CgFaGAMgASgCIpoBCgpPYmplY3RJbmZvEgoKAklkGAEgASgFEiIKBFR5cGUY",
             "AiABKA4yFC5Qcm90b2NvbC5PYmplY3RUeXBlEh8KCFBvc2l0aW9uGAMgASgL",
             "Mg0uUHJvdG9jb2wuVmVjEh0KBlJvdGF0ZRgEIAEoCzINLlByb3RvY29sLlZl",
-            "YxIcCgVTY2FsZRgFIAEoCzINLlByb3RvY29sLlZlYyIICgZDX1Rlc3QiCAoG",
-            "U19UZXN0KhgKCk9iamVjdFR5cGUSCgoGUGxheWVyEAAqHwoFTXNnSWQSCgoG",
-            "Q19URVNUEAASCgoGU19URVNUEAFCG6oCGEdvb2dsZS5Qcm90b2J1Zi5Qcm90",
-            "b2NvbGIGcHJvdG8z"));
+            "YxIcCgVTY2FsZRgFIAEoCzINLlByb3RvY29sLlZlYyIhCg1DX01hdGNoaW5n",
+            "UmVxEhAKCGlzQ2FuY2VsGAEgASgIIg8KDVNfTWF0Y2hpbmdSZXMqGAoKT2Jq",
+            "ZWN0VHlwZRIKCgZQbGF5ZXIQACovCgVNc2dJZBISCg5DX01BVENISU5HX1JF",
+            "URAAEhIKDlNfTUFUQ0hJTkdfUkVTEAFCG6oCGEdvb2dsZS5Qcm90b2J1Zi5Q",
+            "cm90b2NvbGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Google.Protobuf.Protocol.ObjectType), typeof(global::Google.Protobuf.Protocol.MsgId), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.Vec), global::Google.Protobuf.Protocol.Vec.Parser, new[]{ "X", "Y", "Z" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.ObjectInfo), global::Google.Protobuf.Protocol.ObjectInfo.Parser, new[]{ "Id", "Type", "Position", "Rotate", "Scale" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.C_Test), global::Google.Protobuf.Protocol.C_Test.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.S_Test), global::Google.Protobuf.Protocol.S_Test.Parser, null, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.C_MatchingReq), global::Google.Protobuf.Protocol.C_MatchingReq.Parser, new[]{ "IsCancel" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.S_MatchingRes), global::Google.Protobuf.Protocol.S_MatchingRes.Parser, null, null, null, null, null)
           }));
     }
     #endregion
@@ -51,8 +52,8 @@ namespace Google.Protobuf.Protocol {
   }
 
   public enum MsgId {
-    [pbr::OriginalName("C_TEST")] CTest = 0,
-    [pbr::OriginalName("S_TEST")] STest = 1,
+    [pbr::OriginalName("C_MATCHING_REQ")] CMatchingReq = 0,
+    [pbr::OriginalName("S_MATCHING_RES")] SMatchingRes = 1,
   }
 
   #endregion
@@ -502,11 +503,11 @@ namespace Google.Protobuf.Protocol {
 
   }
 
-  public sealed partial class C_Test : pb::IMessage<C_Test> {
-    private static readonly pb::MessageParser<C_Test> _parser = new pb::MessageParser<C_Test>(() => new C_Test());
+  public sealed partial class C_MatchingReq : pb::IMessage<C_MatchingReq> {
+    private static readonly pb::MessageParser<C_MatchingReq> _parser = new pb::MessageParser<C_MatchingReq>(() => new C_MatchingReq());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<C_Test> Parser { get { return _parser; } }
+    public static pb::MessageParser<C_MatchingReq> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -519,41 +520,55 @@ namespace Google.Protobuf.Protocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public C_Test() {
+    public C_MatchingReq() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public C_Test(C_Test other) : this() {
+    public C_MatchingReq(C_MatchingReq other) : this() {
+      isCancel_ = other.isCancel_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public C_Test Clone() {
-      return new C_Test(this);
+    public C_MatchingReq Clone() {
+      return new C_MatchingReq(this);
+    }
+
+    /// <summary>Field number for the "isCancel" field.</summary>
+    public const int IsCancelFieldNumber = 1;
+    private bool isCancel_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool IsCancel {
+      get { return isCancel_; }
+      set {
+        isCancel_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as C_Test);
+      return Equals(other as C_MatchingReq);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(C_Test other) {
+    public bool Equals(C_MatchingReq other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (IsCancel != other.IsCancel) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
+      if (IsCancel != false) hash ^= IsCancel.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -567,6 +582,10 @@ namespace Google.Protobuf.Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+      if (IsCancel != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(IsCancel);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -575,6 +594,9 @@ namespace Google.Protobuf.Protocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
+      if (IsCancel != false) {
+        size += 1 + 1;
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -582,9 +604,12 @@ namespace Google.Protobuf.Protocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(C_Test other) {
+    public void MergeFrom(C_MatchingReq other) {
       if (other == null) {
         return;
+      }
+      if (other.IsCancel != false) {
+        IsCancel = other.IsCancel;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -597,17 +622,21 @@ namespace Google.Protobuf.Protocol {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
+          case 8: {
+            IsCancel = input.ReadBool();
+            break;
+          }
         }
       }
     }
 
   }
 
-  public sealed partial class S_Test : pb::IMessage<S_Test> {
-    private static readonly pb::MessageParser<S_Test> _parser = new pb::MessageParser<S_Test>(() => new S_Test());
+  public sealed partial class S_MatchingRes : pb::IMessage<S_MatchingRes> {
+    private static readonly pb::MessageParser<S_MatchingRes> _parser = new pb::MessageParser<S_MatchingRes>(() => new S_MatchingRes());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<S_Test> Parser { get { return _parser; } }
+    public static pb::MessageParser<S_MatchingRes> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -620,29 +649,29 @@ namespace Google.Protobuf.Protocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public S_Test() {
+    public S_MatchingRes() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public S_Test(S_Test other) : this() {
+    public S_MatchingRes(S_MatchingRes other) : this() {
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public S_Test Clone() {
-      return new S_Test(this);
+    public S_MatchingRes Clone() {
+      return new S_MatchingRes(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as S_Test);
+      return Equals(other as S_MatchingRes);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(S_Test other) {
+    public bool Equals(S_MatchingRes other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -683,7 +712,7 @@ namespace Google.Protobuf.Protocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(S_Test other) {
+    public void MergeFrom(S_MatchingRes other) {
       if (other == null) {
         return;
       }

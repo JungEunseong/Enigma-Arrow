@@ -23,8 +23,8 @@ class PacketManager
 
 	public void Register()
 	{		
-		_onRecv.Add((ushort)MsgId.CTest, MakePacket<C_Test>);
-		_handler.Add((ushort)MsgId.CTest, PacketHandler.C_TestHandler);
+		_onRecv.Add((ushort)MsgId.CMatchingReq, MakePacket<C_MatchingReq>);
+		_handler.Add((ushort)MsgId.CMatchingReq, PacketHandler.C_MatchingReqHandler);
 	}
 
 	public void OnRecvPacket(PacketSession session, ArraySegment<byte> buffer)

@@ -26,14 +26,16 @@ message ObjectInfo{
 
 
 enum MsgId{ 
-	C_TEST = 0;
-	S_TEST = 1;
+	C_MATCHING_REQ = 0;
+	S_MATCHING_RES = 1;
 }
 
 
-message C_Test{
+message C_MatchingReq{
+	bool isCancel = 1;
 }
 
-message S_Test{
-
+message S_MatchingRes{
+	
 }
+

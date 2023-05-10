@@ -32,6 +32,7 @@ namespace Server
         public override void OnConnected(EndPoint endPoint)
         {
             Console.WriteLine($"OnConnected: {endPoint}");
+            MasterRoom.Instance.Enter(this);
         }
 
         public override void OnDisconnected(EndPoint endPoint)

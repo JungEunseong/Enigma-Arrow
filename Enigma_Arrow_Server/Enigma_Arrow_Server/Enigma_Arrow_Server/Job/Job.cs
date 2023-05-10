@@ -10,7 +10,7 @@ public class Job : IJob
 {
     Action _action;
 
-    public Job(Action action)
+    public Job(Action action)   
     {
         _action = action;
     }
