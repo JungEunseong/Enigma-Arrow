@@ -19,21 +19,14 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
-
     // Update is called once per frame
-    void Update()
-    {
-        Move();
-
-    }
 
 
     /// <summary>
-    /// 움직임 함수 
+    /// 움직임 함수
     /// </summary>
-    private void Move()
+    public void Move()
     {
         Vector3 _dir = Vector3.zero;        //이동 방향 초기화
 
@@ -51,6 +44,11 @@ public class PlayerMovement : MonoBehaviour
 
         rigid.velocity = new Vector2(_dir.x * _speed, 0);
 
+
+    }
+
+    public void SyncMove()
+    {
 
     }
 }

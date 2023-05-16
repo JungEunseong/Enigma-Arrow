@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : NetworkingObject
 {
     [SerializeField] private int _hp;
+    [SerializeField] PlayerMovement movement;
     public int HP
     {
         get
@@ -36,6 +37,10 @@ public class Player : MonoBehaviour
     private void Update()
     {
         _hpBar.SetHP(HP);
+        if (isMine)
+        {
+            movement.Move();
+        }
     }
 
     public void Hit(int damage)
