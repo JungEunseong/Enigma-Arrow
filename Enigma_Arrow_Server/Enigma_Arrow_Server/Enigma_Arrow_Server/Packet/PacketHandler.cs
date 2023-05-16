@@ -32,19 +32,16 @@ public class PacketHandler
         playerInfo.Type = ObjectType.Player;
         if (joinedRoom.PlayerCount == 0)
         {
-            ObjectInfo info1 = new ObjectInfo();
-            info1.Type = ObjectType.Player;
-            info1.Position = new Vec() { X = 0, Y = 0 ,Z = 0};
-            joinedRoom.SpawnPlayer(info1);
+            playerInfo.Type = ObjectType.Player;
+            playerInfo.Position = new Vec() { X = 0, Y = 0 ,Z = 0};
         }
         else
         {
-            ObjectInfo info2 = new ObjectInfo();
-            info2.Type = ObjectType.Player;
-            info2.Position = new Vec() { X = 0, Y = 0, Z = 0 };
-            joinedRoom.SpawnPlayer(info2);
+            playerInfo.Type = ObjectType.Player;
+            playerInfo.Position = new Vec() { X = 0, Y = 0, Z = 0 };
         }
 
+        joinedRoom.SpawnPlayer(playerInfo);
 
 
     }

@@ -26,22 +26,23 @@ namespace Google.Protobuf.Protocol {
           string.Concat(
             "Cg5Qcm90b2NvbC5wcm90bxIIUHJvdG9jb2waH2dvb2dsZS9wcm90b2J1Zi90",
             "aW1lc3RhbXAucHJvdG8iJgoDVmVjEgkKAVgYASABKAISCQoBWRgCIAEoAhIJ",
-            "CgFaGAMgASgCIpoBCgpPYmplY3RJbmZvEgoKAklkGAEgASgFEiIKBFR5cGUY",
-            "AiABKA4yFC5Qcm90b2NvbC5PYmplY3RUeXBlEh8KCFBvc2l0aW9uGAMgASgL",
-            "Mg0uUHJvdG9jb2wuVmVjEh0KBlJvdGF0ZRgEIAEoCzINLlByb3RvY29sLlZl",
-            "YxIcCgVTY2FsZRgFIAEoCzINLlByb3RvY29sLlZlYyIhCg1DX01hdGNoaW5n",
-            "UmVxEhAKCGlzQ2FuY2VsGAEgASgIIg8KDVNfTWF0Y2hpbmdSZXMiEgoQQ19T",
-            "cGF3bnBsYXllclJlcSIzCgpTX1NwYXduUmVzEiUKB09iamVjdHMYASADKAsy",
-            "FC5Qcm90b2NvbC5PYmplY3RJbmZvIh0KCVNfRGVzcGF3bhIQCghPYmplY3RJ",
-            "ZBgBIAMoBSoYCgpPYmplY3RUeXBlEgoKBlBsYXllchAAKmYKBU1zZ0lkEhIK",
-            "DkNfTUFUQ0hJTkdfUkVREAASEgoOU19NQVRDSElOR19SRVMQARIVChFDX1NQ",
-            "QVdOUExBWUVSX1JFURACEg8KC1NfU1BBV05fUkVTEAMSDQoJU19ERVNQQVdO",
-            "EARCG6oCGEdvb2dsZS5Qcm90b2J1Zi5Qcm90b2NvbGIGcHJvdG8z"));
+            "CgFaGAMgASgCIqoBCgpPYmplY3RJbmZvEgoKAklkGAEgASgFEiIKBFR5cGUY",
+            "AiABKA4yFC5Qcm90b2NvbC5PYmplY3RUeXBlEg4KBmlzTWluZRgDIAEoCBIf",
+            "CghQb3NpdGlvbhgEIAEoCzINLlByb3RvY29sLlZlYxIdCgZSb3RhdGUYBSAB",
+            "KAsyDS5Qcm90b2NvbC5WZWMSHAoFU2NhbGUYBiABKAsyDS5Qcm90b2NvbC5W",
+            "ZWMiIQoNQ19NYXRjaGluZ1JlcRIQCghpc0NhbmNlbBgBIAEoCCIPCg1TX01h",
+            "dGNoaW5nUmVzIhIKEENfU3Bhd25wbGF5ZXJSZXEiMwoKU19TcGF3blJlcxIl",
+            "CgdPYmplY3RzGAEgAygLMhQuUHJvdG9jb2wuT2JqZWN0SW5mbyIdCglTX0Rl",
+            "c3Bhd24SEAoIT2JqZWN0SWQYASADKAUqGAoKT2JqZWN0VHlwZRIKCgZQbGF5",
+            "ZXIQACpmCgVNc2dJZBISCg5DX01BVENISU5HX1JFURAAEhIKDlNfTUFUQ0hJ",
+            "TkdfUkVTEAESFQoRQ19TUEFXTlBMQVlFUl9SRVEQAhIPCgtTX1NQQVdOX1JF",
+            "UxADEg0KCVNfREVTUEFXThAEQhuqAhhHb29nbGUuUHJvdG9idWYuUHJvdG9j",
+            "b2xiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Google.Protobuf.Protocol.ObjectType), typeof(global::Google.Protobuf.Protocol.MsgId), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.Vec), global::Google.Protobuf.Protocol.Vec.Parser, new[]{ "X", "Y", "Z" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.ObjectInfo), global::Google.Protobuf.Protocol.ObjectInfo.Parser, new[]{ "Id", "Type", "Position", "Rotate", "Scale" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.ObjectInfo), global::Google.Protobuf.Protocol.ObjectInfo.Parser, new[]{ "Id", "Type", "IsMine", "Position", "Rotate", "Scale" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.C_MatchingReq), global::Google.Protobuf.Protocol.C_MatchingReq.Parser, new[]{ "IsCancel" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.S_MatchingRes), global::Google.Protobuf.Protocol.S_MatchingRes.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.C_SpawnplayerReq), global::Google.Protobuf.Protocol.C_SpawnplayerReq.Parser, null, null, null, null, null),
@@ -280,6 +281,7 @@ namespace Google.Protobuf.Protocol {
     public ObjectInfo(ObjectInfo other) : this() {
       id_ = other.id_;
       type_ = other.type_;
+      isMine_ = other.isMine_;
       position_ = other.position_ != null ? other.position_.Clone() : null;
       rotate_ = other.rotate_ != null ? other.rotate_.Clone() : null;
       scale_ = other.scale_ != null ? other.scale_.Clone() : null;
@@ -313,8 +315,19 @@ namespace Google.Protobuf.Protocol {
       }
     }
 
+    /// <summary>Field number for the "isMine" field.</summary>
+    public const int IsMineFieldNumber = 3;
+    private bool isMine_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool IsMine {
+      get { return isMine_; }
+      set {
+        isMine_ = value;
+      }
+    }
+
     /// <summary>Field number for the "Position" field.</summary>
-    public const int PositionFieldNumber = 3;
+    public const int PositionFieldNumber = 4;
     private global::Google.Protobuf.Protocol.Vec position_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Google.Protobuf.Protocol.Vec Position {
@@ -325,7 +338,7 @@ namespace Google.Protobuf.Protocol {
     }
 
     /// <summary>Field number for the "Rotate" field.</summary>
-    public const int RotateFieldNumber = 4;
+    public const int RotateFieldNumber = 5;
     private global::Google.Protobuf.Protocol.Vec rotate_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Google.Protobuf.Protocol.Vec Rotate {
@@ -336,7 +349,7 @@ namespace Google.Protobuf.Protocol {
     }
 
     /// <summary>Field number for the "Scale" field.</summary>
-    public const int ScaleFieldNumber = 5;
+    public const int ScaleFieldNumber = 6;
     private global::Google.Protobuf.Protocol.Vec scale_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Google.Protobuf.Protocol.Vec Scale {
@@ -361,6 +374,7 @@ namespace Google.Protobuf.Protocol {
       }
       if (Id != other.Id) return false;
       if (Type != other.Type) return false;
+      if (IsMine != other.IsMine) return false;
       if (!object.Equals(Position, other.Position)) return false;
       if (!object.Equals(Rotate, other.Rotate)) return false;
       if (!object.Equals(Scale, other.Scale)) return false;
@@ -372,6 +386,7 @@ namespace Google.Protobuf.Protocol {
       int hash = 1;
       if (Id != 0) hash ^= Id.GetHashCode();
       if (Type != global::Google.Protobuf.Protocol.ObjectType.Player) hash ^= Type.GetHashCode();
+      if (IsMine != false) hash ^= IsMine.GetHashCode();
       if (position_ != null) hash ^= Position.GetHashCode();
       if (rotate_ != null) hash ^= Rotate.GetHashCode();
       if (scale_ != null) hash ^= Scale.GetHashCode();
@@ -396,16 +411,20 @@ namespace Google.Protobuf.Protocol {
         output.WriteRawTag(16);
         output.WriteEnum((int) Type);
       }
+      if (IsMine != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(IsMine);
+      }
       if (position_ != null) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(34);
         output.WriteMessage(Position);
       }
       if (rotate_ != null) {
-        output.WriteRawTag(34);
+        output.WriteRawTag(42);
         output.WriteMessage(Rotate);
       }
       if (scale_ != null) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(50);
         output.WriteMessage(Scale);
       }
       if (_unknownFields != null) {
@@ -421,6 +440,9 @@ namespace Google.Protobuf.Protocol {
       }
       if (Type != global::Google.Protobuf.Protocol.ObjectType.Player) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
+      }
+      if (IsMine != false) {
+        size += 1 + 1;
       }
       if (position_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Position);
@@ -447,6 +469,9 @@ namespace Google.Protobuf.Protocol {
       }
       if (other.Type != global::Google.Protobuf.Protocol.ObjectType.Player) {
         Type = other.Type;
+      }
+      if (other.IsMine != false) {
+        IsMine = other.IsMine;
       }
       if (other.position_ != null) {
         if (position_ == null) {
@@ -485,21 +510,25 @@ namespace Google.Protobuf.Protocol {
             Type = (global::Google.Protobuf.Protocol.ObjectType) input.ReadEnum();
             break;
           }
-          case 26: {
+          case 24: {
+            IsMine = input.ReadBool();
+            break;
+          }
+          case 34: {
             if (position_ == null) {
               Position = new global::Google.Protobuf.Protocol.Vec();
             }
             input.ReadMessage(Position);
             break;
           }
-          case 34: {
+          case 42: {
             if (rotate_ == null) {
               Rotate = new global::Google.Protobuf.Protocol.Vec();
             }
             input.ReadMessage(Rotate);
             break;
           }
-          case 42: {
+          case 50: {
             if (scale_ == null) {
               Scale = new global::Google.Protobuf.Protocol.Vec();
             }

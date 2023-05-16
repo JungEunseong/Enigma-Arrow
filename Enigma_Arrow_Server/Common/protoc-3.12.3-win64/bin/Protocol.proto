@@ -18,9 +18,10 @@ enum ObjectType{
 message ObjectInfo{
 	int32 Id = 1;
 	ObjectType Type = 2;
-	Vec Position = 3;
-	Vec Rotate = 4;
-	Vec Scale = 5;
+	bool isMine = 3;
+	Vec Position = 4;
+	Vec Rotate = 5;
+	Vec Scale = 6;
 }
 
 
