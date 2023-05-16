@@ -16,23 +16,17 @@ public class ObjectManager : Singleton<ObjectManager>
     {
         if (info.Type == ObjectType.Player)
         {
-            /*GameObject obj = Resources.Load<GameObject>("Player");
+            GameObject obj = Resources.Load<GameObject>("Prefabs/Player");
             NetworkingObject NO = Instantiate(obj, new Vector3(info.Position.X, info.Position.Y, info.Position.Z), Quaternion.identity).GetComponent<NetworkingObject>();
-            NO.isMine = isMine;
+            
+            if(isMine)
+                NO.isMine = isMine;
 
-            NO.Id = _idCounter++;
-            info.Id = NO.Id;
-
-            P_SpawnRes spawnRes = new P_SpawnRes();
-            spawnRes.Info = info;
-            spawnRes.IsMine = !isMine;
-            NetworkManager.Instance.Send(spawnRes);
+            NO.Id = info.Id;
 
             _objects.Add(NO.Id, NO);
-            if(isMine)
-                MyPlayer = NO as Player;
             
-            return NO.gameObject;*/
+            return NO.gameObject;
 
         }
         

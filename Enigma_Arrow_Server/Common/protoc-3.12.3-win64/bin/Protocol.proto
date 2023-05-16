@@ -28,7 +28,7 @@ message ObjectInfo{
 enum MsgId{ 
 	C_MATCHING_REQ = 0;
 	S_MATCHING_RES = 1;
-	C_SPAWN_REQ = 2;
+	C_SPAWNPLAYER_REQ = 2;
 	S_SPAWN_RES = 3;
 	S_DESPAWN = 4;
 }
@@ -42,7 +42,7 @@ message S_MatchingRes{
 	
 }
 
-message C_SpawnReq{
+message C_SpawnplayerReq{
 }
 
 message S_SpawnRes {

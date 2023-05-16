@@ -30,13 +30,13 @@ namespace Google.Protobuf.Protocol {
             "AiABKA4yFC5Qcm90b2NvbC5PYmplY3RUeXBlEh8KCFBvc2l0aW9uGAMgASgL",
             "Mg0uUHJvdG9jb2wuVmVjEh0KBlJvdGF0ZRgEIAEoCzINLlByb3RvY29sLlZl",
             "YxIcCgVTY2FsZRgFIAEoCzINLlByb3RvY29sLlZlYyIhCg1DX01hdGNoaW5n",
-            "UmVxEhAKCGlzQ2FuY2VsGAEgASgIIg8KDVNfTWF0Y2hpbmdSZXMiDAoKQ19T",
-            "cGF3blJlcSIzCgpTX1NwYXduUmVzEiUKB09iamVjdHMYASADKAsyFC5Qcm90",
-            "b2NvbC5PYmplY3RJbmZvIh0KCVNfRGVzcGF3bhIQCghPYmplY3RJZBgBIAMo",
-            "BSoYCgpPYmplY3RUeXBlEgoKBlBsYXllchAAKmAKBU1zZ0lkEhIKDkNfTUFU",
-            "Q0hJTkdfUkVREAASEgoOU19NQVRDSElOR19SRVMQARIPCgtDX1NQQVdOX1JF",
-            "URACEg8KC1NfU1BBV05fUkVTEAMSDQoJU19ERVNQQVdOEARCG6oCGEdvb2ds",
-            "ZS5Qcm90b2J1Zi5Qcm90b2NvbGIGcHJvdG8z"));
+            "UmVxEhAKCGlzQ2FuY2VsGAEgASgIIg8KDVNfTWF0Y2hpbmdSZXMiEgoQQ19T",
+            "cGF3bnBsYXllclJlcSIzCgpTX1NwYXduUmVzEiUKB09iamVjdHMYASADKAsy",
+            "FC5Qcm90b2NvbC5PYmplY3RJbmZvIh0KCVNfRGVzcGF3bhIQCghPYmplY3RJ",
+            "ZBgBIAMoBSoYCgpPYmplY3RUeXBlEgoKBlBsYXllchAAKmYKBU1zZ0lkEhIK",
+            "DkNfTUFUQ0hJTkdfUkVREAASEgoOU19NQVRDSElOR19SRVMQARIVChFDX1NQ",
+            "QVdOUExBWUVSX1JFURACEg8KC1NfU1BBV05fUkVTEAMSDQoJU19ERVNQQVdO",
+            "EARCG6oCGEdvb2dsZS5Qcm90b2J1Zi5Qcm90b2NvbGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Google.Protobuf.Protocol.ObjectType), typeof(global::Google.Protobuf.Protocol.MsgId), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -44,7 +44,7 @@ namespace Google.Protobuf.Protocol {
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.ObjectInfo), global::Google.Protobuf.Protocol.ObjectInfo.Parser, new[]{ "Id", "Type", "Position", "Rotate", "Scale" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.C_MatchingReq), global::Google.Protobuf.Protocol.C_MatchingReq.Parser, new[]{ "IsCancel" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.S_MatchingRes), global::Google.Protobuf.Protocol.S_MatchingRes.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.C_SpawnReq), global::Google.Protobuf.Protocol.C_SpawnReq.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.C_SpawnplayerReq), global::Google.Protobuf.Protocol.C_SpawnplayerReq.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.S_SpawnRes), global::Google.Protobuf.Protocol.S_SpawnRes.Parser, new[]{ "Objects" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.S_Despawn), global::Google.Protobuf.Protocol.S_Despawn.Parser, new[]{ "ObjectId" }, null, null, null, null)
           }));
@@ -60,7 +60,7 @@ namespace Google.Protobuf.Protocol {
   public enum MsgId {
     [pbr::OriginalName("C_MATCHING_REQ")] CMatchingReq = 0,
     [pbr::OriginalName("S_MATCHING_RES")] SMatchingRes = 1,
-    [pbr::OriginalName("C_SPAWN_REQ")] CSpawnReq = 2,
+    [pbr::OriginalName("C_SPAWNPLAYER_REQ")] CSpawnplayerReq = 2,
     [pbr::OriginalName("S_SPAWN_RES")] SSpawnRes = 3,
     [pbr::OriginalName("S_DESPAWN")] SDespawn = 4,
   }
@@ -742,11 +742,11 @@ namespace Google.Protobuf.Protocol {
 
   }
 
-  public sealed partial class C_SpawnReq : pb::IMessage<C_SpawnReq> {
-    private static readonly pb::MessageParser<C_SpawnReq> _parser = new pb::MessageParser<C_SpawnReq>(() => new C_SpawnReq());
+  public sealed partial class C_SpawnplayerReq : pb::IMessage<C_SpawnplayerReq> {
+    private static readonly pb::MessageParser<C_SpawnplayerReq> _parser = new pb::MessageParser<C_SpawnplayerReq>(() => new C_SpawnplayerReq());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<C_SpawnReq> Parser { get { return _parser; } }
+    public static pb::MessageParser<C_SpawnplayerReq> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -759,29 +759,29 @@ namespace Google.Protobuf.Protocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public C_SpawnReq() {
+    public C_SpawnplayerReq() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public C_SpawnReq(C_SpawnReq other) : this() {
+    public C_SpawnplayerReq(C_SpawnplayerReq other) : this() {
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public C_SpawnReq Clone() {
-      return new C_SpawnReq(this);
+    public C_SpawnplayerReq Clone() {
+      return new C_SpawnplayerReq(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as C_SpawnReq);
+      return Equals(other as C_SpawnplayerReq);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(C_SpawnReq other) {
+    public bool Equals(C_SpawnplayerReq other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -822,7 +822,7 @@ namespace Google.Protobuf.Protocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(C_SpawnReq other) {
+    public void MergeFrom(C_SpawnplayerReq other) {
       if (other == null) {
         return;
       }
