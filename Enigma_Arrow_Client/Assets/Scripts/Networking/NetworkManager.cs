@@ -11,10 +11,13 @@ public class NetworkManager : Singleton<NetworkManager>
 
     ServerSession _session = new ServerSession();
 
+    public bool isTestWithoutServer;
+
     public bool isConnecting { get; set; }
     private void Start()
     {
-        Init();
+        if(isConnecting == false)
+            Init();
     }
 
     public void Send(IMessage packet)

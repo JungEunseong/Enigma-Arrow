@@ -41,8 +41,10 @@ public class PlayerMovement : MonoBehaviour
         float h = Input.GetAxis("Horizontal");
         _dir.x = h;
 #endif
+        if(NetworkManager.Instance.isTestWithoutServer)
+            rigid.velocity = new Vector2(_dir.x * _speed, 0);
 
-        rigid.velocity = new Vector2(_dir.x * _speed, 0);
+
 
 
     }
