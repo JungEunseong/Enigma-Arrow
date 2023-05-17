@@ -27,21 +27,20 @@ public class PacketHandler
         C_SpawnplayerReq req = packet as C_SpawnplayerReq;
 
         GameRoom joinedRoom = CSession.JoinedRoom;
-
-        ObjectInfo playerInfo = new ObjectInfo();
-        playerInfo.Type = ObjectType.Player;
+        Player player = joinedRoom._objectManager.Add<Player>();
+        player.Session = CSession;
+        player.Info.Type = ObjectType.Player;
+        
         if (joinedRoom.PlayerCount == 0)
         {
-            playerInfo.Type = ObjectType.Player;
-            playerInfo.Position = new Vec() { X = 0, Y = 0 ,Z = 0};
+            player.Info.Position = new Vec() { X = 0, Y = 0 ,Z = 0};
         }
         else
         {
-            playerInfo.Type = ObjectType.Player;
-            playerInfo.Position = new Vec() { X = 0, Y = 0, Z = 0 };
+            player.Info.Position = new Vec() { X = 0, Y = 0, Z = 0 };
         }
 
-        joinedRoom.SpawnPlayer(playerInfo);
+        joinedRoom.EnterGame(player);
 
 
     }

@@ -72,8 +72,8 @@ public class MasterRoom : JobSerializer
         _matchingSessions.Remove(firstSession);
         _matchingSessions.Remove(secondSession);
         GameRoom room = RoomManager.Instance.Add();
-        room.EnterGame(firstSession);
-        room.EnterGame(secondSession);
+        room.EnterRoom(firstSession);
+        room.EnterRoom(secondSession);
         // 알리기
         S_MatchingRes matchingRes = new S_MatchingRes();
         firstSession.Send(matchingRes);
