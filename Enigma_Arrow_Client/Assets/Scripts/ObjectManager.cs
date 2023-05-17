@@ -20,14 +20,13 @@ public class ObjectManager : Singleton<ObjectManager>
             NetworkingObject NO = Instantiate(obj, new Vector3(info.Position.X, info.Position.Y, info.Position.Z), Quaternion.identity).GetComponent<NetworkingObject>();
             
             if(isMine)
-                NO.isMine = isMine;
+                    NO.isMine = isMine;
 
             NO.Id = info.Id;
 
             _objects.Add(NO.Id, NO);
             
             return NO.gameObject;
-
         }
         
 

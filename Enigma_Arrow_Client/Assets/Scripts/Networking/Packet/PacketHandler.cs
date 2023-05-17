@@ -24,6 +24,13 @@ public class PacketHandler
         if (session == null) return;
 
         ServerSession Ssession = session as ServerSession;
+        S_SpawnRes res = packet as S_SpawnRes;
+
+
+        foreach(ObjectInfo info in res.Objects)
+        {
+            ObjectManager.Instance.Add(info);
+        }
     }
     public static void S_DespawnHandler(PacketSession session, IMessage packet)
     {

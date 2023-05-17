@@ -19,7 +19,7 @@ public class PacketHandler
 
         MasterRoom.Instance.HandleMatching(CSession, req.IsCancel);
     }
-    public static void C_SpawnReqHandler(PacketSession session, IMessage packet)
+    public static void C_SpawnplayerReqHandler(PacketSession session, IMessage packet)
     {
         if (session == null) return;
 
@@ -33,11 +33,11 @@ public class PacketHandler
         
         if (joinedRoom.PlayerCount == 0)
         {
-            player.Info.Position = new Vec() { X = 0, Y = 0 ,Z = 0};
+            player.Info.Position = new Vec() { X = 0, Y = 1 ,Z = -3};
         }
         else
         {
-            player.Info.Position = new Vec() { X = 0, Y = 0, Z = 0 };
+            player.Info.Position = new Vec() { X = 0, Y = 1, Z = 3 };
         }
 
         joinedRoom.EnterGame(player);

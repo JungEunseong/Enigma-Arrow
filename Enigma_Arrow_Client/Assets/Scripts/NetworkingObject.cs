@@ -5,7 +5,7 @@ using UnityEngine;
 public class NetworkingObject : MonoBehaviour
 {
     public int Id { get; set; }
-    public bool isMine { get; set; }
+    public bool isMine;
     void Start()
     {
         

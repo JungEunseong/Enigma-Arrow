@@ -30,6 +30,7 @@ public class Player : NetworkingObject
 
     private void Start()
     {
+        movement = GetComponent<PlayerMovement>();
         HP = MaxHP;
         _hpBar.SetMaxHP(MaxHP);
     }

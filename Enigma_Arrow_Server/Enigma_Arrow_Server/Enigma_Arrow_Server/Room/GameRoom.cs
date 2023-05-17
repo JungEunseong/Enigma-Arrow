@@ -40,11 +40,15 @@ public class GameRoom : JobSerializer
                 _players.Add(spawnPlayer.Id, spawnPlayer);
 
                 S_SpawnRes res = new S_SpawnRes();
-                res.Objects.Add(spawnPlayer.Info);
 
-                foreach (ClientSession session in _sessions.Values)
-                    session.Send(res);
+                ObjectInfo info = spawnPlayer.Info;
+                info.IsMine = true;
+
+                res.Objects.Add(info);
+                
+                spawnPlayer.Session.Send(res);
             }
+
             //TODO: 원래 있던 플레이어 소환
             {
                 S_SpawnRes res = new S_SpawnRes();
