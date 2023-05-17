@@ -79,6 +79,11 @@ public class GameRoom : JobSerializer
 
     }
 
+    public void HandleMove()
+    {
+
+    }
+
     public void ExitGame(ClientSession session)
     {
         _sessions.Remove(session.SessionId);

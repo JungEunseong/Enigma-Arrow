@@ -40,6 +40,9 @@ public class PacketHandler
         if (session == null) return;
 
         ClientSession CSession = session as ClientSession;
+        C_MoveReq req = packet as C_MoveReq;
+
+
     }
     /*
     public static void C_MoveReqHandler(PacketSession session, IMessage packet)

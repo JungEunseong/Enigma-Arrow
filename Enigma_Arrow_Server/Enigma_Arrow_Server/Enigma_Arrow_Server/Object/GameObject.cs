@@ -18,6 +18,12 @@ public abstract class GameObject
 
     public ObjectInfo Info { get; set; } = new ObjectInfo();
 
+    public Vec Pos { get { return Info.Position; } }
+
+    private float _speed = 10;
+
+    public float Speed { get { return _speed; }  }
+
     public abstract void Move(Vec vec);
 
     public abstract void Attack();

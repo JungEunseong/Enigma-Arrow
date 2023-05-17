@@ -13,4 +13,14 @@ public class Player : GameObject
     {
         _objectType = ObjectType.Player;
     }
+
+    public override void Move(Vec vec)
+    {
+
+    }
+
+    public override void Attack()
+    {
+
+    }
 }
