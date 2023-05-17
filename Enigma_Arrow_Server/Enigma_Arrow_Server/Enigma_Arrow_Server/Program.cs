@@ -32,6 +32,11 @@ class Program
         while (true)
         {
             MasterRoom.Instance.Update();
+            List<GameRoom> rooms = RoomManager.Instance.Rooms;
+            
+            foreach(GameRoom room in rooms)
+                room.Flush();
+            
             Thread.Sleep(250);
         }
     }

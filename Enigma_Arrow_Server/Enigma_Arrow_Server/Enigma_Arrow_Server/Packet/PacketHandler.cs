@@ -40,7 +40,7 @@ public class PacketHandler
             player.Info.Position = new Vec() { X = 0, Y = 1, Z = 3 };
         }
 
-        joinedRoom.EnterGame(player);
+        joinedRoom.Push(joinedRoom.EnterGame,player);
 
 
     }
