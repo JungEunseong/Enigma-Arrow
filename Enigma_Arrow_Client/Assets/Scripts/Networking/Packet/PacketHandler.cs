@@ -38,4 +38,10 @@ public class PacketHandler
 
         ServerSession Ssession = session as ServerSession;
     }
+    public static void S_MoveResHandler(PacketSession session, IMessage packet)
+    {
+        if (session == null) return;
+
+        ServerSession Ssession = session as ServerSession;
+    }
 }

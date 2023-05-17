@@ -35,4 +35,17 @@ public class PacketHandler
 
 
     }
+    public static void C_MoveReqHandler(PacketSession session, IMessage packet)
+    {
+        if (session == null) return;
+
+        ClientSession CSession = session as ClientSession;
+    }
+    /*
+    public static void C_MoveReqHandler(PacketSession session, IMessage packet)
+    {
+        if (session == null) return;
+
+        ClientSession CSession = session as ClientSession;
+    }*/
 }
