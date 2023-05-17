@@ -29,7 +29,7 @@ public class PacketHandler
 
         foreach(ObjectInfo info in res.Objects)
         {
-            ObjectManager.Instance.Add(info);
+            ObjectManager.Instance.Add(info, info.IsMine);
         }
     }
     public static void S_DespawnHandler(PacketSession session, IMessage packet)
