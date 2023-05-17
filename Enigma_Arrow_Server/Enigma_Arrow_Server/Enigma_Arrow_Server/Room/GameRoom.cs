@@ -4,6 +4,7 @@ using Server.Game;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -32,10 +33,17 @@ public class GameRoom : JobSerializer
     /// </summary>
     public void EnterGame(GameObject gameObject)
     {
-
+        
+        
         //TODO: 플레이어 소환
         if (gameObject.Info.Type == ObjectType.Player) {
             Player spawnPlayer = gameObject as Player;
+
+            if (PlayerCount == 0)
+                gameObject.Info.Position = new Vec() { X = 0, Y = 1, Z = -3 };
+            else
+                gameObject.Info.Position = new Vec() { X = 0, Y = 1, Z = 3 };
+
             {
                 _players.Add(spawnPlayer.Id, spawnPlayer);
 

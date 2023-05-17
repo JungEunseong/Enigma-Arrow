@@ -31,15 +31,6 @@ public class PacketHandler
         player.Session = CSession;
         player.Info.Type = ObjectType.Player;
         
-        if (joinedRoom.PlayerCount == 0)
-        {
-            player.Info.Position = new Vec() { X = 0, Y = 1 ,Z = -3};
-        }
-        else
-        {
-            player.Info.Position = new Vec() { X = 0, Y = 1, Z = 3 };
-        }
-
         joinedRoom.Push(joinedRoom.EnterGame,player);
 
 
