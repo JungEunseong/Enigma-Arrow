@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public class GameObject
+public abstract class GameObject
 {
     public ObjectType _objectType { get; protected set; }
     public int Id
@@ -17,4 +17,8 @@ public class GameObject
     public GameRoom JoinedRoom { get; set; }
 
     public ObjectInfo Info { get; set; } = new ObjectInfo();
+
+    public abstract void Move(Vec vec);
+
+    public abstract void Attack();
 }

@@ -32,6 +32,8 @@ enum MsgId{
 	C_SPAWNPLAYER_REQ = 2;
 	S_SPAWN_RES = 3;
 	S_DESPAWN = 4;
+	C_MOVE_REQ = 5;
+	S_MOVE_RES = 6;
 }
 
 
@@ -52,4 +54,13 @@ message S_SpawnRes {
 
 message S_Despawn {
 	repeated int32 ObjectId = 1;
+}
+
+message C_MoveReq{
+	Vec inputDir = 1;
+}
+
+message C_MoveRes{
+	int32 Id = 1;
+	Vec Position = 2;
 }
