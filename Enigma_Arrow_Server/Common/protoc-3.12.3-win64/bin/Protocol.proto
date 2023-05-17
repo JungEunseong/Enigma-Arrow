@@ -60,7 +60,7 @@ message C_MoveReq{
 	Vec inputDir = 1;
 }
 
-message C_MoveRes{
+message S_MoveRes{
 	int32 Id = 1;
 	Vec Position = 2;
 }

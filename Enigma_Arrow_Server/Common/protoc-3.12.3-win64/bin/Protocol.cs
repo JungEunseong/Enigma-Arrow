@@ -34,7 +34,7 @@ namespace Google.Protobuf.Protocol {
             "dGNoaW5nUmVzIhIKEENfU3Bhd25wbGF5ZXJSZXEiMwoKU19TcGF3blJlcxIl",
             "CgdPYmplY3RzGAEgAygLMhQuUHJvdG9jb2wuT2JqZWN0SW5mbyIdCglTX0Rl",
             "c3Bhd24SEAoIT2JqZWN0SWQYASADKAUiLAoJQ19Nb3ZlUmVxEh8KCGlucHV0",
-            "RGlyGAEgASgLMg0uUHJvdG9jb2wuVmVjIjgKCUNfTW92ZVJlcxIKCgJJZBgB",
+            "RGlyGAEgASgLMg0uUHJvdG9jb2wuVmVjIjgKCVNfTW92ZVJlcxIKCgJJZBgB",
             "IAEoBRIfCghQb3NpdGlvbhgCIAEoCzINLlByb3RvY29sLlZlYyoYCgpPYmpl",
             "Y3RUeXBlEgoKBlBsYXllchAAKoYBCgVNc2dJZBISCg5DX01BVENISU5HX1JF",
             "URAAEhIKDlNfTUFUQ0hJTkdfUkVTEAESFQoRQ19TUEFXTlBMQVlFUl9SRVEQ",
@@ -52,7 +52,7 @@ namespace Google.Protobuf.Protocol {
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.S_SpawnRes), global::Google.Protobuf.Protocol.S_SpawnRes.Parser, new[]{ "Objects" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.S_Despawn), global::Google.Protobuf.Protocol.S_Despawn.Parser, new[]{ "ObjectId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.C_MoveReq), global::Google.Protobuf.Protocol.C_MoveReq.Parser, new[]{ "InputDir" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.C_MoveRes), global::Google.Protobuf.Protocol.C_MoveRes.Parser, new[]{ "Id", "Position" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.S_MoveRes), global::Google.Protobuf.Protocol.S_MoveRes.Parser, new[]{ "Id", "Position" }, null, null, null, null)
           }));
     }
     #endregion
@@ -1257,11 +1257,11 @@ namespace Google.Protobuf.Protocol {
 
   }
 
-  public sealed partial class C_MoveRes : pb::IMessage<C_MoveRes> {
-    private static readonly pb::MessageParser<C_MoveRes> _parser = new pb::MessageParser<C_MoveRes>(() => new C_MoveRes());
+  public sealed partial class S_MoveRes : pb::IMessage<S_MoveRes> {
+    private static readonly pb::MessageParser<S_MoveRes> _parser = new pb::MessageParser<S_MoveRes>(() => new S_MoveRes());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<C_MoveRes> Parser { get { return _parser; } }
+    public static pb::MessageParser<S_MoveRes> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -1274,22 +1274,22 @@ namespace Google.Protobuf.Protocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public C_MoveRes() {
+    public S_MoveRes() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public C_MoveRes(C_MoveRes other) : this() {
+    public S_MoveRes(S_MoveRes other) : this() {
       id_ = other.id_;
       position_ = other.position_ != null ? other.position_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public C_MoveRes Clone() {
-      return new C_MoveRes(this);
+    public S_MoveRes Clone() {
+      return new S_MoveRes(this);
     }
 
     /// <summary>Field number for the "Id" field.</summary>
@@ -1316,11 +1316,11 @@ namespace Google.Protobuf.Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as C_MoveRes);
+      return Equals(other as S_MoveRes);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(C_MoveRes other) {
+    public bool Equals(S_MoveRes other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -1379,7 +1379,7 @@ namespace Google.Protobuf.Protocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(C_MoveRes other) {
+    public void MergeFrom(S_MoveRes other) {
       if (other == null) {
         return;
       }
