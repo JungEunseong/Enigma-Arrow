@@ -95,4 +95,12 @@ public class GameRoom : JobSerializer
         foreach (ClientSession session in _sessions.Values)
             session.Send(packet);
     }
+
+    public void Update()
+    {
+        foreach (Player player in _players.Values)
+            player.Update();
+
+        Flush();
+    }
 }

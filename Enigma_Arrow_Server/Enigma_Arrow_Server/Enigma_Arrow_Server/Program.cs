@@ -35,7 +35,7 @@ class Program
             List<GameRoom> rooms = RoomManager.Instance.Rooms;
             
             foreach(GameRoom room in rooms)
-                room.Flush();
+                room.Update();
             
             Thread.Sleep(250);
         }

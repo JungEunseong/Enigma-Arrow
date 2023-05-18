@@ -43,7 +43,7 @@ public class PacketHandler
         C_MoveReq req = packet as C_MoveReq;
 
 
-        CSession.JoinedRoom.HandleMove(CSession, req);
+        CSession.JoinedRoom.Push(CSession.JoinedRoom.HandleMove,CSession, req);
     }
     /*
     public static void C_MoveReqHandler(PacketSession session, IMessage packet)
