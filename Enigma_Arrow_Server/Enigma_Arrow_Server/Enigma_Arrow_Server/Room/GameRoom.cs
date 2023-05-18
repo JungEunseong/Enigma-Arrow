@@ -1,4 +1,5 @@
-﻿using Google.Protobuf.Protocol;
+﻿using Google.Protobuf;
+using Google.Protobuf.Protocol;
 using Server;
 using Server.Game;
 using System;
@@ -79,13 +80,19 @@ public class GameRoom : JobSerializer
 
     }
 
-    public void HandleMove()
+    public void HandleMove(ClientSession session,C_MoveReq req)
     {
-
+        session.MyPlayer._moveDir = req.InputDir;
     }
 
     public void ExitGame(ClientSession session)
     {
         _sessions.Remove(session.SessionId);
+    }
+
+    public void Broadcast(IMessage packet)
+    {
+        foreach (ClientSession session in _sessions.Values)
+            session.Send(packet);
     }
 }

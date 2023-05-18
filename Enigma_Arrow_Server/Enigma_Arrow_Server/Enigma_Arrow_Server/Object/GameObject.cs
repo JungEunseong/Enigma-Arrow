@@ -24,7 +24,9 @@ public abstract class GameObject
 
     public float Speed { get { return _speed; }  }
 
-    public abstract void Move(Vec vec);
+    public abstract void Update();
+    public abstract void MoveUpdate();
+    public abstract void Move(Vec dir);
 
     public abstract void Attack();
 }
