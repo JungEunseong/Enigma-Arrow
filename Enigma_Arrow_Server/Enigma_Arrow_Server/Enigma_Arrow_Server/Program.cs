@@ -37,7 +37,6 @@ class Program
             foreach(GameRoom room in rooms)
                 room.Update();
             
-            Thread.Sleep(250);
         }
     }
 }

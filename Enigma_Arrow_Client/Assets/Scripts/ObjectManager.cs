@@ -18,8 +18,11 @@ public class ObjectManager : Singleton<ObjectManager>
         {
             GameObject obj = Resources.Load<GameObject>("Prefabs/Player");
             NetworkingObject NO = Instantiate(obj, new Vector3(info.Position.X, info.Position.Y, info.Position.Z), Quaternion.identity).GetComponent<NetworkingObject>();
-            
-            if(isMine)
+
+            Player player = NO.GetComponent<Player>();
+            player.destPos = new Vector3(info.Position.X, info.Position.Y, info.Position.Z);
+
+            if (isMine)
                     NO.isMine = isMine;
 
             NO.Id = info.Id;

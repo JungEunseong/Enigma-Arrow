@@ -8,7 +8,7 @@ public class Player : NetworkingObject
     [SerializeField] private int _hp;
     [SerializeField] PlayerMovement movement;
 
-    private Vector3 destPos;
+    public Vector3 destPos;
     public int HP
     {
         get
@@ -43,7 +43,8 @@ public class Player : NetworkingObject
         if (isMine)
             movement.Move();
 
-        SyncMove(destPos);
+        if(!NetworkManager.Instance.isTestWithoutServer)
+            SyncMove(destPos);
 
     }
 

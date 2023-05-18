@@ -965,7 +965,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 339cdf4e10caffb44a33f82bc2f3c8dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMine: 0
   _hp: 0
+  movement: {fileID: 0}
   _hpBar: {fileID: 1510661754}
 --- !u!114 &2883273735491309164
 MonoBehaviour:
@@ -1005,7 +1007,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &72285812
 CapsuleCollider:
