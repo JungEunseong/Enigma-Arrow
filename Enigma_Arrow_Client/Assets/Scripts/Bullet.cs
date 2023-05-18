@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -7,8 +7,9 @@ using UnityEngine.Pool;
 
 public class Bullet : MonoBehaviour
 {
+    public int OwnerId;
     Rigidbody rigid;
-    [SerializeField] float _speed = 70;      // ÃÑ¾Ë ½ºÇÇµå
+    [SerializeField] float _speed = 70;      // ì´ì•Œ ìŠ¤í”¼ë“œ
     [SerializeField] int _damage;
 
     [Header("Pool")]
@@ -55,16 +56,19 @@ public class Bullet : MonoBehaviour
 
     public void DestroyBullet()
     {
-        _managedPool.Release(this);     //ÀÎ½ºÅÏ½º¸¦ ´Ù½Ã pool·Î ¹İÈ¯
+        _managedPool.Release(this);     //ì¸ìŠ¤í„´ìŠ¤ë¥¼ ë‹¤ì‹œ poolë¡œ ë°˜í™˜
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            //º»ÀÎÀÌ ¾Æ´Ñ °æ¿ì¿¡¸¸ player Hit ÇÔ¼ö È£Ãâ 
+            //ë³¸ì¸ì´ ì•„ë‹Œ ê²½ìš°ì—ë§Œ player
+            //í•¨ìˆ˜ í˜¸ì¶œ 
             Player player = other.gameObject.GetComponent<Player>();
-            player.Hit(_damage);
+
+            if(player.Id != OwnerId)
+                player.Hit(_damage);
         }
     }
 }

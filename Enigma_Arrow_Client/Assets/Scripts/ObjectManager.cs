@@ -23,7 +23,10 @@ public class ObjectManager : Singleton<ObjectManager>
             player.destPos = new Vector3(info.Position.X, info.Position.Y, info.Position.Z);
 
             if (isMine)
-                    NO.isMine = isMine;
+            {
+                NO.isMine = isMine;
+                MyPlayer = player;
+            }
 
             NO.Id = info.Id;
 

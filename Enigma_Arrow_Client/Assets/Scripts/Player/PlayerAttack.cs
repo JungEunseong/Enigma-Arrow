@@ -94,6 +94,7 @@ public class PlayerAttack : MonoBehaviour
 
         Bullet bullet = _pool.Get().GetComponent<Bullet>();
         bullet.InitBullet(transform, transform.rotation);
+        bullet.OwnerId = ObjectManager.Instance.MyPlayer.Id;
 
     }
 
