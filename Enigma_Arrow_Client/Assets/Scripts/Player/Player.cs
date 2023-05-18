@@ -41,13 +41,10 @@ public class Player : NetworkingObject
     {
         _hpBar.SetHP(HP);
         if (isMine)
-        {
             movement.Move();
-        }
-        else
-        {
-            SyncMove(destPos);
-        }
+
+        SyncMove(destPos);
+
     }
 
     public void Hit(int damage)
@@ -67,6 +64,6 @@ public class Player : NetworkingObject
     public override void SyncMove(Vector3 pos)
     {
         destPos = pos;
-        transform.position = Vector3.Lerp(transform.position, destPos, movement.Speed);
+        transform.position = Vector3.Lerp(transform.position, destPos, (1000 / 60 /movement.Speed)*Time.deltaTime);
     }
 }

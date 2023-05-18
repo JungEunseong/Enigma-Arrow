@@ -14,7 +14,7 @@ public class Player : GameObject
         _objectType = ObjectType.Player;
     }
 
-    public Vec _moveDir;
+    public Vec _moveDir = new Vec() { X = 0, Y = 0, Z = 0 };
 
     public override void Attack()
     {
@@ -42,14 +42,15 @@ public class Player : GameObject
         res.Id = Id;
         res.Position = Pos;
 
-        if(_moveDir.X != 0 && _moveDir.Y != 0 && _moveDir.Z != 0)
+        if(_moveDir.X != 0 || _moveDir.Y != 0 || _moveDir.Z != 0)
             Session.JoinedRoom.Broadcast(res);
     }
     public override void Move(Vec dir)
     {
         // Vector 크기 구하기
-        var vectorSize = MathF.Sqrt(MathF.Pow(dir.X, 2) + MathF.Pow(dir.Y, 2) + MathF.Pow(dir.Z, 2));
+        float vectorSize = MathF.Sqrt(MathF.Pow(dir.X, 2) + MathF.Pow(dir.Y, 2) + MathF.Pow(dir.Z, 2));
 
+        if (vectorSize == 0) return;
         // Vector 정규화
         dir.X /= vectorSize;
         dir.Y /= vectorSize;
@@ -59,5 +60,5 @@ public class Player : GameObject
         Pos.X += dir.X;
         Pos.Y += dir.Y;
         Pos.Z += dir.Z;
-    }
+    }   
 }

@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rigid;
 
     public float Speed { get { return _speed; } }
-    Vector3 _prevDir;
+    Vector3 _prevDir = Vector3.zero;
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();

@@ -47,7 +47,7 @@ public class GameRoom : JobSerializer
 
             {
                 _players.Add(spawnPlayer.Id, spawnPlayer);
-
+                spawnPlayer.Session.MyPlayer = spawnPlayer;
                 S_SpawnRes res = new S_SpawnRes();
 
                 ObjectInfo info = spawnPlayer.Info;
