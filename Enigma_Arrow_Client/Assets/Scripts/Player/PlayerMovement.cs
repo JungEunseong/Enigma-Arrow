@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Runtime.ExceptionServices;
+using Google.Protobuf.Protocol;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _speed;
     Rigidbody rigid;
 
+    Vector3 _prevDir;
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
@@ -41,12 +43,26 @@ public class PlayerMovement : MonoBehaviour
         float h = Input.GetAxis("Horizontal");
         _dir.x = h;
 #endif
-        if(NetworkManager.Instance.isTestWithoutServer)
+
+        if (NetworkManager.Instance.isTestWithoutServer)
             rigid.velocity = new Vector2(_dir.x * _speed, 0);
+        else
+        {
+            if (_prevDir != _dir)
+            {
+                C_MoveReq req = new C_MoveReq();
+                req.InputDir = new Vec();
 
+                req.InputDir.X = _dir.x;
+                req.InputDir.Y = _dir.y;
+                req.InputDir.Z = _dir.z;
 
+                NetworkManager.Instance.Send(req);
 
-
+                _prevDir = _dir;
+            }
+        }
+        
     }
 
     public void SyncMove()
