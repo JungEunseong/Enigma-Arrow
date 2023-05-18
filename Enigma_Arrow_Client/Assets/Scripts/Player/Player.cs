@@ -7,6 +7,8 @@ public class Player : NetworkingObject
 {
     [SerializeField] private int _hp;
     [SerializeField] PlayerMovement movement;
+
+    private Vector3 destPos;
     public int HP
     {
         get
@@ -42,6 +44,10 @@ public class Player : NetworkingObject
         {
             movement.Move();
         }
+        else
+        {
+            SyncMove(destPos);
+        }
     }
 
     public void Hit(int damage)
@@ -57,5 +63,10 @@ public class Player : NetworkingObject
 
         // 본인 인지 아닌지 처리 매개변수 넣기
         //GameManager.Instance.GameOver(PV.isMine ? true: false);
+    }
+    public override void SyncMove(Vector3 pos)
+    {
+        destPos = pos;
+        transform.position = Vector3.Lerp(transform.position, destPos, movement.Speed);
     }
 }

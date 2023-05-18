@@ -59,7 +59,5 @@ public class Player : GameObject
         Pos.X += dir.X;
         Pos.Y += dir.Y;
         Pos.Z += dir.Z;
-
-        
     }
 }

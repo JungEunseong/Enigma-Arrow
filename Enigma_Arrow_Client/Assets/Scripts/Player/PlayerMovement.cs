@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _speed;
     Rigidbody rigid;
 
+    public float Speed { get { return _speed; } }
     Vector3 _prevDir;
     private void Awake()
     {
@@ -65,8 +66,5 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    public void SyncMove()
-    {
-
-    }
+    
 }
