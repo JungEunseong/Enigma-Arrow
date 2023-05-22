@@ -26,6 +26,7 @@ public class ObjectManager : Singleton<ObjectManager>
             {
                 NO.isMine = isMine;
                 MyPlayer = player;
+                Camera.main.transform.parent = MyPlayer.transform;
             }
             else
             {

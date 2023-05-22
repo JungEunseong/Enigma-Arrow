@@ -15,7 +15,6 @@ public class Player : NetworkingObject
     [SerializeField] Canvas hpCanvas;
 
     [SerializeField] GameObject attackObj;
-    [SerializeField] CinemachineVirtualCamera _cinemachineCamera;
     public int HP
     {
         get
@@ -79,6 +78,5 @@ public class Player : NetworkingObject
     {
         btnCanvas.gameObject.SetActive(false);
         attackObj.SetActive(false);
-        _cinemachineCamera.gameObject.SetActive(false);
     }
 }

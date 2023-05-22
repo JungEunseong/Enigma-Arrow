@@ -41,9 +41,9 @@ public class GameRoom : JobSerializer
             Player spawnPlayer = gameObject as Player;
 
             if (PlayerCount == 0)
-                gameObject.Info.Position = new Vec() { X = 0, Y = 1, Z = -3 };
+                gameObject.Info.Position = new Vec() { X = 0, Y = 1, Z = 0 };
             else
-                gameObject.Info.Position = new Vec() { X = 0, Y = 1, Z = 3 };
+                gameObject.Info.Position = new Vec() { X = 0, Y = 1, Z = -33 };
 
             {
                 _players.Add(spawnPlayer.Id, spawnPlayer);
