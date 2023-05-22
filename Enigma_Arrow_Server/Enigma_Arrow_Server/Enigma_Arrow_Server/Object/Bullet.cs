@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 public class Bullet  : GameObject
 {
     public ClientSession Session { get; set; }
+    
+    
+    public int OwnerId;
     public Bullet()
     {
         _objectType = ObjectType.Bullet;

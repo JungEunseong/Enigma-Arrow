@@ -61,5 +61,12 @@ public class Player : GameObject
         Pos.Z += dir.Z;
 
         Pos.X = Math.Clamp(Pos.X, -40, 20);
-    }   
+
+        OverlapCheck();
+    }
+
+    void OverlapCheck()
+    {
+
+    }
 }

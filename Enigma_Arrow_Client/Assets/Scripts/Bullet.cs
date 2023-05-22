@@ -66,14 +66,17 @@ public class Bullet : NetworkingObject
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if (NetworkManager.Instance.isTestWithoutServer)
         {
-            //본인이 아닌 경우에만 player
-            //함수 호출 
-            Player player = other.gameObject.GetComponent<Player>();
+            if (other.gameObject.CompareTag("Player"))
+            {
+                //본인이 아닌 경우에만 player
+                //함수 호출 
+                Player player = other.gameObject.GetComponent<Player>();
 
-            if(player.Id != OwnerId)
-                player.Hit(_damage);
+                if (player.Id != OwnerId)
+                    player.Hit(_damage);
+            }
         }
     }
 
