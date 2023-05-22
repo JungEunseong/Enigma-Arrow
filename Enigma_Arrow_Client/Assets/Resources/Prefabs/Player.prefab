@@ -808,6 +808,7 @@ MonoBehaviour:
   _speed: 30
   _bulletObj: {fileID: 8829639624369181923, guid: b0c975d04da797647a954c4f29e334e8, type: 3}
   _FireDelayTime: 0.5
+  isTopPlayer: 0
 --- !u!1 &2006415719
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,11 +968,11 @@ MonoBehaviour:
   isMine: 0
   _hp: 0
   movement: {fileID: 0}
+  attack: {fileID: 1949024968}
   destPos: {x: 0, y: 0, z: 0}
   btnCanvas: {fileID: 933912637}
   hpCanvas: {fileID: 686539346}
   attackObj: {fileID: 1949024966}
-  _cinemachineCamera: {fileID: 0}
   _hpBar: {fileID: 1510661754}
 --- !u!114 &2883273735491309164
 MonoBehaviour:

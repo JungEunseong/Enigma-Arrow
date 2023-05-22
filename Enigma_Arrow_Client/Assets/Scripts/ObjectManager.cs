@@ -22,6 +22,7 @@ public class ObjectManager : Singleton<ObjectManager>
             Player player = NO.GetComponent<Player>();
             player.destPos = new Vector3(info.Position.X, info.Position.Y, info.Position.Z);
 
+            if (info.Position.Z == 0) player.IsTopPlayer = true;
             if (isMine)
             {
                 NO.isMine = isMine;

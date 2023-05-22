@@ -19,6 +19,7 @@ public class PlayerAttack : MonoBehaviour
     [Header("Pool")]
     private IObjectPool<Bullet> _pool;
 
+    public bool isTopPlayer;
     private void Awake()
     {
         _pool = new ObjectPool<Bullet>(CreateBullet, OnGetBullet, OnRelaseBullet, OnDestroyBullet, maxSize: 50);
@@ -39,13 +40,24 @@ public class PlayerAttack : MonoBehaviour
     /// </summary>
     private void AttackMove()
     {
-        Vector3 rotVec =
-        new Vector3(transform.rotation.x,
-        Mathf.PingPong(Time.time * _speed, 180) + _startVecY,
-        transform.rotation.z);
+        Vector3 rotVec;
+        if (isTopPlayer)
+        {
+             rotVec =
+                        new Vector3(transform.rotation.x,
+                        Mathf.PingPong(Time.time * _speed, 180) * -1 + _startVecY,
+                        transform.rotation.z);
+        }
+        else
+        {
+            rotVec =
+            new Vector3(transform.rotation.x,
+            Mathf.PingPong(Time.time * _speed, 180) + _startVecY,   
+            transform.rotation.z);
+        }
         transform.rotation = Quaternion.Euler(rotVec);
     }
-
+        
     #region АјАн
 
 

@@ -8,7 +8,9 @@ public class Player : NetworkingObject
 {
     [SerializeField] private int _hp;
     [SerializeField] PlayerMovement movement;
+    [SerializeField] PlayerAttack attack;
 
+    public bool IsTopPlayer { get => attack.isTopPlayer; set => attack.isTopPlayer = value; }
     public Vector3 destPos;
 
     [SerializeField] Canvas btnCanvas;
