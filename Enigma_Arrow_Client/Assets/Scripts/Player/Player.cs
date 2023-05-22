@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -9,6 +10,12 @@ public class Player : NetworkingObject
     [SerializeField] PlayerMovement movement;
 
     public Vector3 destPos;
+
+    [SerializeField] Canvas btnCanvas;
+    [SerializeField] Canvas hpCanvas;
+
+    [SerializeField] GameObject attackObj;
+    [SerializeField] CinemachineVirtualCamera _cinemachineCamera;
     public int HP
     {
         get
@@ -66,5 +73,12 @@ public class Player : NetworkingObject
     {
         destPos = pos;
         transform.position = Vector3.Lerp(transform.position, destPos, (1000 / 60 /movement.Speed)*Time.deltaTime);
+    }
+
+    public void RemotePlayerInit()
+    {
+        btnCanvas.gameObject.SetActive(false);
+        attackObj.SetActive(false);
+        _cinemachineCamera.gameObject.SetActive(false);
     }
 }

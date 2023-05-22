@@ -27,6 +27,10 @@ public class ObjectManager : Singleton<ObjectManager>
                 NO.isMine = isMine;
                 MyPlayer = player;
             }
+            else
+            {
+                player.RemotePlayerInit();
+            }
 
             NO.Id = info.Id;
 

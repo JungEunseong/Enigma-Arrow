@@ -951,7 +951,7 @@ Transform:
   - {fileID: 933912638}
   - {fileID: 686539343}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &72285810
 MonoBehaviour:
@@ -968,6 +968,11 @@ MonoBehaviour:
   isMine: 0
   _hp: 0
   movement: {fileID: 0}
+  destPos: {x: 0, y: 0, z: 0}
+  btnCanvas: {fileID: 933912637}
+  hpCanvas: {fileID: 686539346}
+  attackObj: {fileID: 1949024966}
+  _cinemachineCamera: {fileID: 2883273736879925571}
   _hpBar: {fileID: 1510661754}
 --- !u!114 &2883273735491309164
 MonoBehaviour:

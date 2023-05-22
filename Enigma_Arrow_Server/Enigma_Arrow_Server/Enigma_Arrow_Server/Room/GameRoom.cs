@@ -56,12 +56,14 @@ public class GameRoom : JobSerializer
                 res.Objects.Add(info);
                 
                 spawnPlayer.Session.Send(res);
+
+                info.IsMine = false;
             }
 
             //TODO: 원래 있던 플레이어 소환
             {
                 S_SpawnRes res = new S_SpawnRes();
-
+                
                 foreach (Player player in _players.Values)
                     if(player != spawnPlayer) res.Objects.Add(player.Info);
                 
