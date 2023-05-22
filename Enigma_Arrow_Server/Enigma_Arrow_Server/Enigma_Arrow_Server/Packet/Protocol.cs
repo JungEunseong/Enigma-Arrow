@@ -38,12 +38,12 @@ namespace Google.Protobuf.Protocol {
             "IAEoBRIfCghQb3NpdGlvbhgCIAEoCzINLlByb3RvY29sLlZlYyJrCgtDX0F0",
             "dGFja1JlcRIfCghQb3NpdGlvbhgBIAEoCzINLlByb3RvY29sLlZlYxIfCghS",
             "b3RhdGlvbhgCIAEoCzINLlByb3RvY29sLlZlYxIaCgNEaXIYAyABKAsyDS5Q",
-            "cm90b2NvbC5WZWMqGAoKT2JqZWN0VHlwZRIKCgZQbGF5ZXIQACqYAQoFTXNn",
-            "SWQSEgoOQ19NQVRDSElOR19SRVEQABISCg5TX01BVENISU5HX1JFUxABEhUK",
-            "EUNfU1BBV05QTEFZRVJfUkVREAISDwoLU19TUEFXTl9SRVMQAxINCglTX0RF",
-            "U1BBV04QBBIOCgpDX01PVkVfUkVREAUSDgoKU19NT1ZFX1JFUxAGEhAKDENf",
-            "QVRUQUNLX1JFURAHQhuqAhhHb29nbGUuUHJvdG9idWYuUHJvdG9jb2xiBnBy",
-            "b3RvMw=="));
+            "cm90b2NvbC5WZWMqJAoKT2JqZWN0VHlwZRIKCgZQbGF5ZXIQABIKCgZCdWxs",
+            "ZXQQASqYAQoFTXNnSWQSEgoOQ19NQVRDSElOR19SRVEQABISCg5TX01BVENI",
+            "SU5HX1JFUxABEhUKEUNfU1BBV05QTEFZRVJfUkVREAISDwoLU19TUEFXTl9S",
+            "RVMQAxINCglTX0RFU1BBV04QBBIOCgpDX01PVkVfUkVREAUSDgoKU19NT1ZF",
+            "X1JFUxAGEhAKDENfQVRUQUNLX1JFURAHQhuqAhhHb29nbGUuUHJvdG9idWYu",
+            "UHJvdG9jb2xiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Google.Protobuf.Protocol.ObjectType), typeof(global::Google.Protobuf.Protocol.MsgId), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -65,6 +65,7 @@ namespace Google.Protobuf.Protocol {
   #region Enums
   public enum ObjectType {
     [pbr::OriginalName("Player")] Player = 0,
+    [pbr::OriginalName("Bullet")] Bullet = 1,
   }
 
   public enum MsgId {
