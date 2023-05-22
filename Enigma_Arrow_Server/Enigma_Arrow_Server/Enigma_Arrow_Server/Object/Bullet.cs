@@ -11,6 +11,7 @@ public class Bullet  : GameObject
     public ClientSession Session { get; set; }
     public Bullet()
     {
+        _objectType = ObjectType.Bullet;
         Speed = 70;
     }
 

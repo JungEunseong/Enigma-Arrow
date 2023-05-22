@@ -40,7 +40,14 @@ public class ObjectManager : Singleton<ObjectManager>
             
             return NO.gameObject;
         }
-        
+        else if(info.Type == ObjectType.Bullet)
+        {
+            GameObject obj = Resources.Load<GameObject>("Prefabs/Bullet");
+            NetworkingObject NO = Instantiate(obj, new Vector3(info.Position.X, info.Position.Y, info.Position.Z), Quaternion.identity).GetComponent<NetworkingObject>();
+            NO.Id = info.Id;
+            _objects.Add(NO.Id, NO);
+        }
+
 
         return null;
     }
