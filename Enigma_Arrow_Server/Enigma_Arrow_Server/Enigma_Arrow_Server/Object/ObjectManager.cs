@@ -8,6 +8,7 @@ public class ObjectManager
 
     object _lock = new object();
 
+    Dictionary<int, GameObject> _objects = new Dictionary<int, GameObject>();
     // [UNUSED(1)][TYPE(7)][ID(24)]
     int _counter = 0;
 
@@ -21,5 +22,14 @@ public class ObjectManager
         }
 
         return gameObject;
+    }
+
+    public GameObject FindById(int id)
+    {
+        GameObject obj;
+        if(_objects.TryGetValue(id,out obj))
+            return obj;
+
+        return null;
     }
 }

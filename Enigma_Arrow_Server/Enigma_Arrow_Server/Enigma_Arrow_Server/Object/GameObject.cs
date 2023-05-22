@@ -13,7 +13,7 @@ public abstract class GameObject
         get { return Info.Id; }
         set { Info.Id = value; }
     }
-
+    
     public GameRoom JoinedRoom { get; set; }
 
     public ObjectInfo Info { get; set; } = new ObjectInfo();
@@ -24,9 +24,14 @@ public abstract class GameObject
 
     public float Speed { get { return _speed; } set { _speed = value; }  }
 
+    private float _collisionRadius;
+
+    public float CollisionRadius { get { return _collisionRadius; } }
     public abstract void Update();
     public abstract void MoveUpdate();
     public abstract void Move(Vec dir);
 
     public abstract void Attack();
+
+    public abstract void OnDamage(GameObject attacker);
 }

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public class Bullet  : GameObject
+public class Bullet : GameObject
 {
     public ClientSession Session { get; set; }
     
@@ -65,5 +65,35 @@ public class Bullet  : GameObject
         Pos.Y += dir.Y;
         Pos.Z += dir.Z;
 
+        if(Pos.Z > 90 || Pos.Z < -130)
+        {
+            // TODO: 제거
+        }
+
+        List<GameObject> objects = new List<GameObject>();
+        List<Player> players = JoinedRoom.Players;
+
+        foreach (Player p in players)
+            objects.Add(p);
+
+
+        OverlapCheck(objects);
+    }
+
+    void OverlapCheck(List<GameObject> objects)
+    {
+        foreach (GameObject obj in objects)
+        {
+            float dotDistance = MathF.Sqrt(MathF.Abs(obj.Pos.X - Pos.X) + MathF.Abs(obj.Pos.Y - Pos.Y) + MathF.Abs(obj.Pos.Z - Pos.Z));
+            if (obj.CollisionRadius + CollisionRadius <= dotDistance)
+            {
+                //TODO: 피격
+                obj.OnDamage(this);
+            }
+        }
+    }
+    public override void OnDamage(GameObject attacker)
+    {
+        JoinedRoom.Push(JoinedRoom.LeaveGame, Id);
     }
 }

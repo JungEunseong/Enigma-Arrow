@@ -14,10 +14,16 @@ public class GameRoom : JobSerializer
     public int RoomId { get; set; }
     public ObjectManager _objectManager { get; set; } = new ObjectManager();
 
-    Dictionary<int,ClientSession> _sessions= new Dictionary<int,ClientSession>();
-    Dictionary<int,Player> _players = new Dictionary<int,Player>();
-    Dictionary<int,Bullet> _bullets = new Dictionary<int,Bullet>();
+    Dictionary<int, ClientSession> _sessions = new Dictionary<int, ClientSession>();
+    Dictionary<int, Player> _players = new Dictionary<int, Player>();
+    Dictionary<int, Bullet> _bullets = new Dictionary<int, Bullet>();
 
+    public List<Player> Players{
+        get
+        {
+            return _players.Values.ToList();
+        }
+    }
 
     public int PlayerCount { get { return _players.Count; } }
     /// <summary>
@@ -86,6 +92,16 @@ public class GameRoom : JobSerializer
                 if (player.Id != gameObject.Id) player.Session.Send(res);
         }
 
+    }
+
+    public void LeaveGame(int gameObjectId)
+    {
+        GameObject obj = _objectManager.FindById(gameObjectId);
+
+        if (obj == null) return;
+
+        S_Despawn despawn = new S_Despawn();
+        despawn.ObjectId.Add(obj.Id);
     }
 
     public void HandleMove(ClientSession session,C_MoveReq req)

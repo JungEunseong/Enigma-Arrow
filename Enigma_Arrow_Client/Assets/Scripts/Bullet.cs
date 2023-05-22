@@ -57,7 +57,7 @@ public class Bullet : NetworkingObject
     public void SetManagedPool(IObjectPool<Bullet> pool)
     {
         _managedPool= pool;
-    }
+    }   
 
     public void DestroyBullet()
     {
@@ -79,6 +79,8 @@ public class Bullet : NetworkingObject
             }
         }
     }
+
+    
 
     public override void SyncMove(Vector3 pos)
     {

@@ -120,6 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57b8211f6897bc43bca4784e3b7427c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMine: 0
+  destPos: {x: 0, y: 0, z: 0}
+  OwnerId: 0
   _speed: 50
   _damage: 10
 --- !u!54 &7839930594364672383
@@ -247,7 +250,7 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: 0
+      m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
