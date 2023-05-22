@@ -45,6 +45,14 @@ public class PacketHandler
 
         CSession.JoinedRoom.Push(CSession.JoinedRoom.HandleMove,CSession, req);
     }
+    
+    public static void C_AttackReqHandler(PacketSession session, IMessage packet)
+    {
+        if (session == null) return;
+
+        ClientSession CSession = session as ClientSession;
+    }
+
     /*
     public static void C_MoveReqHandler(PacketSession session, IMessage packet)
     {

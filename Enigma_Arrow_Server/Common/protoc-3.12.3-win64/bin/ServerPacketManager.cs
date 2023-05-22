@@ -28,7 +28,9 @@ class PacketManager
 		_onRecv.Add((ushort)MsgId.CSpawnplayerReq, MakePacket<C_SpawnplayerReq>);
 		_handler.Add((ushort)MsgId.CSpawnplayerReq, PacketHandler.C_SpawnplayerReqHandler);		
 		_onRecv.Add((ushort)MsgId.CMoveReq, MakePacket<C_MoveReq>);
-		_handler.Add((ushort)MsgId.CMoveReq, PacketHandler.C_MoveReqHandler);
+		_handler.Add((ushort)MsgId.CMoveReq, PacketHandler.C_MoveReqHandler);		
+		_onRecv.Add((ushort)MsgId.CAttackReq, MakePacket<C_AttackReq>);
+		_handler.Add((ushort)MsgId.CAttackReq, PacketHandler.C_AttackReqHandler);
 	}
 
 	public void OnRecvPacket(PacketSession session, ArraySegment<byte> buffer)

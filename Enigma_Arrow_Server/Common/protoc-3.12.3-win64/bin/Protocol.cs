@@ -35,12 +35,15 @@ namespace Google.Protobuf.Protocol {
             "CgdPYmplY3RzGAEgAygLMhQuUHJvdG9jb2wuT2JqZWN0SW5mbyIdCglTX0Rl",
             "c3Bhd24SEAoIT2JqZWN0SWQYASADKAUiLAoJQ19Nb3ZlUmVxEh8KCGlucHV0",
             "RGlyGAEgASgLMg0uUHJvdG9jb2wuVmVjIjgKCVNfTW92ZVJlcxIKCgJJZBgB",
-            "IAEoBRIfCghQb3NpdGlvbhgCIAEoCzINLlByb3RvY29sLlZlYyoYCgpPYmpl",
-            "Y3RUeXBlEgoKBlBsYXllchAAKoYBCgVNc2dJZBISCg5DX01BVENISU5HX1JF",
-            "URAAEhIKDlNfTUFUQ0hJTkdfUkVTEAESFQoRQ19TUEFXTlBMQVlFUl9SRVEQ",
-            "AhIPCgtTX1NQQVdOX1JFUxADEg0KCVNfREVTUEFXThAEEg4KCkNfTU9WRV9S",
-            "RVEQBRIOCgpTX01PVkVfUkVTEAZCG6oCGEdvb2dsZS5Qcm90b2J1Zi5Qcm90",
-            "b2NvbGIGcHJvdG8z"));
+            "IAEoBRIfCghQb3NpdGlvbhgCIAEoCzINLlByb3RvY29sLlZlYyJrCgtDX0F0",
+            "dGFja1JlcRIfCghQb3NpdGlvbhgBIAEoCzINLlByb3RvY29sLlZlYxIfCghS",
+            "b3RhdGlvbhgCIAEoCzINLlByb3RvY29sLlZlYxIaCgNEaXIYAyABKAsyDS5Q",
+            "cm90b2NvbC5WZWMqGAoKT2JqZWN0VHlwZRIKCgZQbGF5ZXIQACqYAQoFTXNn",
+            "SWQSEgoOQ19NQVRDSElOR19SRVEQABISCg5TX01BVENISU5HX1JFUxABEhUK",
+            "EUNfU1BBV05QTEFZRVJfUkVREAISDwoLU19TUEFXTl9SRVMQAxINCglTX0RF",
+            "U1BBV04QBBIOCgpDX01PVkVfUkVREAUSDgoKU19NT1ZFX1JFUxAGEhAKDENf",
+            "QVRUQUNLX1JFURAHQhuqAhhHb29nbGUuUHJvdG9idWYuUHJvdG9jb2xiBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Google.Protobuf.Protocol.ObjectType), typeof(global::Google.Protobuf.Protocol.MsgId), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -52,7 +55,8 @@ namespace Google.Protobuf.Protocol {
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.S_SpawnRes), global::Google.Protobuf.Protocol.S_SpawnRes.Parser, new[]{ "Objects" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.S_Despawn), global::Google.Protobuf.Protocol.S_Despawn.Parser, new[]{ "ObjectId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.C_MoveReq), global::Google.Protobuf.Protocol.C_MoveReq.Parser, new[]{ "InputDir" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.S_MoveRes), global::Google.Protobuf.Protocol.S_MoveRes.Parser, new[]{ "Id", "Position" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.S_MoveRes), global::Google.Protobuf.Protocol.S_MoveRes.Parser, new[]{ "Id", "Position" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.C_AttackReq), global::Google.Protobuf.Protocol.C_AttackReq.Parser, new[]{ "Position", "Rotation", "Dir" }, null, null, null, null)
           }));
     }
     #endregion
@@ -71,6 +75,7 @@ namespace Google.Protobuf.Protocol {
     [pbr::OriginalName("S_DESPAWN")] SDespawn = 4,
     [pbr::OriginalName("C_MOVE_REQ")] CMoveReq = 5,
     [pbr::OriginalName("S_MOVE_RES")] SMoveRes = 6,
+    [pbr::OriginalName("C_ATTACK_REQ")] CAttackReq = 7,
   }
 
   #endregion
@@ -1412,6 +1417,209 @@ namespace Google.Protobuf.Protocol {
               Position = new global::Google.Protobuf.Protocol.Vec();
             }
             input.ReadMessage(Position);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class C_AttackReq : pb::IMessage<C_AttackReq> {
+    private static readonly pb::MessageParser<C_AttackReq> _parser = new pb::MessageParser<C_AttackReq>(() => new C_AttackReq());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<C_AttackReq> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Google.Protobuf.Protocol.ProtocolReflection.Descriptor.MessageTypes[9]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public C_AttackReq() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public C_AttackReq(C_AttackReq other) : this() {
+      position_ = other.position_ != null ? other.position_.Clone() : null;
+      rotation_ = other.rotation_ != null ? other.rotation_.Clone() : null;
+      dir_ = other.dir_ != null ? other.dir_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public C_AttackReq Clone() {
+      return new C_AttackReq(this);
+    }
+
+    /// <summary>Field number for the "Position" field.</summary>
+    public const int PositionFieldNumber = 1;
+    private global::Google.Protobuf.Protocol.Vec position_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Google.Protobuf.Protocol.Vec Position {
+      get { return position_; }
+      set {
+        position_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Rotation" field.</summary>
+    public const int RotationFieldNumber = 2;
+    private global::Google.Protobuf.Protocol.Vec rotation_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Google.Protobuf.Protocol.Vec Rotation {
+      get { return rotation_; }
+      set {
+        rotation_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Dir" field.</summary>
+    public const int DirFieldNumber = 3;
+    private global::Google.Protobuf.Protocol.Vec dir_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Google.Protobuf.Protocol.Vec Dir {
+      get { return dir_; }
+      set {
+        dir_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as C_AttackReq);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(C_AttackReq other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Position, other.Position)) return false;
+      if (!object.Equals(Rotation, other.Rotation)) return false;
+      if (!object.Equals(Dir, other.Dir)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (position_ != null) hash ^= Position.GetHashCode();
+      if (rotation_ != null) hash ^= Rotation.GetHashCode();
+      if (dir_ != null) hash ^= Dir.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (position_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Position);
+      }
+      if (rotation_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Rotation);
+      }
+      if (dir_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Dir);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (position_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Position);
+      }
+      if (rotation_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Rotation);
+      }
+      if (dir_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Dir);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(C_AttackReq other) {
+      if (other == null) {
+        return;
+      }
+      if (other.position_ != null) {
+        if (position_ == null) {
+          Position = new global::Google.Protobuf.Protocol.Vec();
+        }
+        Position.MergeFrom(other.Position);
+      }
+      if (other.rotation_ != null) {
+        if (rotation_ == null) {
+          Rotation = new global::Google.Protobuf.Protocol.Vec();
+        }
+        Rotation.MergeFrom(other.Rotation);
+      }
+      if (other.dir_ != null) {
+        if (dir_ == null) {
+          Dir = new global::Google.Protobuf.Protocol.Vec();
+        }
+        Dir.MergeFrom(other.Dir);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (position_ == null) {
+              Position = new global::Google.Protobuf.Protocol.Vec();
+            }
+            input.ReadMessage(Position);
+            break;
+          }
+          case 18: {
+            if (rotation_ == null) {
+              Rotation = new global::Google.Protobuf.Protocol.Vec();
+            }
+            input.ReadMessage(Rotation);
+            break;
+          }
+          case 26: {
+            if (dir_ == null) {
+              Dir = new global::Google.Protobuf.Protocol.Vec();
+            }
+            input.ReadMessage(Dir);
             break;
           }
         }

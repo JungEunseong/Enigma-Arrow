@@ -34,6 +34,7 @@ enum MsgId{
 	S_DESPAWN = 4;
 	C_MOVE_REQ = 5;
 	S_MOVE_RES = 6;
+	C_ATTACK_REQ = 7;
 }
 
 
@@ -63,4 +64,10 @@ message C_MoveReq{
 message S_MoveRes{
 	int32 Id = 1;
 	Vec Position = 2;
+}
+
+message C_AttackReq{
+	Vec Position = 1;
+	Vec Rotation = 2;
+	Vec Dir = 3;
 }
