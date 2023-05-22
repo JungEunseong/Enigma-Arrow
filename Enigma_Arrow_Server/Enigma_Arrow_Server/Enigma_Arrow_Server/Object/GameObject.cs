@@ -22,7 +22,7 @@ public abstract class GameObject
 
     private float _speed = 10;
 
-    public float Speed { get { return _speed; }  }
+    public float Speed { get { return _speed; } set { _speed = value; }  }
 
     public abstract void Update();
     public abstract void MoveUpdate();

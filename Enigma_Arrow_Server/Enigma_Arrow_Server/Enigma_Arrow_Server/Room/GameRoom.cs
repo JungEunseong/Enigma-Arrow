@@ -16,6 +16,7 @@ public class GameRoom : JobSerializer
 
     Dictionary<int,ClientSession> _sessions= new Dictionary<int,ClientSession>();
     Dictionary<int,Player> _players = new Dictionary<int,Player>();
+    Dictionary<int,Bullet> _bullets = new Dictionary<int,Bullet>();
 
 
     public int PlayerCount { get { return _players.Count; } }
@@ -87,6 +88,17 @@ public class GameRoom : JobSerializer
         session.MyPlayer._moveDir = req.InputDir;
     }
 
+    public void HandleAttack(ClientSession session,C_AttackReq req)
+    {
+        Bullet bullet = _objectManager.Add<Bullet>();
+        bullet.Info.Position = req.Position;
+        bullet.Info.Rotate = req.Rotation;
+        bullet._moveDir = req.Dir;
+
+        EnterGame(bullet);
+
+    }
+
     public void ExitGame(ClientSession session)
     {
         _sessions.Remove(session.SessionId);
@@ -102,6 +114,8 @@ public class GameRoom : JobSerializer
     {
         foreach (Player player in _players.Values)
             player.Update();
+        foreach (Bullet bullet in _bullets.Values) 
+            bullet.Update();
 
         Flush();
     }
