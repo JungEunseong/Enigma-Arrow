@@ -6,6 +6,7 @@ public class NetworkingObject : MonoBehaviour
 {
     public int Id { get; set; }
     public bool isMine;
+    public Vector3 destPos;
     void Start()
     {
         

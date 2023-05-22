@@ -11,7 +11,6 @@ public class Player : NetworkingObject
     [SerializeField] PlayerAttack attack;
 
     public bool IsTopPlayer { get => attack.isTopPlayer; set => attack.isTopPlayer = value; }
-    public Vector3 destPos;
 
     [SerializeField] Canvas btnCanvas;
     [SerializeField] Canvas hpCanvas;
@@ -43,6 +42,7 @@ public class Player : NetworkingObject
         movement = GetComponent<PlayerMovement>();
         HP = MaxHP;
         _hpBar.SetMaxHP(MaxHP);
+        hpCanvas.worldCamera = Camera.main;
     }
 
     private void Update()

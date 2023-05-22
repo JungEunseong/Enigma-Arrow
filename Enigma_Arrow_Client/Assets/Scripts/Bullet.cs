@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Pool;  
 
-public class Bullet : MonoBehaviour
+public class Bullet : NetworkingObject
 {
     public int OwnerId;
     Rigidbody rigid;
@@ -26,6 +26,11 @@ public class Bullet : MonoBehaviour
     }
     private void OnEnable()
     {
+    }
+
+    private void Update()
+    {
+        SyncMove(destPos);
     }
 
     public void InitBullet(Transform trans, Quaternion ro)
@@ -70,5 +75,11 @@ public class Bullet : MonoBehaviour
             if(player.Id != OwnerId)
                 player.Hit(_damage);
         }
+    }
+
+    public override void SyncMove(Vector3 pos)
+    {
+        destPos = pos;
+        transform.position = Vector3.Lerp(transform.position, destPos, (1000 / 60 / _speed) * Time.deltaTime);
     }
 }

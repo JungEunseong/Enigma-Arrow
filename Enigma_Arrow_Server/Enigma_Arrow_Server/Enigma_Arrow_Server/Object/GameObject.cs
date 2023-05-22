@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 public abstract class GameObject
 {
-    public ObjectType _objectType { get; protected set; }
+    public ObjectType _objectType { get { return Info.Type; } protected set { Info.Type = value; } }
     public int Id
     {
         get { return Info.Id; }

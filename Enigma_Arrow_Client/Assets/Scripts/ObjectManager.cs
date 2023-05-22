@@ -14,6 +14,7 @@ public class ObjectManager : Singleton<ObjectManager>
 
     public GameObject Add(ObjectInfo info, bool isMine = false)
     {
+        
         if (info.Type == ObjectType.Player)
         {
             GameObject obj = Resources.Load<GameObject>("Prefabs/Player");
@@ -45,6 +46,7 @@ public class ObjectManager : Singleton<ObjectManager>
             GameObject obj = Resources.Load<GameObject>("Prefabs/Bullet");
             NetworkingObject NO = Instantiate(obj, new Vector3(info.Position.X, info.Position.Y, info.Position.Z), Quaternion.identity).GetComponent<NetworkingObject>();
             NO.Id = info.Id;
+            NO.destPos = new Vector3(info.Position.X, info.Position.Y, info.Position.Z);
             _objects.Add(NO.Id, NO);
         }
 
@@ -52,39 +54,6 @@ public class ObjectManager : Singleton<ObjectManager>
         return null;
     }
 
-    public GameObject Spawn(ObjectInfo info, bool isMine = false)
-    {
-        if (info.Type == ObjectType.Player)
-        {
-           /* GameObject obj = Resources.Load<GameObject>("Player");
-            NetworkingObject NO = Instantiate(obj,new Vector3(info.Position.X,info.Position.Y,info.Position.Z),Quaternion.identity).GetComponent<NetworkingObject>();
-            NO.isMine = isMine;
-
-            NO.Id = info.Id;
-
-            _objects.Add(NO.Id, NO);
-            
-            if(isMine)
-                MyPlayer = NO as Player;
-
-            return NO.gameObject;*/
-        }
-       /* else if (info.Type == ObjectType.Arrow)
-        {
-            GameObject obj = Resources.Load<GameObject>("Arrow");
-            NetworkingObject NO = Instantiate(obj, new Vector3(info.Position.X, info.Position.Y, info.Position.Z), Quaternion.identity).GetComponent<NetworkingObject>();
-            NO.isMine = isMine;
-
-            NO.Id = info.Id;
-
-            _objects.Add(NO.Id, NO);
-
-            return NO.gameObject;
-        }*/
-
-        return null;
-
-    }
 
     public NetworkingObject FindById(int id)
     {

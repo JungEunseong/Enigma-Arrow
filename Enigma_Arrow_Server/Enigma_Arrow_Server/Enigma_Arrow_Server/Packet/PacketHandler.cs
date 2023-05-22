@@ -51,6 +51,10 @@ public class PacketHandler
         if (session == null) return;
 
         ClientSession CSession = session as ClientSession;
+        C_AttackReq req = packet as C_AttackReq;
+        GameRoom room = CSession.JoinedRoom;
+
+        room.Push(room.HandleAttack,CSession, req);
     }
 
     /*

@@ -71,6 +71,11 @@ public class GameRoom : JobSerializer
                 spawnPlayer.Session.Send(res);
             }
         }
+        else if(gameObject.Info.Type == ObjectType.Bullet)
+        {
+            _bullets.Add(gameObject.Id, gameObject as Bullet);
+            gameObject.JoinedRoom = this;
+        }
 
         //TODO: 원래 있던 플레이어에게 플레이어 소환
         {
@@ -93,8 +98,8 @@ public class GameRoom : JobSerializer
         Bullet bullet = _objectManager.Add<Bullet>();
         bullet.Info.Position = req.Position;
         bullet.Info.Rotate = req.Rotation;
+        bullet.Info.Type = ObjectType.Bullet;
         bullet._moveDir = req.Dir;
-
         EnterGame(bullet);
 
     }

@@ -116,7 +116,11 @@ public class PlayerAttack : MonoBehaviour
             C_AttackReq req = new C_AttackReq();
             req.Position = new Vec() { X = transform.position.x, Y = transform.position.y, Z = transform.position.z };
             req.Rotation = new Vec() { X = transform.rotation.x, Y = transform.rotation.y, Z = transform.rotation.z };
-            req.Dir = new Vec() { X = 0, Y = 0, Z = 1 };
+            Vector3 dir = transform.forward.normalized;
+            
+            req.Dir = new Vec() { X = dir.x, Y = dir.y, Z = dir.z };
+
+            NetworkManager.Instance.Send(req);
         }
     }
 
