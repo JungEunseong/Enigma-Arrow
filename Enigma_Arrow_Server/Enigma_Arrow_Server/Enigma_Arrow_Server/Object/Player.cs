@@ -59,5 +59,7 @@ public class Player : GameObject
         Pos.X += dir.X;
         Pos.Y += dir.Y;
         Pos.Z += dir.Z;
+
+        Math.Clamp(Pos.X, -40, 20);
     }   
 }
