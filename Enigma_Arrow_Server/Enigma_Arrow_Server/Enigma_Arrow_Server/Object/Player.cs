@@ -27,7 +27,6 @@ public class Player : GameObject
     {
         MoveUpdate();
     }
-
     public override void MoveUpdate()
     {
         if (_nextMoveTick > Environment.TickCount64)

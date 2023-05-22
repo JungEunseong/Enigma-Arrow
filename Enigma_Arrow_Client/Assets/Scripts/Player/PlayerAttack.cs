@@ -1,3 +1,4 @@
+using Google.Protobuf.Protocol;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -104,11 +105,19 @@ public class PlayerAttack : MonoBehaviour
 
         //Instantiate(_bulletObj,transform.position , transform.rotation);
 
-        Bullet bullet = _pool.Get().GetComponent<Bullet>();
-        bullet.InitBullet(transform, transform.rotation);
-
-        bullet.OwnerId = ObjectManager.Instance.MyPlayer.Id;
-
+        if (NetworkManager.Instance.isTestWithoutServer)
+        {
+            Bullet bullet = _pool.Get().GetComponent<Bullet>();
+            bullet.InitBullet(transform, transform.rotation);
+            bullet.OwnerId = ObjectManager.Instance.MyPlayer.Id;
+        }
+        else
+        {
+            C_AttackReq req = new C_AttackReq();
+            req.Position = new Vec() { X = transform.position.x, Y = transform.position.y, Z = transform.position.z };
+            req.Rotation = new Vec() { X = transform.rotation.x, Y = transform.rotation.y, Z = transform.rotation.z };
+            req.Dir = new Vec() { X = 0, Y = 0, Z = 1 };
+        }
     }
 
     #endregion
