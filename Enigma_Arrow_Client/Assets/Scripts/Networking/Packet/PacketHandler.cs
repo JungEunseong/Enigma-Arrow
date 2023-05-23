@@ -38,6 +38,13 @@ public class PacketHandler
         if (session == null) return;
 
         ServerSession Ssession = session as ServerSession;
+        S_Despawn despawn = packet as S_Despawn;
+        foreach (int id in despawn.ObjectId)
+        {
+            NetworkingObject obj = ObjectManager.Instance.FindById(id);
+            UnityEngine.Object.Destroy(obj.gameObject);
+        }
+
     }
     public static void S_MoveResHandler(PacketSession session, IMessage packet)
     {
