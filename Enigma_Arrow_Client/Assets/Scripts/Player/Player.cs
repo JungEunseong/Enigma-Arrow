@@ -50,6 +50,8 @@ public class Player : NetworkingObject
 
     private void Update()
     {
+        if (GameManager.Instance.isGameEnd) return;
+
         _hpBar.SetHP(HP);
         if (isMine)
             movement.Move();

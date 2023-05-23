@@ -19,5 +19,8 @@ public class OutComeUI : Singleton<OutComeUI>
     {
         GameObject panel = win == true ? outcomePanels[0] : outcomePanels[1];
         panel.SetActive(true);
+        outcomePanels[2].SetActive(true);
+
+        GameManager.Instance.isGameEnd = true;
     }
 }

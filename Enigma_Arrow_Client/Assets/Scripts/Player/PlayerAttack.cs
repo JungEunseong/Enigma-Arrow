@@ -9,7 +9,7 @@ using UnityEngine.Pool;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] float _speed = 30;
+    [SerializeField] float _speed = 60;
     private float _startVecY;       // 공격 시작 위치
 
     [Header("Fire")]

@@ -72,8 +72,9 @@ public class PacketHandler
         if (session == null) return;
 
         ServerSession Ssession = session as ServerSession;
-        S_SetOutcome setHp = packet as S_SetOutcome;
+        S_SetOutcome setOutcome = packet as S_SetOutcome;
 
+        OutComeUI.Instance.ShowOutcomePanel(setOutcome.IsWin);
     }
 
 }

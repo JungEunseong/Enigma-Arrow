@@ -17,7 +17,7 @@ public class Player : GameObject
         _collisionRadius = 0.5f;
     }
 
-    int _hp = 100;
+    int _hp = 10;
 
     public Vec _moveDir = new Vec() { X = 0, Y = 0, Z = 0 };
 
@@ -72,9 +72,7 @@ public class Player : GameObject
         Pos.Z += dir.Z;
 
         Pos.X = Math.Clamp(Pos.X, -40, 20);
-
-
-    }
+    } 
 
    
 
@@ -94,8 +92,6 @@ public class Player : GameObject
 
     public override void OnDead()
     {
-        JoinedRoom.Push(JoinedRoom.LeaveGame, Id);
-
         // TODO: 승/패 UI 띄우기
         S_SetOutcome outcome = new S_SetOutcome();
         outcome.IsWin = false;

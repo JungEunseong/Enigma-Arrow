@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+
+    public bool isGameEnd;
     void Start()
     {
         C_SpawnplayerReq req = new C_SpawnplayerReq();
