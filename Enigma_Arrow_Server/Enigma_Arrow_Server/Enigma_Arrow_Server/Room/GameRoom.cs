@@ -102,6 +102,15 @@ public class GameRoom : JobSerializer
 
         S_Despawn despawn = new S_Despawn();
         despawn.ObjectId.Add(obj.Id);
+
+        Broadcast(despawn);
+
+        if (obj._objectType == ObjectType.Player)
+            _players.Remove(gameObjectId);
+        else if(obj._objectType == ObjectType.Bullet)
+            _bullets.Remove(gameObjectId);
+
+        
     }
 
     public void HandleMove(ClientSession session,C_MoveReq req)
@@ -121,7 +130,7 @@ public class GameRoom : JobSerializer
 
     }
 
-    public void ExitGame(ClientSession session)
+    public void ExitRoom(ClientSession session)
     {
         _sessions.Remove(session.SessionId);
     }
