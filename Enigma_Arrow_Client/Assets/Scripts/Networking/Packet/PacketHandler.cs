@@ -61,6 +61,10 @@ public class PacketHandler
         if (session == null) return;
 
         ServerSession Ssession = session as ServerSession;
-        S_SetHp res = packet as S_SetHp;
+        S_SetHp setHp = packet as S_SetHp;
+
+        Player obj = ObjectManager.Instance.FindById(setHp.Id).GetComponent<Player>();
+        obj.HP = setHp.Hp;
+        
     }
 }

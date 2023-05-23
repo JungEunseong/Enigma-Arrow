@@ -26,9 +26,12 @@ public class Player : NetworkingObject
         {
             _hp= value;
 
-            if(_hp <= 0)
+            if (NetworkManager.Instance.isTestWithoutServer)
             {
-                GameOver();
+                if (_hp <= 0)
+                {
+                    GameOver();
+                }
             }
         }
     }
