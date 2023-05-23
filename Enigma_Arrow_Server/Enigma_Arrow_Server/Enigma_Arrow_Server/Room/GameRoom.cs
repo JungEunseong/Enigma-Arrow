@@ -120,13 +120,7 @@ public class GameRoom : JobSerializer
 
     public void HandleAttack(ClientSession session,C_AttackReq req)
     {
-        Bullet bullet = _objectManager.Add<Bullet>();
-        bullet.OwnerId = session.MyPlayer.Id;
-        bullet.Info.Position = req.Position;
-        bullet.Info.Rotate = req.Rotation;
-        bullet.Info.Type = ObjectType.Bullet;
-        bullet._moveDir = req.Dir;
-        EnterGame(bullet);
+        session.MyPlayer.Attack(req);
 
     }
 

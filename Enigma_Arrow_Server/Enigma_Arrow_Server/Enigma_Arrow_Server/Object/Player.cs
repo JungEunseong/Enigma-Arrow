@@ -1,8 +1,10 @@
 ﻿using Google.Protobuf.Protocol;
 using Server;
+using ServerCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,13 +14,22 @@ public class Player : GameObject
     public Player()
     {
         _objectType = ObjectType.Player;
+        _collisionRadius = 0.5f;
     }
+
+    int _hp = 100;
 
     public Vec _moveDir = new Vec() { X = 0, Y = 0, Z = 0 };
 
-    public override void Attack()
+    public override void Attack(C_AttackReq req)
     {
-
+        Bullet bullet = JoinedRoom._objectManager.Add<Bullet>();
+        bullet.OwnerId = Id;
+        bullet.Info.Position = req.Position;
+        bullet.Info.Rotate = req.Rotation;
+        bullet.Info.Type = ObjectType.Bullet;
+        bullet._moveDir = req.Dir;
+        JoinedRoom.Push(JoinedRoom.EnterGame,bullet);
     }
 
     long _nextMoveTick = 0;
@@ -67,7 +78,18 @@ public class Player : GameObject
 
    
 
-    public override void OnDamage(GameObject attacker)
+    public override void OnDamage(int damage, GameObject attacker)
     {
+        _hp -= damage;
+
+        if (_hp <= 0)
+            OnDead();
+    }
+
+    public override void OnDead()
+    {
+        JoinedRoom.Push(JoinedRoom.LeaveGame, Id);
+
+        // TODO: 승/패 UI 띄우기
     }
 }

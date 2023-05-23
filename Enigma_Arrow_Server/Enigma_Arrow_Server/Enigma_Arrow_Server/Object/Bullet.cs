@@ -12,18 +12,15 @@ public class Bullet : GameObject
     
     
     public int OwnerId;
+    int damage = 10;
     public Bullet()
     {
         _objectType = ObjectType.Bullet;
-        Speed = 70;
+        Speed = 50;
+        _collisionRadius = 0.5f;
     }
 
     public Vec _moveDir = new Vec() { X = 0, Y = 0, Z = 0 };
-
-    public override void Attack()
-    {
-
-    }
 
     long _nextMoveTick = 0;
 
@@ -68,6 +65,7 @@ public class Bullet : GameObject
         if(Pos.Z > 90 || Pos.Z < -130)
         {
             // TODO: 제거
+            JoinedRoom.Push(JoinedRoom.LeaveGame, Id);
         }
 
         List<GameObject> objects = new List<GameObject>();
@@ -88,11 +86,18 @@ public class Bullet : GameObject
             if (obj.CollisionRadius + CollisionRadius <= dotDistance)
             {
                 //TODO: 피격
-                obj.OnDamage(this);
+                obj.OnDamage(damage,this);
+                OnDamage(damage,this);
+                break;
             }
         }
     }
-    public override void OnDamage(GameObject attacker)
+    public override void OnDamage(int damage, GameObject attacker)
+    {
+        OnDead();
+    }
+
+    public override void OnDead()
     {
         JoinedRoom.Push(JoinedRoom.LeaveGame, Id);
     }

@@ -24,14 +24,15 @@ public abstract class GameObject
 
     public float Speed { get { return _speed; } set { _speed = value; }  }
 
-    private float _collisionRadius;
+    protected float _collisionRadius;
 
     public float CollisionRadius { get { return _collisionRadius; } }
     public abstract void Update();
     public abstract void MoveUpdate();
     public abstract void Move(Vec dir);
 
-    public abstract void Attack();
 
-    public abstract void OnDamage(GameObject attacker);
+    public abstract void OnDamage(int damage, GameObject attacker);
+
+    public abstract void OnDead();
 }
