@@ -19,6 +19,7 @@ public class ObjectManager
         lock (_lock)
         {
             gameObject.Id = _counter++;
+            _objects.Add(gameObject.Id, gameObject);
         }
 
         return gameObject;

@@ -85,6 +85,6 @@ public class Bullet : NetworkingObject
     public override void SyncMove(Vector3 pos)
     {
         destPos = pos;
-        transform.position = Vector3.Lerp(transform.position, destPos, (1000 / 60 / _speed) * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, destPos, _speed * Time.deltaTime);
     }
 }

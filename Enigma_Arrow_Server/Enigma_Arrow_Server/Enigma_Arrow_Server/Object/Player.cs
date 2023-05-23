@@ -21,7 +21,7 @@ public class Player : GameObject
 
     public Vec _moveDir = new Vec() { X = 0, Y = 0, Z = 0 };
 
-    public override void Attack(C_AttackReq req)
+    public void Attack(C_AttackReq req)
     {
         Bullet bullet = JoinedRoom._objectManager.Add<Bullet>();
         bullet.OwnerId = Id;

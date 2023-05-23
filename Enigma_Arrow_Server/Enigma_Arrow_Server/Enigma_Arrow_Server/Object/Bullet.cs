@@ -83,12 +83,15 @@ public class Bullet : GameObject
         foreach (GameObject obj in objects)
         {
             float dotDistance = MathF.Sqrt(MathF.Abs(obj.Pos.X - Pos.X) + MathF.Abs(obj.Pos.Y - Pos.Y) + MathF.Abs(obj.Pos.Z - Pos.Z));
-            if (obj.CollisionRadius + CollisionRadius <= dotDistance)
+            if (obj.CollisionRadius + CollisionRadius >= dotDistance)
             {
                 //TODO: 피격
-                obj.OnDamage(damage,this);
-                OnDamage(damage,this);
-                break;
+                if (OwnerId != obj.Id)
+                {
+                    obj.OnDamage(damage, this);
+                    OnDamage(damage, this);
+                    break;
+                }
             }
         }
     }

@@ -41,8 +41,9 @@ public class GameRoom : JobSerializer
     /// </summary>
     public void EnterGame(GameObject gameObject)
     {
-        
-        
+        gameObject.JoinedRoom = this;
+
+
         //TODO: 플레이어 소환
         if (gameObject.Info.Type == ObjectType.Player) {
             Player spawnPlayer = gameObject as Player;

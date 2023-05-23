@@ -76,7 +76,7 @@ public class Player : NetworkingObject
     public override void SyncMove(Vector3 pos)
     {
         destPos = pos;
-        transform.position = Vector3.Lerp(transform.position, destPos, (1000 / 60 /movement.Speed)*Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, destPos, (movement.Speed)*Time.deltaTime);
     }
 
     public void RemotePlayerInit()
