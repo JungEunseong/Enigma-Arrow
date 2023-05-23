@@ -82,6 +82,12 @@ public class Player : GameObject
     {
         _hp -= damage;
 
+        S_SetHp setHp = new S_SetHp();
+        setHp.Id = Id;
+        setHp.Hp = _hp;
+
+        JoinedRoom.Push(JoinedRoom.Broadcast,setHp);
+
         if (_hp <= 0)
             OnDead();
     }
