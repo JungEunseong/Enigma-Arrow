@@ -56,4 +56,11 @@ public class PacketHandler
 
         obj.SyncMove(new Vector3(res.Position.X,res.Position.Y,res.Position.Z));
     }
+    public static void S_SetHpHandler(PacketSession session, IMessage packet)
+    {
+        if (session == null) return;
+
+        ServerSession Ssession = session as ServerSession;
+        S_SetHp res = packet as S_SetHp;
+    }
 }
