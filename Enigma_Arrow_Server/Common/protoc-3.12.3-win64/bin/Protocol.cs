@@ -39,13 +39,14 @@ namespace Google.Protobuf.Protocol {
             "dGFja1JlcRIfCghQb3NpdGlvbhgBIAEoCzINLlByb3RvY29sLlZlYxIfCghS",
             "b3RhdGlvbhgCIAEoCzINLlByb3RvY29sLlZlYxIaCgNEaXIYAyABKAsyDS5Q",
             "cm90b2NvbC5WZWMiIQoHU19TZXRIcBIKCgJJZBgBIAEoBRIKCgJIcBgCIAEo",
-            "BSIdCgxTX1NldE91dGNvbWUSDQoFaXNXaW4YASABKAgqJAoKT2JqZWN0VHlw",
-            "ZRIKCgZQbGF5ZXIQABIKCgZCdWxsZXQQASq5AQoFTXNnSWQSEgoOQ19NQVRD",
-            "SElOR19SRVEQABISCg5TX01BVENISU5HX1JFUxABEhUKEUNfU1BBV05QTEFZ",
-            "RVJfUkVREAISDwoLU19TUEFXTl9SRVMQAxINCglTX0RFU1BBV04QBBIOCgpD",
-            "X01PVkVfUkVREAUSDgoKU19NT1ZFX1JFUxAGEhAKDENfQVRUQUNLX1JFURAH",
-            "EgwKCFNfU0VUX0hQEAgSEQoNU19TRVRfT1VUQ09NRRAJQhuqAhhHb29nbGUu",
-            "UHJvdG9idWYuUHJvdG9jb2xiBnByb3RvMw=="));
+            "BSIdCgxTX1NldE91dGNvbWUSDQoFaXNXaW4YASABKAgiDQoLQ19MZWF2ZVJv",
+            "b20qJAoKT2JqZWN0VHlwZRIKCgZQbGF5ZXIQABIKCgZCdWxsZXQQASrLAQoF",
+            "TXNnSWQSEgoOQ19NQVRDSElOR19SRVEQABISCg5TX01BVENISU5HX1JFUxAB",
+            "EhUKEUNfU1BBV05QTEFZRVJfUkVREAISDwoLU19TUEFXTl9SRVMQAxINCglT",
+            "X0RFU1BBV04QBBIOCgpDX01PVkVfUkVREAUSDgoKU19NT1ZFX1JFUxAGEhAK",
+            "DENfQVRUQUNLX1JFURAHEgwKCFNfU0VUX0hQEAgSEQoNU19TRVRfT1VUQ09N",
+            "RRAJEhAKDENfTEVBVkVfUk9PTRAKQhuqAhhHb29nbGUuUHJvdG9idWYuUHJv",
+            "dG9jb2xiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Google.Protobuf.Protocol.ObjectType), typeof(global::Google.Protobuf.Protocol.MsgId), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -60,7 +61,8 @@ namespace Google.Protobuf.Protocol {
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.S_MoveRes), global::Google.Protobuf.Protocol.S_MoveRes.Parser, new[]{ "Id", "Position" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.C_AttackReq), global::Google.Protobuf.Protocol.C_AttackReq.Parser, new[]{ "Position", "Rotation", "Dir" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.S_SetHp), global::Google.Protobuf.Protocol.S_SetHp.Parser, new[]{ "Id", "Hp" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.S_SetOutcome), global::Google.Protobuf.Protocol.S_SetOutcome.Parser, new[]{ "IsWin" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.S_SetOutcome), global::Google.Protobuf.Protocol.S_SetOutcome.Parser, new[]{ "IsWin" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.C_LeaveRoom), global::Google.Protobuf.Protocol.C_LeaveRoom.Parser, null, null, null, null, null)
           }));
     }
     #endregion
@@ -83,6 +85,7 @@ namespace Google.Protobuf.Protocol {
     [pbr::OriginalName("C_ATTACK_REQ")] CAttackReq = 7,
     [pbr::OriginalName("S_SET_HP")] SSetHp = 8,
     [pbr::OriginalName("S_SET_OUTCOME")] SSetOutcome = 9,
+    [pbr::OriginalName("C_LEAVE_ROOM")] CLeaveRoom = 10,
   }
 
   #endregion
@@ -1915,6 +1918,107 @@ namespace Google.Protobuf.Protocol {
             IsWin = input.ReadBool();
             break;
           }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class C_LeaveRoom : pb::IMessage<C_LeaveRoom> {
+    private static readonly pb::MessageParser<C_LeaveRoom> _parser = new pb::MessageParser<C_LeaveRoom>(() => new C_LeaveRoom());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<C_LeaveRoom> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Google.Protobuf.Protocol.ProtocolReflection.Descriptor.MessageTypes[12]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public C_LeaveRoom() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public C_LeaveRoom(C_LeaveRoom other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public C_LeaveRoom Clone() {
+      return new C_LeaveRoom(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as C_LeaveRoom);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(C_LeaveRoom other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(C_LeaveRoom other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
         }
       }
     }

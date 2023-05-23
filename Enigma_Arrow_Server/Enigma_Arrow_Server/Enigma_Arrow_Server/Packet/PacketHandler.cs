@@ -57,6 +57,14 @@ public class PacketHandler
         room.Push(room.HandleAttack,CSession, req);
     }
 
+    
+    public static void C_LeaveRoomHandler(PacketSession session, IMessage packet)
+    {
+        if (session == null) return;
+
+        ClientSession CSession = session as ClientSession;
+    }
+
     /*
     public static void C_MoveReqHandler(PacketSession session, IMessage packet)
     {

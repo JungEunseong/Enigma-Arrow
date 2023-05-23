@@ -38,6 +38,7 @@ enum MsgId{
 	C_ATTACK_REQ = 7;
 	S_SET_HP = 8;
 	S_SET_OUTCOME = 9;
+	C_LEAVE_ROOM = 10;
 }
 
 
@@ -82,4 +83,7 @@ message S_SetHp{
 
 message S_SetOutcome{
 	bool isWin = 1;
+}
+
+message C_LeaveRoom{
 }
