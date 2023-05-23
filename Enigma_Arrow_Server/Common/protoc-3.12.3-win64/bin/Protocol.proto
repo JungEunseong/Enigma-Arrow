@@ -37,6 +37,7 @@ enum MsgId{
 	S_MOVE_RES = 6;
 	C_ATTACK_REQ = 7;
 	S_SET_HP = 8;
+	S_SET_OUTCOME = 9;
 }
 
 
@@ -79,3 +80,6 @@ message S_SetHp{
 	int32 Hp = 2;
 }
 
+message S_SetOutcome{
+	bool isWin = 1;
+}

@@ -67,4 +67,13 @@ public class PacketHandler
         obj.HP = setHp.Hp;
         
     }
+    public static void S_SetOutcomeHandler(PacketSession session, IMessage packet)
+    {
+        if (session == null) return;
+
+        ServerSession Ssession = session as ServerSession;
+        S_SetOutcome setHp = packet as S_SetOutcome;
+
+        
+    }
 }

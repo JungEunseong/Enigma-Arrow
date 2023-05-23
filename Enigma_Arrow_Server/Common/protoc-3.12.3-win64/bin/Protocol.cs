@@ -39,12 +39,13 @@ namespace Google.Protobuf.Protocol {
             "dGFja1JlcRIfCghQb3NpdGlvbhgBIAEoCzINLlByb3RvY29sLlZlYxIfCghS",
             "b3RhdGlvbhgCIAEoCzINLlByb3RvY29sLlZlYxIaCgNEaXIYAyABKAsyDS5Q",
             "cm90b2NvbC5WZWMiIQoHU19TZXRIcBIKCgJJZBgBIAEoBRIKCgJIcBgCIAEo",
-            "BSokCgpPYmplY3RUeXBlEgoKBlBsYXllchAAEgoKBkJ1bGxldBABKqYBCgVN",
-            "c2dJZBISCg5DX01BVENISU5HX1JFURAAEhIKDlNfTUFUQ0hJTkdfUkVTEAES",
-            "FQoRQ19TUEFXTlBMQVlFUl9SRVEQAhIPCgtTX1NQQVdOX1JFUxADEg0KCVNf",
-            "REVTUEFXThAEEg4KCkNfTU9WRV9SRVEQBRIOCgpTX01PVkVfUkVTEAYSEAoM",
-            "Q19BVFRBQ0tfUkVREAcSDAoIU19TRVRfSFAQCEIbqgIYR29vZ2xlLlByb3Rv",
-            "YnVmLlByb3RvY29sYgZwcm90bzM="));
+            "BSIdCgxTX1NldE91dGNvbWUSDQoFaXNXaW4YASABKAgqJAoKT2JqZWN0VHlw",
+            "ZRIKCgZQbGF5ZXIQABIKCgZCdWxsZXQQASq5AQoFTXNnSWQSEgoOQ19NQVRD",
+            "SElOR19SRVEQABISCg5TX01BVENISU5HX1JFUxABEhUKEUNfU1BBV05QTEFZ",
+            "RVJfUkVREAISDwoLU19TUEFXTl9SRVMQAxINCglTX0RFU1BBV04QBBIOCgpD",
+            "X01PVkVfUkVREAUSDgoKU19NT1ZFX1JFUxAGEhAKDENfQVRUQUNLX1JFURAH",
+            "EgwKCFNfU0VUX0hQEAgSEQoNU19TRVRfT1VUQ09NRRAJQhuqAhhHb29nbGUu",
+            "UHJvdG9idWYuUHJvdG9jb2xiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Google.Protobuf.Protocol.ObjectType), typeof(global::Google.Protobuf.Protocol.MsgId), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -58,7 +59,8 @@ namespace Google.Protobuf.Protocol {
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.C_MoveReq), global::Google.Protobuf.Protocol.C_MoveReq.Parser, new[]{ "InputDir" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.S_MoveRes), global::Google.Protobuf.Protocol.S_MoveRes.Parser, new[]{ "Id", "Position" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.C_AttackReq), global::Google.Protobuf.Protocol.C_AttackReq.Parser, new[]{ "Position", "Rotation", "Dir" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.S_SetHp), global::Google.Protobuf.Protocol.S_SetHp.Parser, new[]{ "Id", "Hp" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.S_SetHp), global::Google.Protobuf.Protocol.S_SetHp.Parser, new[]{ "Id", "Hp" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.S_SetOutcome), global::Google.Protobuf.Protocol.S_SetOutcome.Parser, new[]{ "IsWin" }, null, null, null, null)
           }));
     }
     #endregion
@@ -80,6 +82,7 @@ namespace Google.Protobuf.Protocol {
     [pbr::OriginalName("S_MOVE_RES")] SMoveRes = 6,
     [pbr::OriginalName("C_ATTACK_REQ")] CAttackReq = 7,
     [pbr::OriginalName("S_SET_HP")] SSetHp = 8,
+    [pbr::OriginalName("S_SET_OUTCOME")] SSetOutcome = 9,
   }
 
   #endregion
@@ -1781,6 +1784,135 @@ namespace Google.Protobuf.Protocol {
           }
           case 16: {
             Hp = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class S_SetOutcome : pb::IMessage<S_SetOutcome> {
+    private static readonly pb::MessageParser<S_SetOutcome> _parser = new pb::MessageParser<S_SetOutcome>(() => new S_SetOutcome());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<S_SetOutcome> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Google.Protobuf.Protocol.ProtocolReflection.Descriptor.MessageTypes[11]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public S_SetOutcome() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public S_SetOutcome(S_SetOutcome other) : this() {
+      isWin_ = other.isWin_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public S_SetOutcome Clone() {
+      return new S_SetOutcome(this);
+    }
+
+    /// <summary>Field number for the "isWin" field.</summary>
+    public const int IsWinFieldNumber = 1;
+    private bool isWin_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool IsWin {
+      get { return isWin_; }
+      set {
+        isWin_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as S_SetOutcome);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(S_SetOutcome other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (IsWin != other.IsWin) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (IsWin != false) hash ^= IsWin.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (IsWin != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(IsWin);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (IsWin != false) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(S_SetOutcome other) {
+      if (other == null) {
+        return;
+      }
+      if (other.IsWin != false) {
+        IsWin = other.IsWin;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            IsWin = input.ReadBool();
             break;
           }
         }
