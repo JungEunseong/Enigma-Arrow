@@ -89,7 +89,7 @@ public class Player : GameObject
         JoinedRoom.Push(JoinedRoom.Broadcast,setHp);
 
         if (_hp <= 0)
-            OnDead();
+            JoinedRoom.Push(OnDead);
     }
 
     public override void OnDead()
@@ -97,5 +97,15 @@ public class Player : GameObject
         JoinedRoom.Push(JoinedRoom.LeaveGame, Id);
 
         // TODO: 승/패 UI 띄우기
+        S_SetOutcome outcome = new S_SetOutcome();
+        outcome.IsWin = false;
+        Session.Send(outcome);
+
+        outcome.IsWin = true;
+        List<Player> players = JoinedRoom.Players;
+
+        foreach(Player p in players)
+            if(p.Id != Id) p.Session.Send(outcome);
+
     }
 }

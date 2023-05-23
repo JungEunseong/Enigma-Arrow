@@ -74,6 +74,6 @@ public class PacketHandler
         ServerSession Ssession = session as ServerSession;
         S_SetOutcome setHp = packet as S_SetOutcome;
 
-        
     }
+
 }
