@@ -53,7 +53,7 @@ public class Player : GameObject
         res.Position = Pos;
 
         if(_moveDir.X != 0 || _moveDir.Y != 0 || _moveDir.Z != 0)
-            Session.JoinedRoom.Broadcast(res);
+            if(Session.JoinedRoom != null) Session.JoinedRoom.Broadcast(res);
     }
     public override void Move(Vec dir)
     {

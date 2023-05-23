@@ -128,6 +128,9 @@ public class GameRoom : JobSerializer
     public void ExitRoom(ClientSession session)
     {
         _sessions.Remove(session.SessionId);
+        MasterRoom.Instance.Enter(session);
+        session.MyPlayer = null;
+        session.JoinedRoom = null;
     }
 
     public void Broadcast(IMessage packet)

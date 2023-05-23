@@ -69,8 +69,10 @@ public class MasterRoom : JobSerializer
         // TODO: 서로의 ip를 건내주고 연결끊기
         ClientSession firstSession = _matchingSessions[0];
         ClientSession secondSession = _matchingSessions[1];
+
         _matchingSessions.Remove(firstSession);
         _matchingSessions.Remove(secondSession);
+
         GameRoom room = RoomManager.Instance.Add();
         room.EnterRoom(firstSession);
         room.EnterRoom(secondSession);

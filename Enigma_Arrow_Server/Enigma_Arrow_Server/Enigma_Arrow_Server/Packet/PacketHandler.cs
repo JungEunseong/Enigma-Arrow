@@ -63,6 +63,8 @@ public class PacketHandler
         if (session == null) return;
 
         ClientSession CSession = session as ClientSession;
+
+        CSession.JoinedRoom.Push(CSession.JoinedRoom.ExitRoom, CSession);
     }
 
     /*
