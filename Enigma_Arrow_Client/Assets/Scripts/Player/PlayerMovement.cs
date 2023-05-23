@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Runtime.ExceptionServices;
+using Google.Protobuf.Protocol;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _speed;
     Rigidbody rigid;
 
+    public float Speed { get { return _speed; } }
+    Vector3 _prevDir = Vector3.zero;
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
@@ -19,21 +22,14 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
-
     // Update is called once per frame
-    void Update()
-    {
-        Move();
-
-    }
 
 
     /// <summary>
-    /// 움직임 함수 
+    /// 움직임 함수
     /// </summary>
-    private void Move()
+    public void Move()
     {
         Vector3 _dir = Vector3.zero;        //이동 방향 초기화
 
@@ -49,8 +45,26 @@ public class PlayerMovement : MonoBehaviour
         _dir.x = h;
 #endif
 
-        rigid.velocity = new Vector2(_dir.x * _speed, 0);
+        if (NetworkManager.Instance.isTestWithoutServer)
+            rigid.velocity = new Vector2(_dir.x * _speed, 0);
+        else
+        {
+            if (_prevDir != _dir)
+            {
+                C_MoveReq req = new C_MoveReq();
+                req.InputDir = new Vec();
 
+                req.InputDir.X = _dir.x;
+                req.InputDir.Y = _dir.y;
+                req.InputDir.Z = _dir.z;
 
+                NetworkManager.Instance.Send(req);
+
+                _prevDir = _dir;
+            }
+        }
+        
     }
+
+    
 }

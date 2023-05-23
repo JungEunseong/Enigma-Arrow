@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "p4uG1NjoLYSnHt/cZGSXdO9H88NBpA2muUR6RNM6DPr/E1AB/TU7lsrxZnrlNxm6Ipq/Q/4hUNcKwAK0jyDORA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\eunseong\\Documents\\GitHub\\Enigma-Arrow\\Enigma_Arrow_Server\\Enigma_Arrow_Server\\Enigma_Arrow_Server\\Enigma_Arrow_Server.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\eunseong\\.nuget\\packages\\google.protobuf\\3.23.0\\google.protobuf.3.23.0.nupkg.sha512"
+  ],
+  "logs": []
+}

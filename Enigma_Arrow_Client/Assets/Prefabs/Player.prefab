@@ -1445,6 +1445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hp: 0
+  movement: {fileID: 0}
   _hpBar: {fileID: 1510661754}
 --- !u!114 &2883273735491309164
 MonoBehaviour:

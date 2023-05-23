@@ -1,3 +1,4 @@
+using Google.Protobuf.Protocol;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -8,7 +9,7 @@ using UnityEngine.Pool;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] float _speed = 30;
+    [SerializeField] float _speed = 60;
     private float _startVecY;       // 공격 시작 위치
 
     [Header("Fire")]
@@ -19,6 +20,7 @@ public class PlayerAttack : MonoBehaviour
     [Header("Pool")]
     private IObjectPool<Bullet> _pool;
 
+    public bool isTopPlayer;
     private void Awake()
     {
         _pool = new ObjectPool<Bullet>(CreateBullet, OnGetBullet, OnRelaseBullet, OnDestroyBullet, maxSize: 50);
@@ -39,13 +41,24 @@ public class PlayerAttack : MonoBehaviour
     /// </summary>
     private void AttackMove()
     {
-        Vector3 rotVec =
-        new Vector3(transform.rotation.x,
-        Mathf.PingPong(Time.time * _speed, 180) + _startVecY,
-        transform.rotation.z);
+        Vector3 rotVec;
+        if (isTopPlayer)
+        {
+             rotVec =
+                        new Vector3(transform.rotation.x,
+                        Mathf.PingPong(Time.time * _speed, 180) * -1 + _startVecY,
+                        transform.rotation.z);
+        }
+        else
+        {
+            rotVec =
+            new Vector3(transform.rotation.x,
+            Mathf.PingPong(Time.time * _speed, 180) + _startVecY,   
+            transform.rotation.z);
+        }
         transform.rotation = Quaternion.Euler(rotVec);
     }
-
+        
     #region 공격
 
 
@@ -92,9 +105,23 @@ public class PlayerAttack : MonoBehaviour
 
         //Instantiate(_bulletObj,transform.position , transform.rotation);
 
-        Bullet bullet = _pool.Get().GetComponent<Bullet>();
-        bullet.InitBullet(transform, transform.rotation);
+        if (NetworkManager.Instance.isTestWithoutServer)
+        {
+            Bullet bullet = _pool.Get().GetComponent<Bullet>();
+            bullet.InitBullet(transform, transform.rotation);
+            bullet.OwnerId = ObjectManager.Instance.MyPlayer.Id;
+        }
+        else
+        {
+            C_AttackReq req = new C_AttackReq();
+            req.Position = new Vec() { X = transform.position.x, Y = transform.position.y, Z = transform.position.z };
+            req.Rotation = new Vec() { X = transform.rotation.x, Y = transform.rotation.y, Z = transform.rotation.z };
+            Vector3 dir = transform.forward.normalized;
+            
+            req.Dir = new Vec() { X = dir.x, Y = dir.y, Z = dir.z };
 
+            NetworkManager.Instance.Send(req);
+        }
     }
 
     #endregion
