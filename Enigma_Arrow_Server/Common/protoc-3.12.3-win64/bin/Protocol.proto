@@ -26,7 +26,6 @@ message ObjectInfo{
 }
 
 message UserInfo{
-	bool isMine = 1;
 	string nickName = 2;
 }
 
@@ -51,7 +50,8 @@ message C_MatchingReq{
 }
 
 message S_MatchingRes{
-	repeated UserInfo Users = 1;
+	int32 mineIdx = 1;
+	repeated UserInfo Users = 2;
 }
 
 message C_SpawnplayerReq{
@@ -76,7 +76,7 @@ message S_MoveRes{
 
 message C_AttackReq{
 	Vec Position = 1;
-	Vec Rotation = 2;
+	Vec Rotation = 2;	
 	Vec Dir = 3;
 }
 
