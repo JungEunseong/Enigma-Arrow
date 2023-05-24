@@ -25,6 +25,10 @@ message ObjectInfo{
 	Vec Scale = 6;
 }
 
+message UserInfo{
+	bool isMine = 1;
+	string nickName = 2;
+}
 
 
 enum MsgId{ 
@@ -47,7 +51,7 @@ message C_MatchingReq{
 }
 
 message S_MatchingRes{
-	
+	repeated UserInfo Users = 1;
 }
 
 message C_SpawnplayerReq{
