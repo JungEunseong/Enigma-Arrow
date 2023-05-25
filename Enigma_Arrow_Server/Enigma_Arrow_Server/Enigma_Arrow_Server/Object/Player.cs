@@ -16,7 +16,7 @@ public class Player : GameObject
         _objectType = ObjectType.Player;
         _collisionRadius = 0.6f;
     }
-
+    public bool isTopPosition { get; set; }
     int _hp = 10;
 
     public Vec _moveDir = new Vec() { X = 0, Y = 0, Z = 0 };

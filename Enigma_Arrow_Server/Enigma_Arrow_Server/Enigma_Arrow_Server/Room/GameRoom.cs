@@ -48,7 +48,7 @@ public class GameRoom : JobSerializer
         if (gameObject.Info.Type == ObjectType.Player) {
             Player spawnPlayer = gameObject as Player;
 
-            if (PlayerCount == 0)
+            if (spawnPlayer.isTopPosition)
                 gameObject.Info.Position = new Vec() { X = 0, Y = 1, Z = 0 };
             else
                 gameObject.Info.Position = new Vec() { X = 0, Y = 1, Z = -33 };

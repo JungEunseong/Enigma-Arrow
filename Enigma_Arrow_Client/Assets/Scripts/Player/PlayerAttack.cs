@@ -37,6 +37,7 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         _startVecY = transform.eulerAngles.y;
+        isTopPlayer = NetworkManager.Instance.isTopPosition;
     }
 
     void Update()

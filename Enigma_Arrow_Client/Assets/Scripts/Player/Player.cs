@@ -13,7 +13,7 @@ public class Player : NetworkingObject
     [SerializeField] public PlayerAttack attack;
     public Animator _anim;
 
-    public bool IsTopPlayer { get => attack.isTopPlayer; set => attack.isTopPlayer = value; }
+    public bool IsTopPlayer { get => NetworkManager.Instance.isTopPosition; set => NetworkManager.Instance.isTopPosition = value; }
 
     [SerializeField] Canvas btnCanvas;
     [SerializeField] Canvas hpCanvas;

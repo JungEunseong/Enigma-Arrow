@@ -11,6 +11,7 @@ public class GameManager : Singleton<GameManager>
     void Start()
     {
         C_SpawnplayerReq req = new C_SpawnplayerReq();
+        req.IsTopPlayer = NetworkManager.Instance.isTopPosition;
         NetworkManager.Instance.Send(req);
     }
     void Update()

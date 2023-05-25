@@ -19,6 +19,8 @@ public class NetworkManager : Singleton<NetworkManager>
     public UserInfo userInfo = new UserInfo();
 
     public UserInfo enemyInfo = new UserInfo(); // 적팀 유저 인포
+
+    public bool isTopPosition;
     private void Start()
     {
         if(isConnecting == false)
