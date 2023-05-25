@@ -9,6 +9,7 @@ using UnityEngine.Pool;
 
 public class PlayerAttack : MonoBehaviour
 {
+    Player _player;
     [SerializeField] float _speed = 60;
     private float _startVecY;       // 공격 시작 위치
 
@@ -23,6 +24,7 @@ public class PlayerAttack : MonoBehaviour
     public bool isTopPlayer;
     private void Awake()
     {
+        _player = GetComponent<Player>();
         _pool = new ObjectPool<Bullet>(CreateBullet, OnGetBullet, OnRelaseBullet, OnDestroyBullet, maxSize: 50);
     }
 
@@ -83,6 +85,7 @@ public class PlayerAttack : MonoBehaviour
     IEnumerator AttckCoroutine()
     {
         Fire();
+        _player._anim.SetTrigger("Attack");
         while (true)
         {
             _fireTimer += Time.deltaTime;
