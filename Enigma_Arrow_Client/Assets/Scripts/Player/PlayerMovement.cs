@@ -47,12 +47,11 @@ public class PlayerMovement : MonoBehaviour
 #else
         float h = Input.GetAxis("Horizontal");
         _dir.x = h;
-
-        _player._anim.SetBool("Walk", h == 0);
 #endif
 
         if (NetworkManager.Instance.isTestWithoutServer)
             rigid.velocity = new Vector2(_dir.x * _speed, 0);
+
         else
         {
             if (_prevDir != _dir)
