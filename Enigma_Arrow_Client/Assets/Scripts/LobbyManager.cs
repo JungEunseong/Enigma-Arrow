@@ -12,9 +12,10 @@ public class LobbyManager : Singleton<LobbyManager>
     [SerializeField] GameObject _userInfoPanel;
     [SerializeField] GameObject _firstUserInfo;
     [SerializeField] GameObject _secondUserInfo;
+    [SerializeField] TMP_Text _nicknameText;
     void Start()
     {
-        
+        _nicknameText.text = "Nickname: " + NetworkManager.Instance.userInfo.NickName;
     }
 
     void Update()
