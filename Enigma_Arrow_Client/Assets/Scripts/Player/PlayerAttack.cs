@@ -36,6 +36,9 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         AttackMove();
+
+        _fireTimer += Time.deltaTime;
+
     }
 
     /// <summary>
@@ -46,21 +49,21 @@ public class PlayerAttack : MonoBehaviour
         Vector3 rotVec;
         if (isTopPlayer)
         {
-             rotVec =
-                        new Vector3(transform.rotation.x,
-                        Mathf.PingPong(Time.time * _speed, 180) * -1 + _startVecY,
-                        transform.rotation.z);
+            rotVec =
+                       new Vector3(transform.rotation.x,
+                       Mathf.PingPong(Time.time * _speed, 180) * -1 + _startVecY,
+                       transform.rotation.z);
         }
         else
         {
             rotVec =
             new Vector3(transform.rotation.x,
-            Mathf.PingPong(Time.time * _speed, 180) + _startVecY,   
+            Mathf.PingPong(Time.time * _speed, 180) + _startVecY,
             transform.rotation.z);
         }
         transform.rotation = Quaternion.Euler(rotVec);
     }
-        
+
     #region 공격
 
 
@@ -69,12 +72,11 @@ public class PlayerAttack : MonoBehaviour
     /// </summary>
     public void AttackBtnClick()
     {
-        if (_fireTimer > 0)      // 공격 쿨타임 중일때 
+        if (_fireTimer < _FireDelayTime)      // 공격 쿨타임 중일때 
         {
             Debug.Log("아직 쿨타임 중입니다");
             return;
         }
-        _player._anim.SetTrigger("Attack");
         StartCoroutine(AttckCoroutine());
     }
 
@@ -84,20 +86,10 @@ public class PlayerAttack : MonoBehaviour
     /// <returns></returns>
     IEnumerator AttckCoroutine()
     {
+        _player._anim.SetTrigger("Attack");
         yield return new WaitForSeconds(0.6f);
         Fire();
-
-        while (true)
-        {
-            _fireTimer += Time.deltaTime;
-            if (_fireTimer > _FireDelayTime)
-            {
-                _fireTimer = 0;
-                yield break;
-            }
-
-            yield return new WaitForEndOfFrame();
-        }
+        _fireTimer = 0;
     }
 
     /// <summary>
@@ -121,7 +113,7 @@ public class PlayerAttack : MonoBehaviour
             req.Position = new Vec() { X = transform.position.x, Y = transform.position.y, Z = transform.position.z };
             req.Rotation = new Vec() { X = transform.rotation.x, Y = transform.rotation.y, Z = transform.rotation.z };
             Vector3 dir = transform.forward.normalized;
-            
+
             req.Dir = new Vec() { X = dir.x, Y = dir.y, Z = dir.z };
 
             NetworkManager.Instance.Send(req);
