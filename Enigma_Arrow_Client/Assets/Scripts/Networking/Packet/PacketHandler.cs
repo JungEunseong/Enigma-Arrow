@@ -53,6 +53,8 @@ public class PacketHandler
         ServerSession Ssession = session as ServerSession;
         S_MoveRes res = packet as S_MoveRes;
         NetworkingObject obj = ObjectManager.Instance.FindById(res.Id);
+        
+        if (obj == null) return;
 
         obj.SyncMove(new Vector3(res.Position.X,res.Position.Y,res.Position.Z));
     }
