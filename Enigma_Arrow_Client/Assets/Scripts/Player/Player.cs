@@ -89,6 +89,9 @@ public class Player : NetworkingObject
     {
         destPos = pos;
         transform.position = Vector3.Lerp(transform.position, destPos, (movement.Speed)*Time.deltaTime);
+
+        _anim.SetBool("Walk",(Vector3.Distance(transform.position,destPos) >= 0.1f));
+
     }
 
     public void RemotePlayerInit()

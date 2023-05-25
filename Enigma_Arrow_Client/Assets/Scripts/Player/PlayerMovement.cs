@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         if(_dir.sqrMagnitude > 1)
             _dir.Normalize();
 
-       _player._anim.SetBool("Walk",(Input.acceleration.x == 0));
+       //_player._anim.SetBool("Walk",(Input.acceleration.x == 0));
 
 #else
         float h = Input.GetAxis("Horizontal");
