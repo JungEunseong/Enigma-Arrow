@@ -33,23 +33,24 @@ namespace Google.Protobuf.Protocol {
             "ZWMiHAoIVXNlckluZm8SEAoIbmlja05hbWUYAiABKAkiIQoNQ19NYXRjaGlu",
             "Z1JlcRIQCghpc0NhbmNlbBgBIAEoCCJDCg1TX01hdGNoaW5nUmVzEg8KB21p",
             "bmVJZHgYASABKAUSIQoFVXNlcnMYAiADKAsyEi5Qcm90b2NvbC5Vc2VySW5m",
-            "byISChBDX1NwYXducGxheWVyUmVxIjMKClNfU3Bhd25SZXMSJQoHT2JqZWN0",
-            "cxgBIAMoCzIULlByb3RvY29sLk9iamVjdEluZm8iHQoJU19EZXNwYXduEhAK",
-            "CE9iamVjdElkGAEgAygFIiwKCUNfTW92ZVJlcRIfCghpbnB1dERpchgBIAEo",
-            "CzINLlByb3RvY29sLlZlYyI4CglTX01vdmVSZXMSCgoCSWQYASABKAUSHwoI",
-            "UG9zaXRpb24YAiABKAsyDS5Qcm90b2NvbC5WZWMiawoLQ19BdHRhY2tSZXES",
-            "HwoIUG9zaXRpb24YASABKAsyDS5Qcm90b2NvbC5WZWMSHwoIUm90YXRpb24Y",
-            "AiABKAsyDS5Qcm90b2NvbC5WZWMSGgoDRGlyGAMgASgLMg0uUHJvdG9jb2wu",
-            "VmVjIiEKB1NfU2V0SHASCgoCSWQYASABKAUSCgoCSHAYAiABKAUiHQoMU19T",
-            "ZXRPdXRjb21lEg0KBWlzV2luGAEgASgIIg0KC0NfTGVhdmVSb29tIjEKDUNf",
-            "U2V0VXNlcmluZm8SIAoEaW5mbxgBIAEoCzISLlByb3RvY29sLlVzZXJJbmZv",
-            "KiQKCk9iamVjdFR5cGUSCgoGUGxheWVyEAASCgoGQnVsbGV0EAEq3wEKBU1z",
-            "Z0lkEhIKDkNfTUFUQ0hJTkdfUkVREAASEgoOU19NQVRDSElOR19SRVMQARIV",
-            "ChFDX1NQQVdOUExBWUVSX1JFURACEg8KC1NfU1BBV05fUkVTEAMSDQoJU19E",
-            "RVNQQVdOEAQSDgoKQ19NT1ZFX1JFURAFEg4KClNfTU9WRV9SRVMQBhIQCgxD",
-            "X0FUVEFDS19SRVEQBxIMCghTX1NFVF9IUBAIEhEKDVNfU0VUX09VVENPTUUQ",
-            "CRIQCgxDX0xFQVZFX1JPT00QChISCg5DX1NFVF9VU0VSSU5GTxALQhuqAhhH",
-            "b29nbGUuUHJvdG9idWYuUHJvdG9jb2xiBnByb3RvMw=="));
+            "byInChBDX1NwYXducGxheWVyUmVxEhMKC2lzVG9wUGxheWVyGAEgASgIIjMK",
+            "ClNfU3Bhd25SZXMSJQoHT2JqZWN0cxgBIAMoCzIULlByb3RvY29sLk9iamVj",
+            "dEluZm8iHQoJU19EZXNwYXduEhAKCE9iamVjdElkGAEgAygFIiwKCUNfTW92",
+            "ZVJlcRIfCghpbnB1dERpchgBIAEoCzINLlByb3RvY29sLlZlYyI4CglTX01v",
+            "dmVSZXMSCgoCSWQYASABKAUSHwoIUG9zaXRpb24YAiABKAsyDS5Qcm90b2Nv",
+            "bC5WZWMiawoLQ19BdHRhY2tSZXESHwoIUG9zaXRpb24YASABKAsyDS5Qcm90",
+            "b2NvbC5WZWMSHwoIUm90YXRpb24YAiABKAsyDS5Qcm90b2NvbC5WZWMSGgoD",
+            "RGlyGAMgASgLMg0uUHJvdG9jb2wuVmVjIiEKB1NfU2V0SHASCgoCSWQYASAB",
+            "KAUSCgoCSHAYAiABKAUiHQoMU19TZXRPdXRjb21lEg0KBWlzV2luGAEgASgI",
+            "Ig0KC0NfTGVhdmVSb29tIjEKDUNfU2V0VXNlcmluZm8SIAoEaW5mbxgBIAEo",
+            "CzISLlByb3RvY29sLlVzZXJJbmZvKiQKCk9iamVjdFR5cGUSCgoGUGxheWVy",
+            "EAASCgoGQnVsbGV0EAEq3wEKBU1zZ0lkEhIKDkNfTUFUQ0hJTkdfUkVREAAS",
+            "EgoOU19NQVRDSElOR19SRVMQARIVChFDX1NQQVdOUExBWUVSX1JFURACEg8K",
+            "C1NfU1BBV05fUkVTEAMSDQoJU19ERVNQQVdOEAQSDgoKQ19NT1ZFX1JFURAF",
+            "Eg4KClNfTU9WRV9SRVMQBhIQCgxDX0FUVEFDS19SRVEQBxIMCghTX1NFVF9I",
+            "UBAIEhEKDVNfU0VUX09VVENPTUUQCRIQCgxDX0xFQVZFX1JPT00QChISCg5D",
+            "X1NFVF9VU0VSSU5GTxALQhuqAhhHb29nbGUuUHJvdG9idWYuUHJvdG9jb2xi",
+            "BnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Google.Protobuf.Protocol.ObjectType), typeof(global::Google.Protobuf.Protocol.MsgId), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -58,7 +59,7 @@ namespace Google.Protobuf.Protocol {
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.UserInfo), global::Google.Protobuf.Protocol.UserInfo.Parser, new[]{ "NickName" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.C_MatchingReq), global::Google.Protobuf.Protocol.C_MatchingReq.Parser, new[]{ "IsCancel" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.S_MatchingRes), global::Google.Protobuf.Protocol.S_MatchingRes.Parser, new[]{ "MineIdx", "Users" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.C_SpawnplayerReq), global::Google.Protobuf.Protocol.C_SpawnplayerReq.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.C_SpawnplayerReq), global::Google.Protobuf.Protocol.C_SpawnplayerReq.Parser, new[]{ "IsTopPlayer" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.S_SpawnRes), global::Google.Protobuf.Protocol.S_SpawnRes.Parser, new[]{ "Objects" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.S_Despawn), global::Google.Protobuf.Protocol.S_Despawn.Parser, new[]{ "ObjectId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Google.Protobuf.Protocol.C_MoveReq), global::Google.Protobuf.Protocol.C_MoveReq.Parser, new[]{ "InputDir" }, null, null, null, null),
@@ -1001,12 +1002,24 @@ namespace Google.Protobuf.Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public C_SpawnplayerReq(C_SpawnplayerReq other) : this() {
+      isTopPlayer_ = other.isTopPlayer_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public C_SpawnplayerReq Clone() {
       return new C_SpawnplayerReq(this);
+    }
+
+    /// <summary>Field number for the "isTopPlayer" field.</summary>
+    public const int IsTopPlayerFieldNumber = 1;
+    private bool isTopPlayer_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool IsTopPlayer {
+      get { return isTopPlayer_; }
+      set {
+        isTopPlayer_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1022,12 +1035,14 @@ namespace Google.Protobuf.Protocol {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (IsTopPlayer != other.IsTopPlayer) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
+      if (IsTopPlayer != false) hash ^= IsTopPlayer.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1041,6 +1056,10 @@ namespace Google.Protobuf.Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+      if (IsTopPlayer != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(IsTopPlayer);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1049,6 +1068,9 @@ namespace Google.Protobuf.Protocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
+      if (IsTopPlayer != false) {
+        size += 1 + 1;
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1059,6 +1081,9 @@ namespace Google.Protobuf.Protocol {
     public void MergeFrom(C_SpawnplayerReq other) {
       if (other == null) {
         return;
+      }
+      if (other.IsTopPlayer != false) {
+        IsTopPlayer = other.IsTopPlayer;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1071,6 +1096,10 @@ namespace Google.Protobuf.Protocol {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
+          case 8: {
+            IsTopPlayer = input.ReadBool();
+            break;
+          }
         }
       }
     }

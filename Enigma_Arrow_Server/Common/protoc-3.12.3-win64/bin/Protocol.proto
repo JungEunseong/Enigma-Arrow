@@ -56,6 +56,7 @@ message S_MatchingRes{
 }
 
 message C_SpawnplayerReq{
+	bool isTopPlayer = 1;
 }
 
 message S_SpawnRes {
