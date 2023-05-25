@@ -59,7 +59,14 @@ public class Player : NetworkingObject
         HP = MaxHP;
         _hpBar.SetMaxHP(MaxHP);
         hpCanvas.worldCamera = Camera.main;
-        if(attack.isTopPlayer) hpCanvas.transform.LookAt(Camera.main.transform);
+
+        if (attack.isTopPlayer)
+        {
+            hpCanvas.transform.LookAt(Camera.main.transform);
+            _hpBar.transform.localEulerAngles = new Vector3(0, 180, 0);
+            nickNameText.transform.localEulerAngles = new Vector3(0, 180, 0);
+        }
+
         hpCanvas.transform.position = (IsTopPlayer) ? UI_Transform[0].position : UI_Transform[1].position;
 
         nickNameText.text = (isMine) ? NetworkManager.Instance.userInfo.NickName : NetworkManager.Instance.enemyInfo.NickName;
