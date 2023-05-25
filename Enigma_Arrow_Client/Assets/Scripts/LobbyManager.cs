@@ -43,7 +43,9 @@ public class LobbyManager : Singleton<LobbyManager>
         firstUserNickname.text = res.Users[0].NickName;
         TMP_Text secondUserNickname = _secondUserInfo.GetComponentInChildren<TMP_Text>();
         secondUserNickname.text = res.Users[1].NickName;
-    
+
+        NetworkManager.Instance.enemyInfo = res.Users[res.MineIdx == 0 ? 1 : 0];
+
         _userInfoPanel.SetActive(true);
     }
 
