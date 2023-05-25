@@ -51,25 +51,42 @@ public class PlayerMovement : MonoBehaviour
 
         if (NetworkManager.Instance.isTestWithoutServer)
             rigid.velocity = new Vector2(_dir.x * _speed, 0);
-
         else
         {
-            if (_prevDir != _dir)
+
+            if (_player.attack.IsAttack)
             {
                 C_MoveReq req = new C_MoveReq();
-                req.InputDir = new Vec();
 
-                req.InputDir.X = _dir.x;
-                req.InputDir.Y = _dir.y;
-                req.InputDir.Z = _dir.z;
+                req.InputDir = new Vec();
+                req.InputDir.X = 0;
+                req.InputDir.Y = 0;
+                req.InputDir.Z = 0;
 
                 NetworkManager.Instance.Send(req);
 
-                _prevDir = _dir;
+            }
+            else
+            {
+
+                if (_prevDir != _dir)
+                {
+
+                    C_MoveReq req = new C_MoveReq();
+                    req.InputDir = new Vec();
+
+                    req.InputDir.X = _dir.x;
+                    req.InputDir.Y = _dir.y;
+                    req.InputDir.Z = _dir.z;
+
+                    NetworkManager.Instance.Send(req);
+
+                    _prevDir = _dir;
+                }
             }
         }
-        
+
     }
 
-    
+
 }

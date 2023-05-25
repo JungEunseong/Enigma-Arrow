@@ -42,6 +42,9 @@ public class PacketHandler
         foreach (int id in despawn.ObjectId)
         {
             NetworkingObject obj = ObjectManager.Instance.FindById(id);
+            
+            if (obj == null) return;
+
             UnityEngine.Object.Destroy(obj.gameObject);
         }
 

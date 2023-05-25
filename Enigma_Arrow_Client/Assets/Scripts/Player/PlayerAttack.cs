@@ -18,6 +18,11 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float _FireDelayTime = 0.2f;       // 공격 딜레이
     float _fireTimer = 0;
     bool isAttacking = false; // 지금 공격중ㅇ인가?
+
+    public bool IsAttack
+    {
+        get => isAttacking;
+    }
     [Header("Pool")]
     private IObjectPool<Bullet> _pool;
 

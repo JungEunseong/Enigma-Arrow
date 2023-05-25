@@ -10,7 +10,7 @@ public class Player : NetworkingObject
     [SerializeField] private int _hp;
     [SerializeField] GameObject model;
     [SerializeField] PlayerMovement movement;
-    [SerializeField] PlayerAttack attack;
+    [SerializeField] public PlayerAttack attack;
     public Animator _anim;
 
     public bool IsTopPlayer { get => attack.isTopPlayer; set => attack.isTopPlayer = value; }
