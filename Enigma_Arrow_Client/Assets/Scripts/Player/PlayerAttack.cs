@@ -24,7 +24,7 @@ public class PlayerAttack : MonoBehaviour
     public bool isTopPlayer;
     private void Awake()
     {
-        _player = GetComponent<Player>();
+        _player = GetComponentInParent<Player>();
         _pool = new ObjectPool<Bullet>(CreateBullet, OnGetBullet, OnRelaseBullet, OnDestroyBullet, maxSize: 50);
     }
 
@@ -74,7 +74,7 @@ public class PlayerAttack : MonoBehaviour
             Debug.Log("아직 쿨타임 중입니다");
             return;
         }
-
+        _player._anim.SetTrigger("Attack");
         StartCoroutine(AttckCoroutine());
     }
 
@@ -84,8 +84,9 @@ public class PlayerAttack : MonoBehaviour
     /// <returns></returns>
     IEnumerator AttckCoroutine()
     {
+        yield return new WaitForSeconds(0.6f);
         Fire();
-        _player._anim.SetTrigger("Attack");
+
         while (true)
         {
             _fireTimer += Time.deltaTime;
