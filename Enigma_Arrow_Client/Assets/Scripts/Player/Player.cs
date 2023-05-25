@@ -60,6 +60,7 @@ public class Player : NetworkingObject
         _hpBar.SetMaxHP(MaxHP);
         hpCanvas.worldCamera = Camera.main;
         nickNameText.text = (isMine) ? NetworkManager.Instance.userInfo.NickName : NetworkManager.Instance.enemyInfo.NickName;
+        nickNameText.color = (isMine) ? Color.black : Color.red;
     }
 
     private void Update()
