@@ -32,7 +32,9 @@ class PacketManager
 		_onRecv.Add((ushort)MsgId.CAttackReq, MakePacket<C_AttackReq>);
 		_handler.Add((ushort)MsgId.CAttackReq, PacketHandler.C_AttackReqHandler);		
 		_onRecv.Add((ushort)MsgId.CLeaveRoom, MakePacket<C_LeaveRoom>);
-		_handler.Add((ushort)MsgId.CLeaveRoom, PacketHandler.C_LeaveRoomHandler);
+		_handler.Add((ushort)MsgId.CLeaveRoom, PacketHandler.C_LeaveRoomHandler);		
+		_onRecv.Add((ushort)MsgId.CSetUserinfo, MakePacket<C_SetUserinfo>);
+		_handler.Add((ushort)MsgId.CSetUserinfo, PacketHandler.C_SetUserinfoHandler);
 	}
 
 	public void OnRecvPacket(PacketSession session, ArraySegment<byte> buffer)

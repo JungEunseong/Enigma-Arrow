@@ -78,8 +78,13 @@ public class MasterRoom : JobSerializer
         room.EnterRoom(secondSession);
         // 알리기
         S_MatchingRes matchingRes = new S_MatchingRes();
+        matchingRes.Users.Add(firstSession.UInfo);
+        matchingRes.Users.Add(secondSession.UInfo);
+
+        matchingRes.MineIdx = 0;
         firstSession.Send(matchingRes);
-        
+
+        matchingRes.MineIdx = 1;
         secondSession.Send(matchingRes);
 
     }

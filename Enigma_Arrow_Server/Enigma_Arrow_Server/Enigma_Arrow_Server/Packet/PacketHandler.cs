@@ -67,6 +67,16 @@ public class PacketHandler
         CSession.JoinedRoom.Push(CSession.JoinedRoom.ExitRoom, CSession);
     }
 
+    
+    public static void C_SetUserinfoHandler(PacketSession session, IMessage packet)
+    {
+        if (session == null) return;
+
+        ClientSession CSession = session as ClientSession;
+        C_SetUserinfo setUserinfo = packet as C_SetUserinfo;
+
+        CSession.UInfo = setUserinfo.Info;
+    }
     /*
     public static void C_MoveReqHandler(PacketSession session, IMessage packet)
     {

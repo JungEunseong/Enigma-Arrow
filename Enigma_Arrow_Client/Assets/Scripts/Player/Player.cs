@@ -1,6 +1,7 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ public class Player : NetworkingObject
 
     [SerializeField] Canvas btnCanvas;
     [SerializeField] Canvas hpCanvas;
+    [SerializeField] TMP_Text nickNameText;
 
     [SerializeField] GameObject attackObj;
     public int HP
@@ -53,6 +55,7 @@ public class Player : NetworkingObject
         HP = MaxHP;
         _hpBar.SetMaxHP(MaxHP);
         hpCanvas.worldCamera = Camera.main;
+        nickNameText.text = (isMine) ? NetworkManager.Instance.userInfo.NickName : NetworkManager.Instance.enemyInfo.NickName;
     }
 
     private void Update()

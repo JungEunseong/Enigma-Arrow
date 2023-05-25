@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Net;
 using UnityEngine;
 using Google.Protobuf;
+using Google.Protobuf.Protocol;
 
 public class NetworkManager : Singleton<NetworkManager>
 {
@@ -14,6 +15,10 @@ public class NetworkManager : Singleton<NetworkManager>
     public bool isTestWithoutServer;
 
     public bool isConnecting { get; set; }
+
+    public UserInfo userInfo = new UserInfo();
+
+    public UserInfo enemyInfo = new UserInfo(); // 적팀 유저 인포
     private void Start()
     {
         if(isConnecting == false)

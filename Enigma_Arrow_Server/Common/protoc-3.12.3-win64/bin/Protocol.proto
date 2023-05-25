@@ -25,6 +25,9 @@ message ObjectInfo{
 	Vec Scale = 6;
 }
 
+message UserInfo{
+	string nickName = 2;
+}
 
 
 enum MsgId{ 
@@ -39,6 +42,7 @@ enum MsgId{
 	S_SET_HP = 8;
 	S_SET_OUTCOME = 9;
 	C_LEAVE_ROOM = 10;
+	C_SET_USERINFO = 11;
 }
 
 
@@ -47,7 +51,8 @@ message C_MatchingReq{
 }
 
 message S_MatchingRes{
-	
+	int32 mineIdx = 1;
+	repeated UserInfo Users = 2;
 }
 
 message C_SpawnplayerReq{
@@ -72,7 +77,7 @@ message S_MoveRes{
 
 message C_AttackReq{
 	Vec Position = 1;
-	Vec Rotation = 2;
+	Vec Rotation = 2;	
 	Vec Dir = 3;
 }
 
@@ -86,4 +91,8 @@ message S_SetOutcome{
 }
 
 message C_LeaveRoom{
+}
+
+message C_SetUserinfo{
+	UserInfo info = 1;
 }

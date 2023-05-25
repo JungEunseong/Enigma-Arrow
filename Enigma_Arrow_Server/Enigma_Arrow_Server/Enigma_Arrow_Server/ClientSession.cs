@@ -19,6 +19,8 @@ namespace Server
         public GameRoom JoinedRoom { get; set; }
         public Player MyPlayer { get; set; }
 
+        public UserInfo UInfo { get; set; }
+
         public void Send(IMessage packet)
         {
             string msgName = packet.Descriptor.Name.Replace("_", string.Empty);
