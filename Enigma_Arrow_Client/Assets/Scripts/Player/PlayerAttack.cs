@@ -40,11 +40,11 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        AttackMove();
-
-        if(!isAttacking)
+        if (!isAttacking)
+        {
+            AttackMove();
             _fireTimer += Time.deltaTime;
-
+        }
 
     }
 
