@@ -73,6 +73,9 @@ public class PacketHandler
         if (session == null) return;
 
         ClientSession CSession = session as ClientSession;
+        C_SetUserinfo setUserinfo = packet as C_SetUserinfo;
+
+        CSession.UInfo = setUserinfo.Info;
     }
     /*
     public static void C_MoveReqHandler(PacketSession session, IMessage packet)
