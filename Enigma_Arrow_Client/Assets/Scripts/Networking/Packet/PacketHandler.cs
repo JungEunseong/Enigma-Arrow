@@ -18,7 +18,7 @@ public class PacketHandler
         ServerSession Ssession = session as ServerSession;
         S_MatchingRes res = packet as S_MatchingRes;
 
-        SceneManager.LoadScene("MultiTestScene");
+        LobbyManager.Instance.OnMatching(res);
     }
     public static void S_SpawnResHandler(PacketSession session, IMessage packet)
     {
