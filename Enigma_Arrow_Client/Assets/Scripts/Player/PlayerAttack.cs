@@ -17,7 +17,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] GameObject _bulletObj;
     [SerializeField] private float _FireDelayTime = 0.2f;       // 공격 딜레이
     float _fireTimer = 0;
-
+    bool isAttacking = false; // 지금 공격중ㅇ인가?
     [Header("Pool")]
     private IObjectPool<Bullet> _pool;
 
@@ -37,7 +37,8 @@ public class PlayerAttack : MonoBehaviour
     {
         AttackMove();
 
-        _fireTimer += Time.deltaTime;
+        if(!isAttacking)
+            _fireTimer += Time.deltaTime;
 
     }
 
@@ -72,11 +73,16 @@ public class PlayerAttack : MonoBehaviour
     /// </summary>
     public void AttackBtnClick()
     {
+
+
         if (_fireTimer < _FireDelayTime)      // 공격 쿨타임 중일때 
         {
             Debug.Log("아직 쿨타임 중입니다");
             return;
         }
+
+        _fireTimer = 0;
+
         StartCoroutine(AttckCoroutine());
     }
 
@@ -86,10 +92,11 @@ public class PlayerAttack : MonoBehaviour
     /// <returns></returns>
     IEnumerator AttckCoroutine()
     {
+        isAttacking = true;
         _player._anim.SetTrigger("Attack");
         yield return new WaitForSeconds(0.6f);
         Fire();
-        _fireTimer = 0;
+        isAttacking = false;
     }
 
     /// <summary>
@@ -97,8 +104,6 @@ public class PlayerAttack : MonoBehaviour
     /// </summary>
     private void Fire()
     {
-        _fireTimer = 0;
-
         //Instantiate(_bulletObj,transform.position , transform.rotation);
 
         if (NetworkManager.Instance.isTestWithoutServer)
