@@ -7,7 +7,7 @@ using Google.Protobuf.Protocol;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    [SerializeField] Player _player;
     [SerializeField] private float _speed;
     Rigidbody rigid;
 
@@ -16,12 +16,14 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
+        _player = GetComponent<Player>();
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
+
     }
     // Update is called once per frame
 
@@ -40,9 +42,13 @@ public class PlayerMovement : MonoBehaviour
         if(_dir.sqrMagnitude > 1)
             _dir.Normalize();
 
+       _player._anim.SetBool("Walk",(Input.acceleration.x == 0));
+
 #else
         float h = Input.GetAxis("Horizontal");
         _dir.x = h;
+
+        _player._anim.SetBool("Walk", h == 0);
 #endif
 
         if (NetworkManager.Instance.isTestWithoutServer)

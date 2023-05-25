@@ -9,6 +9,7 @@ public class Player : NetworkingObject
     [SerializeField] private int _hp;
     [SerializeField] PlayerMovement movement;
     [SerializeField] PlayerAttack attack;
+    public Animator _anim;
 
     public bool IsTopPlayer { get => attack.isTopPlayer; set => attack.isTopPlayer = value; }
 
@@ -39,6 +40,12 @@ public class Player : NetworkingObject
     public const int MaxHP = 100;
 
     public HPBar _hpBar;
+
+    private void Awake()
+    {
+        _anim = GetComponentInChildren<Animator>();
+        
+    }
 
     private void Start()
     {
