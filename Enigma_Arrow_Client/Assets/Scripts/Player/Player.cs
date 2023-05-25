@@ -8,6 +8,7 @@ using UnityEngine;
 public class Player : NetworkingObject
 {
     [SerializeField] private int _hp;
+    [SerializeField] GameObject model;
     [SerializeField] PlayerMovement movement;
     [SerializeField] PlayerAttack attack;
     public Animator _anim;
@@ -51,7 +52,10 @@ public class Player : NetworkingObject
 
     private void Start()
     {
-        movement = GetComponent<PlayerMovement>();
+        if (IsTopPlayer)
+            model.transform.Rotate(0, 180, 0);
+
+            movement = GetComponent<PlayerMovement>();
         HP = MaxHP;
         _hpBar.SetMaxHP(MaxHP);
         hpCanvas.worldCamera = Camera.main;

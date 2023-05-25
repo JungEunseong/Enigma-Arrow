@@ -40,6 +40,7 @@ public class PlayerAttack : MonoBehaviour
         if(!isAttacking)
             _fireTimer += Time.deltaTime;
 
+
     }
 
     /// <summary>

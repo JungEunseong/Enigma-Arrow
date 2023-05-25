@@ -970,6 +970,7 @@ MonoBehaviour:
   isMine: 0
   destPos: {x: 0, y: 0, z: 0}
   _hp: 0
+  model: {fileID: 6787417957202670866}
   movement: {fileID: 0}
   attack: {fileID: 1949024968}
   _anim: {fileID: 0}
@@ -1351,5 +1352,10 @@ PrefabInstance:
 --- !u!4 &6159253063230844840 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1953679363542192923, guid: f91cad62e1336fa4cb8f0d83bbaab60e, type: 3}
+  m_PrefabInstance: {fileID: 5649428185007127731}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6787417957202670866 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1177424856447306145, guid: f91cad62e1336fa4cb8f0d83bbaab60e, type: 3}
   m_PrefabInstance: {fileID: 5649428185007127731}
   m_PrefabAsset: {fileID: 0}
