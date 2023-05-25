@@ -53,4 +53,13 @@ public class LobbyManager : Singleton<LobbyManager>
     {
         SceneManager.LoadScene("IngameScene");
     }
+
+    public void OnMatchingCancelButtonOn()
+    {
+        C_MatchingReq req = new C_MatchingReq();
+        req.IsCancel = true;
+
+        NetworkManager.Instance.Send(req);
+        _onMatchingPanel.SetActive(false);
+    }
 }
