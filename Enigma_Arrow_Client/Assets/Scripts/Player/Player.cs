@@ -18,7 +18,7 @@ public class Player : NetworkingObject
     [SerializeField] Canvas btnCanvas;
     [SerializeField] Canvas hpCanvas;
     [SerializeField] TMP_Text nickNameText;
-
+    [SerializeField] Transform[] UI_Transform;
     [SerializeField] GameObject attackObj;
     public int HP
     {
@@ -59,6 +59,9 @@ public class Player : NetworkingObject
         HP = MaxHP;
         _hpBar.SetMaxHP(MaxHP);
         hpCanvas.worldCamera = Camera.main;
+        if(attack.isTopPlayer) hpCanvas.transform.LookAt(Camera.main.transform);
+        hpCanvas.transform.position = (IsTopPlayer) ? UI_Transform[0].position : UI_Transform[1].position;
+
         nickNameText.text = (isMine) ? NetworkManager.Instance.userInfo.NickName : NetworkManager.Instance.enemyInfo.NickName;
         nickNameText.color = (isMine) ? Color.black : Color.red;
     }
@@ -95,7 +98,7 @@ public class Player : NetworkingObject
         destPos = pos;
         transform.position = Vector3.Lerp(transform.position, destPos, (movement.Speed)*Time.deltaTime);
 
-        _anim.SetBool("Walk",(Vector3.Distance(transform.position,destPos) >= 0.1f));
+        _anim.SetBool("Walk",Mathf.Abs(transform.position.x - destPos.x) >= 0.1f);
 
     }
 

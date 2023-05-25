@@ -14,7 +14,7 @@ public class Player : GameObject
     public Player()
     {
         _objectType = ObjectType.Player;
-        _collisionRadius = 0.5f;
+        _collisionRadius = 0.6f;
     }
 
     int _hp = 10;
@@ -102,6 +102,6 @@ public class Player : GameObject
 
         foreach(Player p in players)
             if(p.Id != Id) p.Session.Send(outcome);
-
+            
     }
 }
