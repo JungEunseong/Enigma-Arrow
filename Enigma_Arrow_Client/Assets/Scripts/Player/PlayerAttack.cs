@@ -17,6 +17,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] GameObject _bulletObj;
     [SerializeField] private float _FireDelayTime = 0.2f;       // 공격 딜레이
     float _fireTimer = 0;
+    float _AttackObjRot;
     bool isAttacking = false; // 지금 공격중ㅇ인가?
 
     public bool IsAttack
@@ -53,19 +54,21 @@ public class PlayerAttack : MonoBehaviour
     /// </summary>
     private void AttackMove()
     {
+        _AttackObjRot += Time.deltaTime;
+
         Vector3 rotVec;
         if (isTopPlayer)
         {
             rotVec =
                        new Vector3(transform.rotation.x,
-                       Mathf.PingPong(Time.time * _speed, 180) * -1 + _startVecY,
+                       Mathf.PingPong(_AttackObjRot * _speed, 180) * -1 + _startVecY,
                        transform.rotation.z);
         }
         else
         {
             rotVec =
             new Vector3(transform.rotation.x,
-            Mathf.PingPong(Time.time * _speed, 180) + _startVecY,
+            Mathf.PingPong(_AttackObjRot * _speed, 180) + _startVecY,
             transform.rotation.z);
         }
         transform.rotation = Quaternion.Euler(rotVec);
