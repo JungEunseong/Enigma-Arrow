@@ -45,7 +45,8 @@ public class PlayerAttack : MonoBehaviour
         if (!isAttacking)
         {
             AttackMove();
-            _fireTimer += Time.deltaTime;
+            if(NetworkManager.Instance.isTestWithoutServer)
+                _fireTimer += Time.deltaTime;
         }
 
     }
@@ -84,15 +85,25 @@ public class PlayerAttack : MonoBehaviour
     public void AttackBtnClick()
     {
 
-
-        if (_fireTimer < _FireDelayTime)      // 공격 쿨타임 중일때 
+        if (NetworkManager.Instance.isTestWithoutServer)
         {
-            Debug.Log("아직 쿨타임 중입니다");
-            return;
+            if (_fireTimer < _FireDelayTime)      // 공격 쿨타임 중일때 
+            {
+                Debug.Log("아직 쿨타임 중입니다");
+                return;
+            }
+            _fireTimer = 0;
+        }
+        else
+        {
+            C_TryAttack tryAttack = new C_TryAttack();
+            NetworkManager.Instance.Send(tryAttack);
         }
 
-        _fireTimer = 0;
+    }
 
+    public void Attack()
+    {
         StartCoroutine(AttckCoroutine());
     }
 

@@ -61,6 +61,13 @@ public class PacketHandler
 
         obj.SyncMove(new Vector3(res.Position.X,res.Position.Y,res.Position.Z));
     }
+    
+    public static void S_AttackResHandler(PacketSession session, IMessage packet)
+    {
+        if (session == null) return;
+
+        ObjectManager.Instance.MyPlayer.GetComponent<PlayerAttack>().Attack();
+    }
     public static void S_SetHpHandler(PacketSession session, IMessage packet)
     {
         if (session == null) return;
