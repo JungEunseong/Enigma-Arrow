@@ -10,32 +10,45 @@ using UnityEngine.Pool;
 public class PlayerAttack : MonoBehaviour
 {
     Player _player;
-    [SerializeField] float _speed = 60;
+    [SerializeField] float _speed;
     private float _startVecY;       // 공격 시작 위치
 
     [Header("Fire")]
     [SerializeField] GameObject _bulletObj;
     [SerializeField] private float _FireDelayTime = 0.2f;       // 공격 딜레이
     float _fireTimer = 0;
+    float _AttackObjRot;
+    bool isAttacking = false; // 지금 공격중ㅇ인가?
 
+    public bool IsAttack
+    {
+        get => isAttacking;
+    }
     [Header("Pool")]
     private IObjectPool<Bullet> _pool;
 
     public bool isTopPlayer;
     private void Awake()
     {
-        _player = GetComponent<Player>();
+        _player = GetComponentInParent<Player>();
         _pool = new ObjectPool<Bullet>(CreateBullet, OnGetBullet, OnRelaseBullet, OnDestroyBullet, maxSize: 50);
     }
 
     void Start()
     {
         _startVecY = transform.eulerAngles.y;
+        isTopPlayer = NetworkManager.Instance.isTopPosition;
     }
 
     void Update()
     {
-        AttackMove();
+        if (!isAttacking)
+        {
+            AttackMove();
+            if(NetworkManager.Instance.isTestWithoutServer)
+                _fireTimer += Time.deltaTime;
+        }
+
     }
 
     /// <summary>
@@ -43,24 +56,26 @@ public class PlayerAttack : MonoBehaviour
     /// </summary>
     private void AttackMove()
     {
+        _AttackObjRot += Time.deltaTime;
+
         Vector3 rotVec;
         if (isTopPlayer)
         {
-             rotVec =
-                        new Vector3(transform.rotation.x,
-                        Mathf.PingPong(Time.time * _speed, 180) * -1 + _startVecY,
-                        transform.rotation.z);
+            rotVec =
+                       new Vector3(transform.rotation.x,
+                       Mathf.PingPong(_AttackObjRot * _speed, 180) * -1 + _startVecY,
+                       transform.rotation.z);
         }
         else
         {
             rotVec =
             new Vector3(transform.rotation.x,
-            Mathf.PingPong(Time.time * _speed, 180) + _startVecY,   
+            Mathf.PingPong(_AttackObjRot * _speed, 180) + _startVecY,
             transform.rotation.z);
         }
         transform.rotation = Quaternion.Euler(rotVec);
     }
-        
+
     #region 공격
 
 
@@ -69,12 +84,26 @@ public class PlayerAttack : MonoBehaviour
     /// </summary>
     public void AttackBtnClick()
     {
-        if (_fireTimer > 0)      // 공격 쿨타임 중일때 
+
+        if (NetworkManager.Instance.isTestWithoutServer)
         {
-            Debug.Log("아직 쿨타임 중입니다");
-            return;
+            if (_fireTimer < _FireDelayTime)      // 공격 쿨타임 중일때 
+            {
+                Debug.Log("아직 쿨타임 중입니다");
+                return;
+            }
+            _fireTimer = 0;
+        }
+        else
+        {
+            C_TryAttack tryAttack = new C_TryAttack();
+            NetworkManager.Instance.Send(tryAttack);
         }
 
+    }
+
+    public void Attack()
+    {
         StartCoroutine(AttckCoroutine());
     }
 
@@ -84,19 +113,11 @@ public class PlayerAttack : MonoBehaviour
     /// <returns></returns>
     IEnumerator AttckCoroutine()
     {
-        Fire();
+        isAttacking = true;
         _player._anim.SetTrigger("Attack");
-        while (true)
-        {
-            _fireTimer += Time.deltaTime;
-            if (_fireTimer > _FireDelayTime)
-            {
-                _fireTimer = 0;
-                yield break;
-            }
-
-            yield return new WaitForEndOfFrame();
-        }
+        yield return new WaitForSeconds(0.6f);
+        Fire();
+        isAttacking = false;
     }
 
     /// <summary>
@@ -104,8 +125,6 @@ public class PlayerAttack : MonoBehaviour
     /// </summary>
     private void Fire()
     {
-        _fireTimer = 0;
-
         //Instantiate(_bulletObj,transform.position , transform.rotation);
 
         if (NetworkManager.Instance.isTestWithoutServer)
@@ -120,7 +139,7 @@ public class PlayerAttack : MonoBehaviour
             req.Position = new Vec() { X = transform.position.x, Y = transform.position.y, Z = transform.position.z };
             req.Rotation = new Vec() { X = transform.rotation.x, Y = transform.rotation.y, Z = transform.rotation.z };
             Vector3 dir = transform.forward.normalized;
-            
+
             req.Dir = new Vec() { X = dir.x, Y = dir.y, Z = dir.z };
 
             NetworkManager.Instance.Send(req);

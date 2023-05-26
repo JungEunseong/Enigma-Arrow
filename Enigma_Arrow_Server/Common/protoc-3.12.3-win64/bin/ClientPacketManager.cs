@@ -31,6 +31,8 @@ class PacketManager
 		_handler.Add((ushort)MsgId.SDespawn, PacketHandler.S_DespawnHandler);		
 		_onRecv.Add((ushort)MsgId.SMoveRes, MakePacket<S_MoveRes>);
 		_handler.Add((ushort)MsgId.SMoveRes, PacketHandler.S_MoveResHandler);		
+		_onRecv.Add((ushort)MsgId.SAttackRes, MakePacket<S_AttackRes>);
+		_handler.Add((ushort)MsgId.SAttackRes, PacketHandler.S_AttackResHandler);		
 		_onRecv.Add((ushort)MsgId.SSetHp, MakePacket<S_SetHp>);
 		_handler.Add((ushort)MsgId.SSetHp, PacketHandler.S_SetHpHandler);		
 		_onRecv.Add((ushort)MsgId.SSetOutcome, MakePacket<S_SetOutcome>);

@@ -30,6 +30,7 @@ public class PacketHandler
         Player player = joinedRoom._objectManager.Add<Player>();
         player.Session = CSession;
         player.Info.Type = ObjectType.Player;
+        player.isTopPosition = req.IsTopPlayer;
         
         joinedRoom.Push(joinedRoom.EnterGame,player);
 
@@ -45,6 +46,16 @@ public class PacketHandler
 
         CSession.JoinedRoom.Push(CSession.JoinedRoom.HandleMove,CSession, req);
     }
+    
+    public static void C_TryAttackHandler(PacketSession session, IMessage packet)
+     {
+        if (session == null) return;
+
+        ClientSession CSession = session as ClientSession;
+
+        CSession.JoinedRoom.Push(CSession.JoinedRoom.HandleTryAttack, CSession);
+    }
+    
     
     public static void C_AttackReqHandler(PacketSession session, IMessage packet)
     {

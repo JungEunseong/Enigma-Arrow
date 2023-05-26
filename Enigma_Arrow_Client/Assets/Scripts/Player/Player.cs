@@ -8,16 +8,17 @@ using UnityEngine;
 public class Player : NetworkingObject
 {
     [SerializeField] private int _hp;
+    [SerializeField] GameObject model;
     [SerializeField] PlayerMovement movement;
-    [SerializeField] PlayerAttack attack;
+    [SerializeField] public PlayerAttack attack;
     public Animator _anim;
 
-    public bool IsTopPlayer { get => attack.isTopPlayer; set => attack.isTopPlayer = value; }
+    public bool IsTopPlayer { get => NetworkManager.Instance.isTopPosition; set => NetworkManager.Instance.isTopPosition = value; }
 
     [SerializeField] Canvas btnCanvas;
     [SerializeField] Canvas hpCanvas;
     [SerializeField] TMP_Text nickNameText;
-
+    [SerializeField] Transform[] UI_Transform;
     [SerializeField] GameObject attackObj;
     public int HP
     {
@@ -51,11 +52,25 @@ public class Player : NetworkingObject
 
     private void Start()
     {
-        movement = GetComponent<PlayerMovement>();
+        if (IsTopPlayer)
+            model.transform.Rotate(0, 180, 0);
+
+            movement = GetComponent<PlayerMovement>();
         HP = MaxHP;
         _hpBar.SetMaxHP(MaxHP);
         hpCanvas.worldCamera = Camera.main;
+
+        if (attack.isTopPlayer)
+        {
+            hpCanvas.transform.LookAt(Camera.main.transform);
+            _hpBar.transform.localEulerAngles = new Vector3(0, 180, 0);
+            nickNameText.transform.localEulerAngles = new Vector3(0, 180, 0);
+        }
+
+        hpCanvas.transform.position = (IsTopPlayer) ? UI_Transform[0].position : UI_Transform[1].position;
+
         nickNameText.text = (isMine) ? NetworkManager.Instance.userInfo.NickName : NetworkManager.Instance.enemyInfo.NickName;
+        nickNameText.color = (isMine) ? Color.black : Color.red;
     }
 
     private void Update()
@@ -89,6 +104,9 @@ public class Player : NetworkingObject
     {
         destPos = pos;
         transform.position = Vector3.Lerp(transform.position, destPos, (movement.Speed)*Time.deltaTime);
+
+        _anim.SetBool("Walk",Mathf.Abs(transform.position.x - destPos.x) >= 0.1f);
+
     }
 
     public void RemotePlayerInit()

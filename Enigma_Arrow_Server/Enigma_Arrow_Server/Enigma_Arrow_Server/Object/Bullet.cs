@@ -17,7 +17,7 @@ public class Bullet : GameObject
     {
         _objectType = ObjectType.Bullet;
         Speed = 50;
-        _collisionRadius = 0.5f;
+        _collisionRadius = 1f;
     }
 
     public Vec _moveDir = new Vec() { X = 0, Y = 0, Z = 0 };

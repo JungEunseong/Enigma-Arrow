@@ -2,6 +2,7 @@
 using Google.Protobuf.Protocol;
 using Server;
 using Server.Game;
+using ServerCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,7 +49,7 @@ public class GameRoom : JobSerializer
         if (gameObject.Info.Type == ObjectType.Player) {
             Player spawnPlayer = gameObject as Player;
 
-            if (PlayerCount == 0)
+            if (spawnPlayer.isTopPosition)
                 gameObject.Info.Position = new Vec() { X = 0, Y = 1, Z = 0 };
             else
                 gameObject.Info.Position = new Vec() { X = 0, Y = 1, Z = -33 };
@@ -118,11 +119,26 @@ public class GameRoom : JobSerializer
     {
         session.MyPlayer._moveDir = req.InputDir;
     }
+    public void HandleTryAttack(ClientSession session)
+    {
+        S_AttackRes res = new S_AttackRes();
+        res.CanAttack = session.MyPlayer.CanAttack;
 
+        session.Send(res);
+
+        if(session.MyPlayer.CanAttack)
+            session.MyPlayer.AttackTickUpdate(100000); // Attack Tick 갱신은 Bulletㅇ르 생성할 때 됨.
+                                                       // 하지만 Bullet생성은 애니메이션이 실행될 때 0.6초 뒤에 일어남
+                                                       // 애니메이션이 실행될 때 한번더 Try Attack이 들어온다면 CanAttack은 True로 나올 것
+                                                       // 그래서 AttackTick에 100000 밀리세컨드를 더해줌.
+                                                       // 어짜피 Bullet을 소환할 때 200밀리세컨드 뒤로 AttackTick을 갱신해주기 때문!
+                                                       // 추가)
+                                                       // 하지만 여러번 Handle이 실행 되었을 때 JobQueue로 인해 나중에 갱신하는 것을 생각못함. => 여러번 누르면 한번 공격 후 공격이 안됨
+                                                       // 그래서 CanAttack일 때만 갱신할 수 있도록 수정하였음!    
+    }
     public void HandleAttack(ClientSession session,C_AttackReq req)
     {
         session.MyPlayer.Attack(req);
-
     }
 
     public void ExitRoom(ClientSession session)

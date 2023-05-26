@@ -42,6 +42,9 @@ public class PacketHandler
         foreach (int id in despawn.ObjectId)
         {
             NetworkingObject obj = ObjectManager.Instance.FindById(id);
+            
+            if (obj == null) return;
+
             UnityEngine.Object.Destroy(obj.gameObject);
         }
 
@@ -57,6 +60,15 @@ public class PacketHandler
         if (obj == null) return;
 
         obj.SyncMove(new Vector3(res.Position.X,res.Position.Y,res.Position.Z));
+    }
+    
+    public static void S_AttackResHandler(PacketSession session, IMessage packet)
+    {
+        if (session == null) return;
+
+        S_AttackRes res = packet as S_AttackRes;
+        if(res.CanAttack)
+            ObjectManager.Instance.MyPlayer.attack.Attack();
     }
     public static void S_SetHpHandler(PacketSession session, IMessage packet)
     {

@@ -38,11 +38,13 @@ enum MsgId{
 	S_DESPAWN = 4;
 	C_MOVE_REQ = 5;
 	S_MOVE_RES = 6;
-	C_ATTACK_REQ = 7;
-	S_SET_HP = 8;
-	S_SET_OUTCOME = 9;
-	C_LEAVE_ROOM = 10;
-	C_SET_USERINFO = 11;
+	C_TRY_ATTACK = 7;
+	S_ATTACK_RES = 8;
+	C_ATTACK_REQ = 9;
+	S_SET_HP = 10;
+	S_SET_OUTCOME = 11;
+	C_LEAVE_ROOM = 12;
+	C_SET_USERINFO = 13;
 }
 
 
@@ -56,6 +58,7 @@ message S_MatchingRes{
 }
 
 message C_SpawnplayerReq{
+	bool isTopPlayer = 1;
 }
 
 message S_SpawnRes {
@@ -75,11 +78,21 @@ message S_MoveRes{
 	Vec Position = 2;
 }
 
+message C_TryAttack{
+
+}
+
+message S_AttackRes{
+	bool CanAttack = 1;
+}
+
 message C_AttackReq{
 	Vec Position = 1;
 	Vec Rotation = 2;	
 	Vec Dir = 3;
 }
+
+
 
 message S_SetHp{
 	int32 Id = 1;

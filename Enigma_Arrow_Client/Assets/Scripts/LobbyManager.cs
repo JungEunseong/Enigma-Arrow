@@ -12,9 +12,10 @@ public class LobbyManager : Singleton<LobbyManager>
     [SerializeField] GameObject _userInfoPanel;
     [SerializeField] GameObject _firstUserInfo;
     [SerializeField] GameObject _secondUserInfo;
+    [SerializeField] TMP_Text _nicknameText;
     void Start()
     {
-        
+        _nicknameText.text = "Nickname: " + NetworkManager.Instance.userInfo.NickName;
     }
 
     void Update()
@@ -45,6 +46,7 @@ public class LobbyManager : Singleton<LobbyManager>
         secondUserNickname.text = res.Users[1].NickName;
 
         NetworkManager.Instance.enemyInfo = res.Users[res.MineIdx == 0 ? 1 : 0];
+        NetworkManager.Instance.isTopPosition = res.MineIdx == 0 ? true: false;
 
         _userInfoPanel.SetActive(true);
     }

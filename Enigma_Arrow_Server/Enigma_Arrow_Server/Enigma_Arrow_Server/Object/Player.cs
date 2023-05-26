@@ -14,15 +14,29 @@ public class Player : GameObject
     public Player()
     {
         _objectType = ObjectType.Player;
-        _collisionRadius = 0.5f;
+        _collisionRadius = 0.6f;
     }
-
+    public bool isTopPosition { get; set; }
     int _hp = 10;
 
     public Vec _moveDir = new Vec() { X = 0, Y = 0, Z = 0 };
 
+
+
+    long _nextAttackTick = 0;
+
+    public bool CanAttack
+    {
+        get { return _nextAttackTick <= Environment.TickCount64; }
+    }
+    public void AttackTickUpdate(int tick)
+    {
+        _nextAttackTick = Environment.TickCount64 + tick;
+    }
     public void Attack(C_AttackReq req)
     {
+        AttackTickUpdate(200);
+
         Bullet bullet = JoinedRoom._objectManager.Add<Bullet>();
         bullet.OwnerId = Id;
         bullet.Info.Position = req.Position;
@@ -38,6 +52,7 @@ public class Player : GameObject
     {
         MoveUpdate();
     }
+
     public override void MoveUpdate()
     {
         if (_nextMoveTick > Environment.TickCount64)
@@ -72,9 +87,9 @@ public class Player : GameObject
         Pos.Z += dir.Z;
 
         Pos.X = Math.Clamp(Pos.X, -40, 20);
-    } 
+    }
 
-   
+
 
     public override void OnDamage(int damage, GameObject attacker)
     {
@@ -102,6 +117,6 @@ public class Player : GameObject
 
         foreach(Player p in players)
             if(p.Id != Id) p.Session.Send(outcome);
-
+            
     }
 }
