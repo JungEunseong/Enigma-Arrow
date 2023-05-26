@@ -126,11 +126,15 @@ public class GameRoom : JobSerializer
 
         session.Send(res);
 
-        session.MyPlayer.AttackTickUpdate(100000); // Attack Tick 갱신은 Bulletㅇ르 생성할 때 됨.
-                                                   // 하지만 Bullet생성은 애니메이션이 실행될 때 0.6초 뒤에 일어남
-                                                   // 애니메이션이 실행될 때 한번더 Try Attack이 들어온다면 CanAttack은 True로 나올 것
-                                                   // 그래서 AttackTick에 100000 밀리세컨드를 더해줌.
-                                                   // 어짜피 Bullet을 소환할 때 200밀리세컨드 뒤로 AttackTick을 갱신해주기 때문!
+        if(session.MyPlayer.CanAttack)
+            session.MyPlayer.AttackTickUpdate(100000); // Attack Tick 갱신은 Bulletㅇ르 생성할 때 됨.
+                                                       // 하지만 Bullet생성은 애니메이션이 실행될 때 0.6초 뒤에 일어남
+                                                       // 애니메이션이 실행될 때 한번더 Try Attack이 들어온다면 CanAttack은 True로 나올 것
+                                                       // 그래서 AttackTick에 100000 밀리세컨드를 더해줌.
+                                                       // 어짜피 Bullet을 소환할 때 200밀리세컨드 뒤로 AttackTick을 갱신해주기 때문!
+                                                       // 추가)
+                                                       // 하지만 여러번 Handle이 실행 되었을 때 JobQueue로 인해 나중에 갱신하는 것을 생각못함. => 여러번 누르면 한번 공격 후 공격이 안됨
+                                                       // 그래서 CanAttack일 때만 갱신할 수 있도록 수정하였음!
     }
     public void HandleAttack(ClientSession session,C_AttackReq req)
     {
