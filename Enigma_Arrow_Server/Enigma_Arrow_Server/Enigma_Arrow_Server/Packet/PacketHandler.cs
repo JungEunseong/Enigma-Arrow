@@ -53,11 +53,7 @@ public class PacketHandler
 
         ClientSession CSession = session as ClientSession;
 
-        S_AttackRes res = new S_AttackRes();
-        if (CSession.MyPlayer.NextAttackTick <= Environment.TickCount64) res.CanAttack = true;
-        else res.CanAttack = false;
-
-        CSession.Send(res);
+        CSession.JoinedRoom.Push(CSession.JoinedRoom.HandleTryAttack, CSession);
     }
     
     

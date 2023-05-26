@@ -66,7 +66,9 @@ public class PacketHandler
     {
         if (session == null) return;
 
-        ObjectManager.Instance.MyPlayer.attack.Attack();
+        S_AttackRes res = packet as S_AttackRes;
+        if(res.CanAttack)
+            ObjectManager.Instance.MyPlayer.attack.Attack();
     }
     public static void S_SetHpHandler(PacketSession session, IMessage packet)
     {

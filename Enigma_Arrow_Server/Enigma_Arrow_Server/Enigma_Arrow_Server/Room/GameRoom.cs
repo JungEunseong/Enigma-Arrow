@@ -2,6 +2,7 @@
 using Google.Protobuf.Protocol;
 using Server;
 using Server.Game;
+using ServerCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -117,6 +118,19 @@ public class GameRoom : JobSerializer
     public void HandleMove(ClientSession session,C_MoveReq req)
     {
         session.MyPlayer._moveDir = req.InputDir;
+    }
+    public void HandleTryAttack(ClientSession session)
+    {
+        S_AttackRes res = new S_AttackRes();
+        res.CanAttack = session.MyPlayer.CanAttack;
+
+        session.Send(res);
+
+        session.MyPlayer.AttackTickUpdate(100000); // Attack Tick 갱신은 Bulletㅇ르 생성할 때 됨.
+                                                   // 하지만 Bullet생성은 애니메이션이 실행될 때 0.6초 뒤에 일어남
+                                                   // 애니메이션이 실행될 때 한번더 Try Attack이 들어온다면 CanAttack은 True로 나올 것
+                                                   // 그래서 AttackTick에 100000 밀리세컨드를 더해줌.
+                                                   // 어짜피 Bullet을 소환할 때 200밀리세컨드 뒤로 AttackTick을 갱신해주기 때문!
     }
     public void HandleAttack(ClientSession session,C_AttackReq req)
     {

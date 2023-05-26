@@ -25,11 +25,17 @@ public class Player : GameObject
 
     long _nextAttackTick = 0;
 
-    public long NextAttackTick { get { return _nextAttackTick; } }
+    public bool CanAttack
+    {
+        get { return _nextAttackTick <= Environment.TickCount64; }
+    }
+    public void AttackTickUpdate(int tick)
+    {
+        _nextAttackTick = Environment.TickCount64 + tick;
+    }
     public void Attack(C_AttackReq req)
     {
-        if (Environment.TickCount64 < _nextAttackTick) return;
-        _nextAttackTick = Environment.TickCount64 + 2000;
+        AttackTickUpdate(200);
 
         Bullet bullet = JoinedRoom._objectManager.Add<Bullet>();
         bullet.OwnerId = Id;
