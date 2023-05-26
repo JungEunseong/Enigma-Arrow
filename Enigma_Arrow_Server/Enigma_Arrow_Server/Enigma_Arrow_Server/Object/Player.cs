@@ -21,8 +21,16 @@ public class Player : GameObject
 
     public Vec _moveDir = new Vec() { X = 0, Y = 0, Z = 0 };
 
+
+
+    long _nextAttackTick = 0;
+
+    public long NextAttackTick { get { return _nextAttackTick; } }
     public void Attack(C_AttackReq req)
     {
+        if (Environment.TickCount64 < _nextAttackTick) return;
+        _nextAttackTick = Environment.TickCount64 + 200;
+
         Bullet bullet = JoinedRoom._objectManager.Add<Bullet>();
         bullet.OwnerId = Id;
         bullet.Info.Position = req.Position;
@@ -38,6 +46,7 @@ public class Player : GameObject
     {
         MoveUpdate();
     }
+
     public override void MoveUpdate()
     {
         if (_nextMoveTick > Environment.TickCount64)
@@ -72,9 +81,9 @@ public class Player : GameObject
         Pos.Z += dir.Z;
 
         Pos.X = Math.Clamp(Pos.X, -40, 20);
-    } 
+    }
 
-   
+
 
     public override void OnDamage(int damage, GameObject attacker)
     {

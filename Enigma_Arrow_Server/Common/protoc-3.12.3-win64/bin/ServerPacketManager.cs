@@ -29,6 +29,8 @@ class PacketManager
 		_handler.Add((ushort)MsgId.CSpawnplayerReq, PacketHandler.C_SpawnplayerReqHandler);		
 		_onRecv.Add((ushort)MsgId.CMoveReq, MakePacket<C_MoveReq>);
 		_handler.Add((ushort)MsgId.CMoveReq, PacketHandler.C_MoveReqHandler);		
+		_onRecv.Add((ushort)MsgId.CTryAttack, MakePacket<C_TryAttack>);
+		_handler.Add((ushort)MsgId.CTryAttack, PacketHandler.C_TryAttackHandler);		
 		_onRecv.Add((ushort)MsgId.CAttackReq, MakePacket<C_AttackReq>);
 		_handler.Add((ushort)MsgId.CAttackReq, PacketHandler.C_AttackReqHandler);		
 		_onRecv.Add((ushort)MsgId.CLeaveRoom, MakePacket<C_LeaveRoom>);

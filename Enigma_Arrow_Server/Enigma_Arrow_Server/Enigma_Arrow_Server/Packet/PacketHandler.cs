@@ -47,6 +47,18 @@ public class PacketHandler
         CSession.JoinedRoom.Push(CSession.JoinedRoom.HandleMove,CSession, req);
     }
     
+    public static void C_TryAttackHandler(PacketSession session, IMessage packet)
+    {
+        if (session == null) return;
+
+        ClientSession CSession = session as ClientSession;
+
+        S_AttackRes res = new S_AttackRes();
+        if (CSession.MyPlayer.NextAttackTick <= Environment.TickCount64) res.CanAttack = true;
+        else res.CanAttack = false;
+    }
+    
+    
     public static void C_AttackReqHandler(PacketSession session, IMessage packet)
     {
         if (session == null) return;

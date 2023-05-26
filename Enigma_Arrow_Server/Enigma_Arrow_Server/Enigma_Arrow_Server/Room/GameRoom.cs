@@ -118,11 +118,9 @@ public class GameRoom : JobSerializer
     {
         session.MyPlayer._moveDir = req.InputDir;
     }
-
     public void HandleAttack(ClientSession session,C_AttackReq req)
     {
         session.MyPlayer.Attack(req);
-
     }
 
     public void ExitRoom(ClientSession session)
