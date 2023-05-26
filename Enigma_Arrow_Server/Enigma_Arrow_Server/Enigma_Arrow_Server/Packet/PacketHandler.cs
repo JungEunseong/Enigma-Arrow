@@ -48,7 +48,7 @@ public class PacketHandler
     }
     
     public static void C_TryAttackHandler(PacketSession session, IMessage packet)
-    {
+     {
         if (session == null) return;
 
         ClientSession CSession = session as ClientSession;
@@ -56,6 +56,8 @@ public class PacketHandler
         S_AttackRes res = new S_AttackRes();
         if (CSession.MyPlayer.NextAttackTick <= Environment.TickCount64) res.CanAttack = true;
         else res.CanAttack = false;
+
+        CSession.Send(res);
     }
     
     

@@ -29,7 +29,7 @@ public class Player : GameObject
     public void Attack(C_AttackReq req)
     {
         if (Environment.TickCount64 < _nextAttackTick) return;
-        _nextAttackTick = Environment.TickCount64 + 200;
+        _nextAttackTick = Environment.TickCount64 + 2000;
 
         Bullet bullet = JoinedRoom._objectManager.Add<Bullet>();
         bullet.OwnerId = Id;

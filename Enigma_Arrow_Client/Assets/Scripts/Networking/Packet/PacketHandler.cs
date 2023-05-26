@@ -66,7 +66,7 @@ public class PacketHandler
     {
         if (session == null) return;
 
-        ObjectManager.Instance.MyPlayer.GetComponent<PlayerAttack>().Attack();
+        ObjectManager.Instance.MyPlayer.attack.Attack();
     }
     public static void S_SetHpHandler(PacketSession session, IMessage packet)
     {
