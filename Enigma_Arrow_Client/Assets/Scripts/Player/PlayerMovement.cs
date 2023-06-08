@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (_dir.sqrMagnitude > 1)
             _dir.Normalize();
-
+            
         if (NetworkManager.Instance.isTestWithoutServer)
             rigid.velocity = new Vector2(_dir.x * _speed, 0);
         else

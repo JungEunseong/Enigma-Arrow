@@ -16,7 +16,7 @@ public class Bullet : GameObject
     public Bullet()
     {
         _objectType = ObjectType.Bullet;
-        Speed = 50;
+        Speed = 100;
         _collisionRadius = 1f;
     }
 
