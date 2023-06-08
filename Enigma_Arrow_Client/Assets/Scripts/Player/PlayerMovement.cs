@@ -36,12 +36,11 @@ public class PlayerMovement : MonoBehaviour
         Vector3 _dir = Vector3.zero;        //이동 방향 초기화
 
 
-#if UNITY_ANDROID
-        _dir.x = Input.acceleration.x;
-#else
         float h = Input.GetAxis("Horizontal");
         _dir.x = h;
-#endif
+  
+        _dir.x = Input.acceleration.x;
+
         if (_dir.sqrMagnitude > 1)
             _dir.Normalize();
             
