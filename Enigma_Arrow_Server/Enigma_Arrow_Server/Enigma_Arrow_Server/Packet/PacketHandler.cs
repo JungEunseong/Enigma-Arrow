@@ -31,7 +31,7 @@ public class PacketHandler
         player.Session = CSession;
         player.Info.Type = ObjectType.Player;
         player.isTopPosition = req.IsTopPlayer;
-        
+
         joinedRoom.Push(joinedRoom.EnterGame,player);
 
 

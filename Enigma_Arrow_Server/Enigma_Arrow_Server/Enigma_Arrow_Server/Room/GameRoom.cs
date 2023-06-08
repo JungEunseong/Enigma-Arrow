@@ -122,9 +122,10 @@ public class GameRoom : JobSerializer
     public void HandleTryAttack(ClientSession session)
     {
         S_AttackRes res = new S_AttackRes();
+        res.ObjectId = session.MyPlayer.Id;
         res.CanAttack = session.MyPlayer.CanAttack;
 
-        session.Send(res);
+        Broadcast(res);
 
         if(session.MyPlayer.CanAttack)
             session.MyPlayer.AttackTickUpdate(100000); // Attack Tick 갱신은 Bulletㅇ르 생성할 때 됨.
@@ -145,8 +146,11 @@ public class GameRoom : JobSerializer
     {
         _sessions.Remove(session.SessionId);
         MasterRoom.Instance.Enter(session);
+        session.MyPlayer.Session = null;
         session.MyPlayer = null;
         session.JoinedRoom = null;
+
+        if (_sessions.Count == 0) RoomManager.Instance.Remove(RoomId);
     }
 
     public void Broadcast(IMessage packet)

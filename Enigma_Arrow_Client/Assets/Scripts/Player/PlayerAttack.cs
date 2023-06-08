@@ -107,6 +107,10 @@ public class PlayerAttack : MonoBehaviour
         StartCoroutine(AttckCoroutine());
     }
 
+    public void AttackSync()
+    {
+        _player._anim.SetTrigger("Attack");
+    }
     /// <summary>
     /// 공격 체크 코루틴
     /// </summary>
