@@ -64,7 +64,7 @@ public class Player : NetworkingObject
 
         if (IsTopPlayer && isMine || !IsTopPlayer && !isMine)
         {
-            hpCanvas.transform.LookAt(Camera.main.transform);
+            hpCanvas.transform.LookAt(new Vector3(0,Camera.main.transform.position.y,Camera.main.transform.position.z));
             _hpBar.transform.localEulerAngles = new Vector3(0, 180, 0);
             nickNameText.transform.localEulerAngles = new Vector3(0, 180, 0);
         }
