@@ -9,19 +9,20 @@ class Program
     {
 
         // DNS (Domain Name System)
-        string host = Dns.GetHostName();
+        /*string host = Dns.GetHostName();
         IPHostEntry ipHost = Dns.GetHostEntry(host);
         IPAddress ipAddr = ipHost.AddressList[0];
+        IPEndPoint endPoint = new IPEndPoint(ipAddr, 7777);*/
+
+        // DNS (Domain Name System)
+        string host = Dns.GetHostName();
+        IPHostEntry ipHost = Dns.GetHostEntry(host);
+        IPAddress ipAddr = IPAddress.Parse("192.168.46.218");
         IPEndPoint endPoint = new IPEndPoint(ipAddr, 7777);
+
 
         Console.WriteLine(endPoint.Address.ToString());
         Console.WriteLine(endPoint.Port.ToString());
-        // DNS (Domain Name System)
-        /*string host = Dns.GetHostName();
-        IPHostEntry ipHost = Dns.GetHostEntry(host);
-        IPAddress ipAddr = IPAddress.Parse("10.82.17.113");
-        IPEndPoint endPoint = new IPEndPoint(ipAddr, 7777);*/
-
         _listener.Init(endPoint, () => { return SessionManager.Instance.Generate(); });
         Console.WriteLine("Listening...");
 

@@ -50,7 +50,7 @@ public class LobbyManager : Singleton<LobbyManager>
 
         _userInfoPanel.SetActive(true);
     }
-
+     
     public void OnIngameButtonOn()
     {
         SceneManager.LoadScene("IngameScene");

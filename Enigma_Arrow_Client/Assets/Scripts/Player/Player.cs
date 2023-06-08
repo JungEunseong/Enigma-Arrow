@@ -52,10 +52,12 @@ public class Player : NetworkingObject
 
     private void Start()
     {
-        if (IsTopPlayer)
+        if (IsTopPlayer && isMine)
+            model.transform.Rotate(0, 180, 0);
+        else if(!IsTopPlayer&& !isMine)
             model.transform.Rotate(0, 180, 0);
 
-            movement = GetComponent<PlayerMovement>();
+        movement = GetComponent<PlayerMovement>();
         HP = MaxHP;
         _hpBar.SetMaxHP(MaxHP);
         hpCanvas.worldCamera = Camera.main;

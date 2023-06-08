@@ -34,12 +34,19 @@ public class NetworkManager : Singleton<NetworkManager>
 
     public void Init()
     {
-        // DNS (Domain Name System)
+        /*// DNS (Domain Name System)
         string host = Dns.GetHostName();
         IPHostEntry ipHost = Dns.GetHostEntry(host);
         IPAddress ipAddr = ipHost.AddressList[0];
         //IPAddress ipAddr = IPAddress.Parse(remoteIp);
         IPEndPoint endPoint = new IPEndPoint(ipAddr, 7777);
+*/
+        string host = Dns.GetHostName();
+        IPHostEntry ipHost = Dns.GetHostEntry(host);
+        //IPAddress ipAddr = ipHost.AddressList[0];
+        IPAddress ipAddr = IPAddress.Parse("192.168.46.218");
+        IPEndPoint endPoint = new IPEndPoint(ipAddr, 7777);
+
 
         Connector connector = new Connector();
 

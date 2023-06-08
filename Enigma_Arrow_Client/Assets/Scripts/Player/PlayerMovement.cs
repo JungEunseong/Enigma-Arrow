@@ -36,11 +36,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 _dir = Vector3.zero;        //이동 방향 초기화
 
 #if (Mobile)
-        _dir.x = Input.acceleration.x;      
-        _dir.y = Input.acceleration.y;
 
-        if(_dir.sqrMagnitude > 1)
-            _dir.Normalize();
 
        //_player._anim.SetBool("Walk",(Input.acceleration.x == 0));
 
@@ -48,6 +44,11 @@ public class PlayerMovement : MonoBehaviour
         float h = Input.GetAxis("Horizontal");
         _dir.x = h;
 #endif
+
+        //_dir.x = Input.acceleration.x;
+
+        if (_dir.sqrMagnitude > 1)
+            _dir.Normalize();
 
         if (NetworkManager.Instance.isTestWithoutServer)
             rigid.velocity = new Vector2(_dir.x * _speed, 0);
