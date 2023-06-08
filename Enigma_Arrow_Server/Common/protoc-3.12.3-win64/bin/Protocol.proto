@@ -83,7 +83,9 @@ message C_TryAttack{
 }
 
 message S_AttackRes{
-	bool CanAttack = 1;
+	int32 objectId = 1;
+	bool CanAttack = 2;
+
 }
 
 message C_AttackReq{
