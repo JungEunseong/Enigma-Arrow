@@ -15,14 +15,17 @@ public class Bullet : NetworkingObject
     [Header("Pool")]
     private IObjectPool<Bullet> _managedPool;
 
+    AudioSource _source;
+
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
+        _source = GetComponent<AudioSource>();
     }
 
     private void Start()
     {
-
+        _source.Play();
     }
     private void OnEnable()
     {
