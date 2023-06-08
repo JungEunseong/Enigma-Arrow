@@ -35,15 +35,8 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 _dir = Vector3.zero;        //이동 방향 초기화
 
-#if (Mobile)
-
-
-       //_player._anim.SetBool("Walk",(Input.acceleration.x == 0));
-
-#else
         float h = Input.GetAxis("Horizontal");
         _dir.x = h;
-#endif
 
         //_dir.x = Input.acceleration.x;
 
