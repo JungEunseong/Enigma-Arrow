@@ -23,6 +23,10 @@ public class NetworkManager : Singleton<NetworkManager>
     public bool isTopPosition;
     private void Start()
     {
+#if UNITY_ANDROID
+        Application.targetFrameRate = 60;
+#else
+#endif
         if(isConnecting == false)
             Init();
     }
