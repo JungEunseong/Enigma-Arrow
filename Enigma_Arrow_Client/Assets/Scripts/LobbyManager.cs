@@ -74,4 +74,9 @@ public class LobbyManager : Singleton<LobbyManager>
         _onMatchingPanel.SetActive(false);
         CancelBtn.SetActive(false);
     }
+    
+    public void OnQuitButtonOn()
+    {
+        Application.Quit();
+    }
 }
