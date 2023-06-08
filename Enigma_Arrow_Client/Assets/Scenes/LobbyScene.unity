@@ -173,6 +173,7 @@ MonoBehaviour:
   _firstUserInfo: {fileID: 944012098}
   _secondUserInfo: {fileID: 2129590290}
   _nicknameText: {fileID: 1049113030}
+  CancelBtn: {fileID: 1104357219}
 --- !u!1 &122922241
 GameObject:
   m_ObjectHideFlags: 0

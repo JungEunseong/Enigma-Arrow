@@ -13,6 +13,7 @@ public class LobbyManager : Singleton<LobbyManager>
     [SerializeField] GameObject _firstUserInfo;
     [SerializeField] GameObject _secondUserInfo;
     [SerializeField] TMP_Text _nicknameText;
+    [SerializeField] GameObject CancelBtn;
     void Start()
     {
         _nicknameText.text = "Nickname: " + NetworkManager.Instance.userInfo.NickName;
@@ -26,9 +27,17 @@ public class LobbyManager : Singleton<LobbyManager>
     public void OnMatchBtnClick()
     {
         _onMatchingPanel.SetActive(true);
+        StartCoroutine(MatchStartCor());
         Match(false);
+
     }
 
+    IEnumerator MatchStartCor()
+    {
+        yield return new WaitForSeconds(3);
+
+        CancelBtn.SetActive(true);
+    }
     void Match(bool isCancel)
     {
         C_MatchingReq req = new C_MatchingReq();
@@ -63,5 +72,6 @@ public class LobbyManager : Singleton<LobbyManager>
 
         NetworkManager.Instance.Send(req);
         _onMatchingPanel.SetActive(false);
+        CancelBtn.SetActive(false);
     }
 }
