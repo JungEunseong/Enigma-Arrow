@@ -50,6 +50,7 @@ public class Player : GameObject
 
     public override void Update()
     {
+        if (Session == null) return;
         MoveUpdate();
     }
 
