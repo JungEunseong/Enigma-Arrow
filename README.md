@@ -30,4 +30,5 @@
 
 # 팀원
 [박지예](https://github.com/jiye-stingray): 클라이언트에서 기능 구현을 맡았습니다.
+
 [정은성](https://github.com/JungEunseong): 서버 개발과 클라이언트에 연동하는 작업을 맡았습니다.
