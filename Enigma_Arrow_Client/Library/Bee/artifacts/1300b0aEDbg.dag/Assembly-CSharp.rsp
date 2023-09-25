@@ -385,6 +385,7 @@
 "Assets/Scripts/Player/Player.cs"
 "Assets/Scripts/Player/PlayerAttack.cs"
 "Assets/Scripts/Player/PlayerMovement.cs"
+"Assets/Scripts/Sound/SoundManager.cs"
 "Assets/Scripts/UI/HPBar.cs"
 "Assets/Scripts/UI/OutComeUI.cs"
 "Assets/Scripts/Util/Singleton.cs"
