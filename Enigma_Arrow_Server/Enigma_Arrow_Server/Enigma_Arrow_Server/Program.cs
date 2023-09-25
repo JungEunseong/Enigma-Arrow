@@ -17,8 +17,8 @@ class Program
         // DNS (Domain Name System)
         string host = Dns.GetHostName();
         IPHostEntry ipHost = Dns.GetHostEntry(host);
-        IPAddress ipAddr = IPAddress.Parse("192.168.46.218");
-        IPEndPoint endPoint = new IPEndPoint(ipAddr, 7777);
+        IPAddress ipAddr = IPAddress.Parse(args[0]);
+        IPEndPoint endPoint = new IPEndPoint(ipAddr, Int32.Parse(args[1]));
 
 
         Console.WriteLine(endPoint.Address.ToString());
@@ -32,6 +32,8 @@ class Program
         // TODO
         while (true)
         {
+            Thread.Sleep(10);
+
             MasterRoom.Instance.Update();
             List<GameRoom> rooms = RoomManager.Instance.Rooms;
             
