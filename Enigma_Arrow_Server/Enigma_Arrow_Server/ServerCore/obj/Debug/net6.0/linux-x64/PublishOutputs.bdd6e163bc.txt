@@ -1,3 +1,0 @@
-C:\Users\eunseong\Documents\GitHub\Enigma-Arrow\Enigma_Arrow_Server\Enigma_Arrow_Server\ServerCore\bin\Debug\net6.0\linux-x64\publish\ServerCore.dll
-C:\Users\eunseong\Documents\GitHub\Enigma-Arrow\Enigma_Arrow_Server\Enigma_Arrow_Server\ServerCore\bin\Debug\net6.0\linux-x64\publish\ServerCore.deps.json
-C:\Users\eunseong\Documents\GitHub\Enigma-Arrow\Enigma_Arrow_Server\Enigma_Arrow_Server\ServerCore\bin\Debug\net6.0\linux-x64\publish\ServerCore.pdb
