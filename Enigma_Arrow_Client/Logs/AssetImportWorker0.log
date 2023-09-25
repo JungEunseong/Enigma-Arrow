@@ -234,3 +234,9 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1156.891810 seconds.
+  path: Assets/Scenes/IngameScene.unity
+  artifactKey: Guid(be52b31cc05ad2e439fc0b6df00e9070) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/IngameScene.unity using Guid(be52b31cc05ad2e439fc0b6df00e9070) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ea83219ce02fd0700a9c50ef570dde1') in 0.021016 seconds 
