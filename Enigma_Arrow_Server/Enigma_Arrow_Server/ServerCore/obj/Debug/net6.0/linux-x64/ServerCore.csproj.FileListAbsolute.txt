@@ -1,0 +1,12 @@
+C:\Users\eunseong\Documents\GitHub\Enigma-Arrow\Enigma_Arrow_Server\Enigma_Arrow_Server\ServerCore\bin\Debug\net6.0\linux-x64\ServerCore.deps.json
+C:\Users\eunseong\Documents\GitHub\Enigma-Arrow\Enigma_Arrow_Server\Enigma_Arrow_Server\ServerCore\bin\Debug\net6.0\linux-x64\ServerCore.dll
+C:\Users\eunseong\Documents\GitHub\Enigma-Arrow\Enigma_Arrow_Server\Enigma_Arrow_Server\ServerCore\bin\Debug\net6.0\linux-x64\ServerCore.pdb
+C:\Users\eunseong\Documents\GitHub\Enigma-Arrow\Enigma_Arrow_Server\Enigma_Arrow_Server\ServerCore\obj\Debug\net6.0\linux-x64\ServerCore.csproj.AssemblyReference.cache
+C:\Users\eunseong\Documents\GitHub\Enigma-Arrow\Enigma_Arrow_Server\Enigma_Arrow_Server\ServerCore\obj\Debug\net6.0\linux-x64\ServerCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eunseong\Documents\GitHub\Enigma-Arrow\Enigma_Arrow_Server\Enigma_Arrow_Server\ServerCore\obj\Debug\net6.0\linux-x64\ServerCore.AssemblyInfoInputs.cache
+C:\Users\eunseong\Documents\GitHub\Enigma-Arrow\Enigma_Arrow_Server\Enigma_Arrow_Server\ServerCore\obj\Debug\net6.0\linux-x64\ServerCore.AssemblyInfo.cs
+C:\Users\eunseong\Documents\GitHub\Enigma-Arrow\Enigma_Arrow_Server\Enigma_Arrow_Server\ServerCore\obj\Debug\net6.0\linux-x64\ServerCore.csproj.CoreCompileInputs.cache
+C:\Users\eunseong\Documents\GitHub\Enigma-Arrow\Enigma_Arrow_Server\Enigma_Arrow_Server\ServerCore\obj\Debug\net6.0\linux-x64\ServerCore.dll
+C:\Users\eunseong\Documents\GitHub\Enigma-Arrow\Enigma_Arrow_Server\Enigma_Arrow_Server\ServerCore\obj\Debug\net6.0\linux-x64\refint\ServerCore.dll
+C:\Users\eunseong\Documents\GitHub\Enigma-Arrow\Enigma_Arrow_Server\Enigma_Arrow_Server\ServerCore\obj\Debug\net6.0\linux-x64\ServerCore.pdb
+C:\Users\eunseong\Documents\GitHub\Enigma-Arrow\Enigma_Arrow_Server\Enigma_Arrow_Server\ServerCore\obj\Debug\net6.0\linux-x64\ref\ServerCore.dll

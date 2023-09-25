@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "p4uG1NjoLYSnHt/cZGSXdO9H88NBpA2muUR6RNM6DPr/E1AB/TU7lsrxZnrlNxm6Ipq/Q/4hUNcKwAK0jyDORA==",
+  "dgSpecHash": "AQhioTIjj/02fP3SHZfQR5uYhhq1y/7ylcRoBVoiHKhZ029HizqRz9lyfvLr6JEGLIOd1HW9X7a89YYeYHeIQw==",
   "success": true,
   "projectFilePath": "C:\\Users\\eunseong\\Documents\\GitHub\\Enigma-Arrow\\Enigma_Arrow_Server\\Enigma_Arrow_Server\\Enigma_Arrow_Server\\Enigma_Arrow_Server.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\eunseong\\.nuget\\packages\\google.protobuf\\3.23.0\\google.protobuf.3.23.0.nupkg.sha512"
+    "C:\\Users\\eunseong\\.nuget\\packages\\google.protobuf\\3.23.0\\google.protobuf.3.23.0.nupkg.sha512",
+    "C:\\Users\\eunseong\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-x64\\6.0.11\\microsoft.netcore.app.runtime.linux-x64.6.0.11.nupkg.sha512",
+    "C:\\Users\\eunseong\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.linux-x64\\6.0.11\\microsoft.aspnetcore.app.runtime.linux-x64.6.0.11.nupkg.sha512",
+    "C:\\Users\\eunseong\\.nuget\\packages\\microsoft.netcore.app.host.linux-x64\\6.0.11\\microsoft.netcore.app.host.linux-x64.6.0.11.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "HllDMGM97Zd1062a5HNr7yWISXKRZQ/0Esv7HlQTj7RaXoM7LNIpzqXa3QM8poc83y3J2H459WNPzGgcLfsh/g==",
+  "dgSpecHash": "GAN/vivhnpIbR6OWV5DlWE4Q6j0xeg4vY7418sY/V4uThVuUwA1yLjRJ1mr7vM+NsvbdxRPewf5dpF/jF1zsHQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\eunseong\\Documents\\GitHub\\Enigma-Arrow\\Enigma_Arrow_Server\\Enigma_Arrow_Server\\DummyClient\\DummyClient.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\eunseong\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-x64\\6.0.11\\microsoft.netcore.app.runtime.linux-x64.6.0.11.nupkg.sha512",
+    "C:\\Users\\eunseong\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.linux-x64\\6.0.11\\microsoft.aspnetcore.app.runtime.linux-x64.6.0.11.nupkg.sha512",
+    "C:\\Users\\eunseong\\.nuget\\packages\\microsoft.netcore.app.host.linux-x64\\6.0.11\\microsoft.netcore.app.host.linux-x64.6.0.11.nupkg.sha512"
+  ],
   "logs": []
 }

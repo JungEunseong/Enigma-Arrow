@@ -38,17 +38,10 @@ public class NetworkManager : Singleton<NetworkManager>
 
     public void Init()
     {
-        /*// DNS (Domain Name System)
-        string host = Dns.GetHostName();
-        IPHostEntry ipHost = Dns.GetHostEntry(host);
-        IPAddress ipAddr = ipHost.AddressList[0];
-        //IPAddress ipAddr = IPAddress.Parse(remoteIp);
-        IPEndPoint endPoint = new IPEndPoint(ipAddr, 7777);
-*/
         string host = Dns.GetHostName();
         IPHostEntry ipHost = Dns.GetHostEntry(host);
         //IPAddress ipAddr = ipHost.AddressList[0];
-        IPAddress ipAddr = IPAddress.Parse("192.168.46.218");
+        IPAddress ipAddr = IPAddress.Parse("13.209.13.184");
         IPEndPoint endPoint = new IPEndPoint(ipAddr, 7777);
 
 
